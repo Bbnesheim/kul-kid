@@ -583,22 +583,24 @@
 
     <nav class="ai-overlay-header-nav-desktop-{{ ai_gen_id }}">
       <ul class="ai-overlay-header-nav-list-{{ ai_gen_id }}">
-        {% for link in linklists[block.settings.menu].links %}
-          <li class="ai-overlay-header-nav-item-{{ ai_gen_id }}">
-            <a href="{{ link.url }}" class="ai-overlay-header-nav-link-{{ ai_gen_id }}">
-              {{ link.title }}
-            </a>
-            {% if link.links.size > 0 %}
-              <div class="ai-overlay-header-dropdown-{{ ai_gen_id }}">
-                {% for child_link in link.links %}
-                  <a href="{{ child_link.url }}" class="ai-overlay-header-dropdown-link-{{ ai_gen_id }}">
-                    {{ child_link.title }}
-                  </a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </li>
-        {% endfor %}
+        {% if block.settings.menu and block.settings.menu.links.size > 0 %}
+          {% for link in block.settings.menu.links %}
+            <li class="ai-overlay-header-nav-item-{{ ai_gen_id }}">
+              <a href="{{ link.url }}" class="ai-overlay-header-nav-link-{{ ai_gen_id }}">
+                {{ link.title }}
+              </a>
+              {% if link.links.size > 0 %}
+                <div class="ai-overlay-header-dropdown-{{ ai_gen_id }}">
+                  {% for child_link in link.links %}
+                    <a href="{{ child_link.url }}" class="ai-overlay-header-dropdown-link-{{ ai_gen_id }}">
+                      {{ child_link.title }}
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% endif %}
       </ul>
     </nav>
 
@@ -658,31 +660,33 @@
   <div class="ai-overlay-header-mobile-overlay-{{ ai_gen_id }}">
     <div class="ai-overlay-header-mobile-overlay-content-{{ ai_gen_id }}">
       <ul class="ai-overlay-header-mobile-nav-{{ ai_gen_id }}">
-        {% for link in linklists[block.settings.menu].links %}
-          <li class="ai-overlay-header-mobile-nav-item-{{ ai_gen_id }}">
-            <a href="{{ link.url }}" class="ai-overlay-header-mobile-nav-link-{{ ai_gen_id }}" data-has-dropdown="{% if link.links.size > 0 %}true{% else %}false{% endif %}">
-              <span class="ai-overlay-header-mobile-nav-label-{{ ai_gen_id }}">{{ link.title }}</span>
+        {% if block.settings.menu and block.settings.menu.links.size > 0 %}
+          {% for link in block.settings.menu.links %}
+            <li class="ai-overlay-header-mobile-nav-item-{{ ai_gen_id }}">
+              <a href="{{ link.url }}" class="ai-overlay-header-mobile-nav-link-{{ ai_gen_id }}" data-has-dropdown="{% if link.links.size > 0 %}true{% else %}false{% endif %}">
+                <span class="ai-overlay-header-mobile-nav-label-{{ ai_gen_id }}">{{ link.title }}</span>
+                {% if link.links.size > 0 %}
+                  <span class="ai-overlay-header-caret-{{ ai_gen_id }}">
+                    {% if block.settings.custom_caret_icon %}
+                      {{ block.settings.custom_caret_icon | image_url: width: 20 | image_tag: alt: 'Dropdown', loading: 'lazy' }}
+                    {% else %}
+                      <span class="ai-overlay-header-caret-symbol-{{ ai_gen_id }}">▼</span>
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </a>
               {% if link.links.size > 0 %}
-                <span class="ai-overlay-header-caret-{{ ai_gen_id }}">
-                  {% if block.settings.custom_caret_icon %}
-                    {{ block.settings.custom_caret_icon | image_url: width: 20 | image_tag: alt: 'Dropdown', loading: 'lazy' }}
-                  {% else %}
-                    <span class="ai-overlay-header-caret-symbol-{{ ai_gen_id }}">▼</span>
-                  {% endif %}
-                </span>
+                <div class="ai-overlay-header-mobile-dropdown-{{ ai_gen_id }}">
+                  {% for child_link in link.links %}
+                    <a href="{{ child_link.url }}" class="ai-overlay-header-mobile-dropdown-link-{{ ai_gen_id }}">
+                      {{ child_link.title }}
+                    </a>
+                  {% endfor %}
+                </div>
               {% endif %}
-            </a>
-            {% if link.links.size > 0 %}
-              <div class="ai-overlay-header-mobile-dropdown-{{ ai_gen_id }}">
-                {% for child_link in link.links %}
-                  <a href="{{ child_link.url }}" class="ai-overlay-header-mobile-dropdown-link-{{ ai_gen_id }}">
-                    {{ child_link.title }}
-                  </a>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </li>
-        {% endfor %}
+            </li>
+          {% endfor %}
+        {% endif %}
       </ul>
 
       <div class="ai-overlay-header-mobile-icons-{{ ai_gen_id }}">
