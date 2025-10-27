@@ -3595,3 +3595,14 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* === Custom Font: Luckiest Guy === */
+/* Override font families to ensure Luckiest Guy is primary for headings */
+h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5 {
+  font-family: 'Luckiest Guy', cursive !important;
+}
+
+/* Ensure body text uses Quicksand as primary */
+body, p, div, span, a, li, input, textarea, button, .btn {
+  font-family: 'Quicksand', var(--font-body-family, 'Quicksand'), cursive !important;
+}
