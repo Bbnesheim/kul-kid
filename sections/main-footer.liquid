@@ -1283,80 +1283,76 @@
                         {% assign icon_class = 'custom' %}
                     {% endcase %}
 
-                    {% if icon_url != blank or custom_icon != blank %}
-                      {% assign rendered_icons = rendered_icons | plus: 1 %}
-                      {% if icon_url != blank %}
-                        <a
-                          class="footer__social-link footer__social-link--{{ icon_class }}"
-                          href="{{ icon_url }}"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="{{ platform_label }}"
-                          data-gradient="{% if gradient_enabled %}true{% else %}false{% endif %}"
-                        >
-                          <span class="visually-hidden">Følg {{ shop.name }} på {{ platform_label }}</span>
-                          {% if custom_icon != blank %}
-                            {% assign custom_icon_asset = custom_icon | image_url: width: icon_render_width %}
-                            {% if custom_icon_asset == blank %}
-                              {% assign custom_icon_asset = custom_icon | file_url %}
-                            {% endif %}
-                            {% if custom_icon_asset != blank %}
-                              <img
-                                src="{{ custom_icon_asset }}"
-                                alt="{{ platform_label }}"
-                                class="footer__icon"
-                                loading="lazy"
-                                decoding="async"
-                               
-                              >
-                            {% else %}
-                              {% render 'icon-external-link' %}
-                            {% endif %}
-                          {% else %}
-                            {% case platform %}
-                              {% when 'instagram' %}{% render 'icon-instagram' %}
-                              {% when 'facebook' %}{% render 'icon-facebook' %}
-                              {% when 'tiktok' %}{% render 'icon-tiktok' %}
-                              {% when 'spotify' %}{% render 'icon-spotify' %}
-                              {% when 'youtube' %}{% render 'icon-youtube' %}
-                              {% else %}{% render 'icon-external-link' %}
-                            {% endcase %}
+                    {% assign rendered_icons = rendered_icons | plus: 1 %}
+                    {% if icon_url != blank %}
+                      <a
+                        class="footer__social-link footer__social-link--{{ icon_class }}"
+                        href="{{ icon_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="{{ platform_label }}"
+                        data-gradient="{% if gradient_enabled %}true{% else %}false{% endif %}"
+                      >
+                        <span class="visually-hidden">Følg {{ shop.name }} på {{ platform_label }}</span>
+                        {% if custom_icon != blank %}
+                          {% assign custom_icon_asset = custom_icon | image_url: width: icon_render_width %}
+                          {% if custom_icon_asset == blank %}
+                            {% assign custom_icon_asset = custom_icon | file_url %}
                           {% endif %}
-                        </a>
-                      {% else %}
-                        <span
-                          class="footer__social-link footer__social-link--{{ icon_class }} footer__social-link--static"
-                          aria-label="{{ platform_label }}"
-                        >
-                          {% if custom_icon != blank %}
-                            {% assign custom_icon_asset = custom_icon | image_url: width: icon_render_width %}
-                            {% if custom_icon_asset == blank %}
-                              {% assign custom_icon_asset = custom_icon | file_url %}
-                            {% endif %}
-                            {% if custom_icon_asset != blank %}
-                              <img
-                                src="{{ custom_icon_asset }}"
-                                alt="{{ platform_label }}"
-                                class="footer__icon"
-                                loading="lazy"
-                                decoding="async"
-                               
-                              >
-                            {% else %}
-                              {% render 'icon-external-link' %}
-                            {% endif %}
+                          {% if custom_icon_asset != blank %}
+                            <img
+                              src="{{ custom_icon_asset }}"
+                              alt="{{ platform_label }}"
+                              class="footer__icon"
+                              loading="lazy"
+                              decoding="async"
+                            >
                           {% else %}
-                            {% case platform %}
-                              {% when 'instagram' %}{% render 'icon-instagram' %}
-                              {% when 'facebook' %}{% render 'icon-facebook' %}
-                              {% when 'tiktok' %}{% render 'icon-tiktok' %}
-                              {% when 'spotify' %}{% render 'icon-spotify' %}
-                              {% when 'youtube' %}{% render 'icon-youtube' %}
-                              {% else %}{% render 'icon-external-link' %}
-                            {% endcase %}
+                            {% render 'icon-external-link' %}
                           {% endif %}
-                        </span>
-                      {% endif %}
+                        {% else %}
+                          {% case platform %}
+                            {% when 'instagram' %}{% render 'icon-instagram' %}
+                            {% when 'facebook' %}{% render 'icon-facebook' %}
+                            {% when 'tiktok' %}{% render 'icon-tiktok' %}
+                            {% when 'spotify' %}{% render 'icon-spotify' %}
+                            {% when 'youtube' %}{% render 'icon-youtube' %}
+                            {% else %}{% render 'icon-external-link' %}
+                          {% endcase %}
+                        {% endif %}
+                      </a>
+                    {% else %}
+                      <span
+                        class="footer__social-link footer__social-link--{{ icon_class }} footer__social-link--static"
+                        aria-label="{{ platform_label }}"
+                      >
+                        {% if custom_icon != blank %}
+                          {% assign custom_icon_asset = custom_icon | image_url: width: icon_render_width %}
+                          {% if custom_icon_asset == blank %}
+                            {% assign custom_icon_asset = custom_icon | file_url %}
+                          {% endif %}
+                          {% if custom_icon_asset != blank %}
+                            <img
+                              src="{{ custom_icon_asset }}"
+                              alt="{{ platform_label }}"
+                              class="footer__icon"
+                              loading="lazy"
+                              decoding="async"
+                            >
+                          {% else %}
+                            {% render 'icon-external-link' %}
+                          {% endif %}
+                        {% else %}
+                          {% case platform %}
+                            {% when 'instagram' %}{% render 'icon-instagram' %}
+                            {% when 'facebook' %}{% render 'icon-facebook' %}
+                            {% when 'tiktok' %}{% render 'icon-tiktok' %}
+                            {% when 'spotify' %}{% render 'icon-spotify' %}
+                            {% when 'youtube' %}{% render 'icon-youtube' %}
+                            {% else %}{% render 'icon-external-link' %}
+                          {% endcase %}
+                        {% endif %}
+                      </span>
                     {% endif %}
                   {% endfor %}
 

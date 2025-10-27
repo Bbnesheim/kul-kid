@@ -3602,7 +3602,3 @@ h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5 {
   font-family: 'Luckiest Guy', cursive !important;
 }
 
-/* Ensure body text uses Quicksand as primary */
-body, p, div, span, a, li, input, textarea, button, .btn {
-  font-family: 'Quicksand', var(--font-body-family, 'Quicksand'), cursive !important;
-}
