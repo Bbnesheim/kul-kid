@@ -283,6 +283,74 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "collage_AQ6B9j": {
+      "type": "collage",
+      "blocks": {
+        "image_wKpyDP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kids-eco-hoodie-black-left-front-68dd7891f0d4b.jpg"
+          }
+        },
+        "product_JwRnti": {
+          "type": "product",
+          "settings": {
+            "product": "basic-hoodie-barn-svart",
+            "second_image": true
+          }
+        },
+        "collection_rVkeUd": {
+          "type": "collection",
+          "settings": {
+            "collection": "basics"
+          }
+        }
+      },
+      "block_order": [
+        "image_wKpyDP",
+        "product_JwRnti",
+        "collection_rVkeUd"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Kuleste kiden i gata",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_nQkNmN": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "basics",
+        "products_to_show": 8,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 6,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -290,6 +358,8 @@
     "collage_XVyCFA",
     "featured_collection",
     "collage_EpPzqQ",
-    "featured_collection_d3a8nz"
+    "featured_collection_d3a8nz",
+    "collage_AQ6B9j",
+    "featured_collection_nQkNmN"
   ]
 }
