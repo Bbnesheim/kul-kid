@@ -26,11 +26,11 @@
             "club_icon_width": 160,
             "newsletter_form_max_width": 540,
             "club_icon_width_mobile": 240,
-            "newsletter_padding_top": 24,
-            "newsletter_padding_bottom": 24,
+            "newsletter_padding_top": 4,
+            "newsletter_padding_bottom": 16,
             "newsletter_padding_side": 24,
-            "action_spacing_desktop": 16,
-            "action_spacing_mobile": 12,
+            "action_spacing_desktop": 2,
+            "action_spacing_mobile": 0,
             "email_placeholder": "Din e-postadresse",
             "button_text": "Få 15% nå",
             "button_font_size": 15,
@@ -98,7 +98,7 @@
             "social_icon_gap": 12,
             "social_icon_size_mobile": 24,
             "social_icon_gap_mobile": 10,
-            "social_spacing_bottom": 32
+            "social_spacing_bottom": 0
           }
         },
         "social_icon_gLT4RQ": {
