@@ -114,7 +114,7 @@
           "type": "comprehensive-overlay-header",
           "settings": {
             "logo": "shopify://shop_images/Kul_Kid_Square_logo_9b85decc-ea3c-4866-b72d-d43508efad91.svg",
-            "logo_height_mobile": 40,
+            "logo_height_mobile": 50,
             "logo_height_desktop": 60,
             "menu": "hovedmeny",
             "nav_font_size_mobile": 18,
