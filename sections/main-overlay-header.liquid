@@ -8,7 +8,7 @@
     --kk-icon-size-desktop: {{ section.settings.icon_size_desktop | default: 28 }}px;
     --kk-icon-size-mobile: {{ section.settings.icon_size_mobile | default: 24 }}px;
 
-    --header-bg-color: {{ section.settings.header_bg_color }};
+    --header-bg-color: {% if section.settings.use_theme_color_scheme %}rgb(var(--color-background)){% else %}{{ section.settings.header_bg_color }}{% endif %};
     --header-border-color: {{ section.settings.header_border_color }};
     --header-border-thickness: {{ section.settings.header_border_thickness }}px;
 
@@ -18,17 +18,17 @@
     --logo-height-mobile: {{ section.settings.logo_height_mobile }}px;
     --logo-height-desktop: {{ section.settings.logo_height_desktop }}px;
 
-    --nav-text-color: {{ section.settings.nav_text_color }};
+    --nav-text-color: {% if section.settings.use_theme_color_scheme %}rgb(var(--color-foreground)){% else %}{{ section.settings.nav_text_color }}{% endif %};
     --nav-spacing-desktop: {{ section.settings.nav_spacing_desktop }}px;
     --nav-item-spacing-desktop: {{ section.settings.nav_item_spacing_desktop }}px;
     --nav-font-size-desktop: {{ section.settings.nav_font_size_desktop }}px;
     --nav-font-weight: {{ section.settings.nav_font_weight }};
     --nav-item-padding-desktop: {{ section.settings.nav_item_padding_desktop }}px;
 
-    --dropdown-bg-color: {{ section.settings.dropdown_bg_color }};
+    --dropdown-bg-color: {% if section.settings.use_theme_color_scheme %}rgb(var(--color-background)){% else %}{{ section.settings.dropdown_bg_color }}{% endif %};
     --dropdown-border-color: {{ section.settings.dropdown_border_color }};
     --dropdown-border-radius: {{ section.settings.dropdown_border_radius }}px;
-    --dropdown-text-color: {{ section.settings.dropdown_text_color }};
+    --dropdown-text-color: {% if section.settings.use_theme_color_scheme %}rgb(var(--color-foreground)){% else %}{{ section.settings.dropdown_text_color }}{% endif %};
     --dropdown-hover-bg-color: {{ section.settings.dropdown_hover_bg_color }};
     --dropdown-hover-text-color: {{ section.settings.dropdown_hover_text_color }};
     --dropdown-font-size: {{ section.settings.dropdown_font_size }}px;
@@ -41,8 +41,8 @@
     --header-margin-desktop: {{ section.settings.header_margin_desktop }}px;
     --header-height-desktop: {{ section.settings.header_height_desktop }}px;
 
-    --overlay-bg-color: {{ section.settings.overlay_bg_color }};
-    --overlay-text-color: {{ section.settings.overlay_text_color }};
+    --overlay-bg-color: {% if section.settings.use_theme_color_scheme %}rgb(var(--color-background)){% else %}{{ section.settings.overlay_bg_color }}{% endif %};
+    --overlay-text-color: {% if section.settings.use_theme_color_scheme %}rgb(var(--color-foreground)){% else %}{{ section.settings.overlay_text_color }}{% endif %};
     --overlay-padding-mobile: {{ section.settings.overlay_padding_mobile }}px;
 
     --caret-size: {{ section.settings.caret_size }}px;
@@ -71,7 +71,7 @@
   }
 </style>
 
-<main-overlay-header-{{ overlay_id }} class="main-overlay-header main-overlay-header-{{ overlay_id }}" data-section-id="{{ section.id }}" data-overlay-id="{{ overlay_id }}">
+<main-overlay-header-{{ overlay_id }} class="main-overlay-header main-overlay-header-{{ overlay_id }} color-{{ section.settings.color_scheme }} gradient" data-section-id="{{ section.id }}" data-overlay-id="{{ overlay_id }}">
   <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute; left:0; top:0; pointer-events:none;">
     <defs>
       <linearGradient id="mh-rainbow-icon-gradient-{{ overlay_id }}" class="main-overlay-header-gradient-{{ overlay_id }}" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
@@ -96,7 +96,7 @@
     </button>
   </div>
 
-  <div id="main-overlay-{{ overlay_id }}" class="main-overlay-header-mobile-overlay-{{ overlay_id }} overlay-sections mobile">
+  <div id="main-overlay-{{ overlay_id }}" class="main-overlay-header-mobile-overlay-{{ overlay_id }}">
     <div class="main-overlay-header-mobile-overlay-content-{{ overlay_id }}">
       {% if section.settings.menu and section.settings.menu.links.size > 0 %}
       <ul class="main-overlay-header-mobile-nav-{{ overlay_id }}">
@@ -179,6 +179,18 @@
 {
   "name": "Main overlay header",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_theme_color_scheme",
+      "label": "Use theme color scheme for header and overlay",
+      "default": true
+    },
     {
       "type": "header",
       "content": "Logo"
