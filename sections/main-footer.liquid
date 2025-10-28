@@ -1261,7 +1261,22 @@
                   {% assign rendered_icons = 0 %}
                   {% for icon_block in social_icon_blocks %}
                     {% assign platform = icon_block.settings.platform | default: 'custom' %}
-                    {% assign icon_url = icon_block.settings.link | default: icon_block.settings.url | default: icon_block.settings.href %}
+                    {% assign fallback_url = '' %}
+                    {% case platform %}
+                      {% when 'instagram' %}
+                        {% assign fallback_url = block.settings.instagram_link | default: block.settings.instagram_url %}
+                      {% when 'facebook' %}
+                        {% assign fallback_url = block.settings.facebook_link | default: block.settings.facebook_url %}
+                      {% when 'tiktok' %}
+                        {% assign fallback_url = block.settings.tiktok_link | default: block.settings.tiktok_url %}
+                      {% when 'spotify' %}
+                        {% assign fallback_url = block.settings.spotify_link | default: block.settings.spotify_url %}
+                      {% when 'youtube' %}
+                        {% assign fallback_url = block.settings.youtube_link %}
+                      {% else %}
+                        {% assign fallback_url = '' %}
+                    {% endcase %}
+                    {% assign icon_url = icon_block.settings.link | default: icon_block.settings.url | default: icon_block.settings.href | default: fallback_url %}
                     {% assign custom_icon = icon_block.settings.custom_icon %}
                     {% assign gradient_enabled = icon_block.settings.enable_gradient %}
                     {% assign platform_label = '' %}
