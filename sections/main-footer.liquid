@@ -148,7 +148,7 @@
               {% endif %}
 
               {% if social_icon_blocks.size > 0 %}
-                <div class="kk-footer__social" style="--footer-social-size: {{ icon_size }}px; --footer-social-gap: {{ icon_gap }}px; --footer-social-size-mobile: {{ icon_size_mobile }}px; --footer-social-gap-mobile: {{ icon_gap_mobile }}px;">
+                <div class="kk-footer__social" style="--kk-footer-social-size: {{ icon_size }}px; --kk-footer-social-gap: {{ icon_gap }}px; --kk-footer-social-size-mobile: {{ icon_size_mobile }}px; --kk-footer-social-gap-mobile: {{ icon_gap_mobile }}px;">
                   {% assign rendered_icons = 0 %}
                   {% for icon_block in social_icon_blocks %}
                     {% assign platform = icon_block.settings.platform | default: 'custom' %}
@@ -324,7 +324,7 @@
 
                 {% assign has_social = false %}
 
-                <div class="kk-footer__social" style="--footer-social-size: {{ icon_size }}px; --footer-social-gap: {{ icon_gap }}px; --footer-social-size-mobile: {{ icon_size_mobile }}px; --footer-social-gap-mobile: {{ icon_gap_mobile }}px;">
+                <div class="kk-footer__social" style="--kk-footer-social-size: {{ icon_size }}px; --kk-footer-social-gap: {{ icon_gap }}px; --kk-footer-social-size-mobile: {{ icon_size_mobile }}px; --kk-footer-social-gap-mobile: {{ icon_gap_mobile }}px;">
                   {% if instagram_link != blank or instagram_has_icon %}
                     {% assign has_social = true %}
                     {% if instagram_link != blank %}
@@ -513,7 +513,7 @@
                 {% assign show_klarna_icon = true %}
               {% endif %}
 
-              <div class="kk-footer-payments footer__payments" style="--footer-payments-size: {{ icon_height }}px; --footer-payments-size-mobile: {{ icon_height_mobile }}px; --social-icon-size: {{ icon_height }}px; --social-icon-size-mobile: {{ icon_height_mobile }}px; --footer-payment-spacing-bottom: {{ payments_spacing_bottom }}px; --footer-payments-gap: {{ payment_gap }}px; --footer-payments-gap-mobile: {{ payment_gap_mobile }}px; --social-icon-gap: {{ payment_gap }}px; --social-icon-gap-mobile: {{ payment_gap_mobile }}px;">
+              <div class="kk-footer-payments kk-footer__payments" style="--kk-footer-payments-size: {{ icon_height }}px; --kk-footer-payments-size-mobile: {{ icon_height_mobile }}px;">
                 {% if show_visa_icon %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
@@ -654,13 +654,13 @@
     <div
       class="kk-footer__policies"
       style="
-        --policy-bottom-margin: {{ section.settings.policies_bottom_margin | default: 20 | plus: 0 }}px;
-        --policy-gap-desktop: {{ section.settings.policy_gap_desktop | default: 12 | plus: 0 }}px;
-        --policy-font-desktop: {{ section.settings.policy_font_size_desktop | default: 14 | plus: 0 }}px;
-        --policy-gap-mobile: {{ section.settings.policy_gap_mobile | default: 10 | plus: 0 }}px;
-        --policy-font-mobile: {{ section.settings.policy_font_size_mobile | default: 12 | plus: 0 }}px;
-        --policy-padding-inline: {{ policy_padding_value | plus: 0 }}px;
-        --policy-padding-inline-mobile: {{ policy_padding_mobile_value | plus: 0 }}px;
+        --kk-policy-bottom-margin: {{ section.settings.policies_bottom_margin | default: 20 | plus: 0 }}px;
+        --kk-policy-gap-desktop: {{ section.settings.policy_gap_desktop | default: 12 | plus: 0 }}px;
+        --kk-policy-font-desktop: {{ section.settings.policy_font_size_desktop | default: 14 | plus: 0 }}px;
+        --kk-policy-gap-mobile: {{ section.settings.policy_gap_mobile | default: 10 | plus: 0 }}px;
+        --kk-policy-font-mobile: {{ section.settings.policy_font_size_mobile | default: 12 | plus: 0 }}px;
+        --kk-policy-padding-inline: {{ policy_padding_value | plus: 0 }}px;
+        --kk-policy-padding-inline-mobile: {{ policy_padding_mobile_value | plus: 0 }}px;
       "
     >
       {% assign policy_count = 0 %}
