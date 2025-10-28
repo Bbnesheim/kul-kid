@@ -48,6 +48,17 @@
   stroke: currentColor;
 }
 
+/* Custom uploaded icon images */
+.kk-footer__icon {
+  width: 100%;
+  height: 100%;
+  max-width: var(--kk-footer-social-size-effective);
+  max-height: var(--kk-footer-social-size-effective);
+  object-fit: contain;
+  display: block;
+  border-radius: inherit;
+}
+
 /* Social Link Base */
 .kk-footer__social-link {
   display: inline-flex;
