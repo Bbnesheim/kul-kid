@@ -1,0 +1,82 @@
+{% comment %}
+  KUL KID Announcement Bar Section
+  Renders the announcement-bar snippet with brand gradient and accessible animation
+{% endcomment %}
+
+{% render 'announcement-bar',
+  text: section.settings.text,
+  intensity: section.settings.gradient_intensity,
+  motion: section.settings.motion_toggle,
+  width: section.settings.text_width,
+  font_size: section.settings.font_size,
+  sweep_speed: section.settings.sweep_speed
+%}
+
+{% schema %}
+{
+  "name": "KUL KID Announcement Bar",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "FÅ 15% RABATT PÅ DITT FØRSTE KJØP!"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_width",
+      "label": "Text area width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 80,
+      "info": "Maximum width of the text container"
+    },
+    {
+      "type": "range",
+      "id": "sweep_speed",
+      "label": "Rainbow sweep speed",
+      "min": 1,
+      "max": 5,
+      "step": 0.5,
+      "unit": "s",
+      "default": 2,
+      "info": "Duration of the rainbow sweep (pause is always 3s between sweeps)"
+    },
+    {
+      "type": "select",
+      "id": "gradient_intensity",
+      "label": "Gradient intensity",
+      "options": [
+        { "value": "soft", "label": "Soft" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "bold", "label": "Bold" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "checkbox",
+      "id": "motion_toggle",
+      "label": "Enable rainbow wave animation",
+      "default": true,
+      "info": "Rainbow gradient sweeps through text every 5 seconds"
+    }
+  ],
+  "presets": [
+    {
+      "name": "KUL KID Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
