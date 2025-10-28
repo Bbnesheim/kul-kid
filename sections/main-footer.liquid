@@ -110,7 +110,8 @@
             {% when 'newsletter' %}
               {% render 'kk-footer-newsletter', 
                 block: block, 
-                newsletter_success_fallback: section.settings.newsletter_success_fallback 
+                newsletter_success_fallback: section.settings.newsletter_success_fallback,
+                newsletter_block_width: block.settings.newsletter_block_width 
               %}
 
             {% when 'link_group' %}
@@ -201,21 +202,15 @@
                       >
                         <span class="visually-hidden">Følg {{ shop.name }} på {{ platform_label }}</span>
                         {% if custom_icon != blank %}
-                          {% assign custom_icon_asset = custom_icon | image_url: width: icon_render_width %}
-                          {% if custom_icon_asset == blank %}
-                            {% assign custom_icon_asset = custom_icon | file_url %}
-                          {% endif %}
-                          {% if custom_icon_asset != blank %}
-                            <img
-                              src="{{ custom_icon_asset }}"
-                              alt="{{ platform_label }}"
-                              class="kk-footer__icon"
-                              loading="lazy"
-                              decoding="async"
-                            >
-                          {% else %}
-                            {% render 'icon-external-link' %}
-                          {% endif %}
+                          <img
+                            src="{{ custom_icon | image_url: width: icon_render_width }}"
+                            alt="{{ platform_label }}"
+                            class="kk-footer__icon"
+                            loading="lazy"
+                            decoding="async"
+                            width="{{ icon_size }}"
+                            height="{{ icon_size }}"
+                          >
                         {% else %}
                           {% case platform %}
                             {% when 'instagram' %}{% render 'icon-instagram' %}
@@ -233,21 +228,15 @@
                         aria-label="{{ platform_label }}"
                       >
                         {% if custom_icon != blank %}
-                          {% assign custom_icon_asset = custom_icon | image_url: width: icon_render_width %}
-                          {% if custom_icon_asset == blank %}
-                            {% assign custom_icon_asset = custom_icon | file_url %}
-                          {% endif %}
-                          {% if custom_icon_asset != blank %}
-                            <img
-                              src="{{ custom_icon_asset }}"
-                              alt="{{ platform_label }}"
-                              class="kk-footer__icon"
-                              loading="lazy"
-                              decoding="async"
-                            >
-                          {% else %}
-                            {% render 'icon-external-link' %}
-                          {% endif %}
+                          <img
+                            src="{{ custom_icon | image_url: width: icon_render_width }}"
+                            alt="{{ platform_label }}"
+                            class="kk-footer__icon"
+                            loading="lazy"
+                            decoding="async"
+                            width="{{ icon_size }}"
+                            height="{{ icon_size }}"
+                          >
                         {% else %}
                           {% case platform %}
                             {% when 'instagram' %}{% render 'icon-instagram' %}
@@ -340,7 +329,7 @@
                       <span class="kk-footer__social-link footer__social-link--instagram footer__social-link--static" aria-label="Instagram">
                     {% endif %}
                       {% if instagram_has_icon %}
-                        <img src="{{ instagram_icon_url }}" alt="Instagram" class="kk-footer__icon" loading="lazy" decoding="async">
+                        <img src="{{ instagram_icon_url }}" alt="Instagram" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
                       {% else %}
                         {% render 'icon-instagram' %}
                       {% endif %}
@@ -366,7 +355,7 @@
                       <span class="kk-footer__social-link footer__social-link--facebook footer__social-link--static" aria-label="Facebook">
                     {% endif %}
                       {% if facebook_has_icon %}
-                        <img src="{{ facebook_icon_url }}" alt="Facebook" class="kk-footer__icon" loading="lazy" decoding="async">
+                        <img src="{{ facebook_icon_url }}" alt="Facebook" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
                       {% else %}
                         {% render 'icon-facebook' %}
                       {% endif %}
@@ -392,7 +381,7 @@
                       <span class="kk-footer__social-link footer__social-link--tiktok footer__social-link--static" aria-label="TikTok">
                     {% endif %}
                       {% if tiktok_has_icon %}
-                        <img src="{{ tiktok_icon_url }}" alt="TikTok" class="kk-footer__icon" loading="lazy" decoding="async">
+                        <img src="{{ tiktok_icon_url }}" alt="TikTok" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
                       {% else %}
                         {% render 'icon-tiktok' %}
                       {% endif %}
@@ -418,7 +407,7 @@
                       <span class="kk-footer__social-link footer__social-link--spotify footer__social-link--static" aria-label="Spotify">
                     {% endif %}
                       {% if spotify_has_icon %}
-                        <img src="{{ spotify_icon_url }}" alt="Spotify" class="kk-footer__icon" loading="lazy" decoding="async">
+                        <img src="{{ spotify_icon_url }}" alt="Spotify" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
                       {% else %}
                         {% render 'icon-spotify' %}
                       {% endif %}
@@ -444,7 +433,7 @@
                       <span class="kk-footer__social-link footer__social-link--youtube footer__social-link--static" aria-label="YouTube">
                     {% endif %}
                       {% if youtube_has_icon %}
-                        <img src="{{ youtube_icon_url }}" alt="YouTube" class="kk-footer__icon" loading="lazy" decoding="async">
+                        <img src="{{ youtube_icon_url }}" alt="YouTube" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
                       {% else %}
                         {% render 'icon-youtube' %}
                       {% endif %}
@@ -1158,13 +1147,13 @@
         },
         {
           "type": "range",
-          "id": "newsletter_form_max_width",
-          "label": "Maks bredde på inputfelt",
-          "min": 360,
-          "max": 720,
-          "step": 10,
+          "id": "newsletter_block_width",
+          "label": "Bredde på nyhetsbrevblokk",
+          "min": 400,
+          "max": 1000,
+          "step": 20,
           "unit": "px",
-          "default": 520
+          "default": 700
         },
         {
           "type": "range",
@@ -1189,15 +1178,6 @@
           "type": "range",
           "id": "newsletter_padding_bottom",
           "label": "Bunn-padding (px)",
-          "min": 0,
-          "max": 100,
-          "step": 4,
-          "default": 24
-        },
-        {
-          "type": "range",
-          "id": "newsletter_padding_side",
-          "label": "Side-padding (px)",
           "min": 0,
           "max": 100,
           "step": 4,

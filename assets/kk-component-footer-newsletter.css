@@ -28,10 +28,11 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   box-sizing: border-box;
-  padding: 2rem;
-  max-width: clamp(520px, 65vw, 800px);
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin: 0 auto;
   width: 100%;
+  max-width: var(--kk-newsletter-block-max-width, 700px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -95,6 +96,7 @@
   line-height: 1.4;
   padding-right: 0;
   padding-left: 0;
+  font-size: var(--kk-footer-text-size, 1rem);
 }
 
 /* Form Styles */
@@ -117,8 +119,17 @@
   width: 100%;
 }
 
-.kk-footer-newsletter__row input[type='email'] {
+.kk-footer-newsletter__row .field {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
   width: 100%;
+}
+
+.kk-footer-newsletter__row input[type='email'] {
+  flex: 3;
+  min-width: 0;
   height: 48px;
   padding: 0.75rem 1.2rem;
   border-radius: 8px;
@@ -153,10 +164,12 @@
 }
 
 .kk-footer-newsletter__row button {
+  flex: 1;
+  min-width: 0;
   height: 48px;
-  padding: 0 24px;
-  width: 100%;
+  padding: 0 12px;
   border-radius: 8px;
+  white-space: nowrap;
 }
 
 .kk-footer-newsletter__button {
@@ -166,7 +179,7 @@
   margin-top: 0;
   font-family: 'Quicksand', var(--font-body-family, sans-serif);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--kk-footer-button-size, 15px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -211,11 +224,13 @@
    Responsive: Mobile (768px)
    ======================================== */
 @media (max-width: 768px) {
-  .kk-footer-newsletter__row {
-    grid-template-columns: 1fr;
+  .kk-footer-newsletter__row .field {
+    flex-direction: column;
   }
 
+  .kk-footer-newsletter__row input[type='email'],
   .kk-footer-newsletter__row button {
+    flex: none;
     width: 100%;
   }
 

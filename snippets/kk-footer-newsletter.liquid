@@ -5,6 +5,7 @@
   - block: newsletter block object with settings
   - section_id: section ID for unique form ID
   - newsletter_success_fallback: fallback success message
+  - newsletter_block_width: max width of newsletter block
 {% endcomment %}
 
 {%- assign heading_size = block.settings.heading_font_size | default: 28 | plus: 0 -%}
@@ -12,7 +13,7 @@
 {%- assign button_size = block.settings.button_font_size | default: 15 | plus: 0 -%}
 {%- assign newsletter_padding_top = block.settings.newsletter_padding_top | default: 24 | plus: 0 -%}
 {%- assign newsletter_padding_bottom = block.settings.newsletter_padding_bottom | default: 24 | plus: 0 -%}
-{%- assign newsletter_padding_side = block.settings.newsletter_padding_side | default: 24 | plus: 0 -%}
+{%- assign newsletter_block_max_width = block.settings.newsletter_block_width | default: 700 | plus: 0 -%}
 {%- assign club_icon_width = block.settings.club_icon_width | default: 160 | plus: 0 -%}
 {%- assign club_icon_width_mobile = block.settings.club_icon_width_mobile -%}
 {%- if club_icon_width_mobile == blank -%}
@@ -33,11 +34,11 @@
 
 <div
   class="kk-footer__newsletter"
-  style="--kk-newsletter-action-spacing: {{ action_spacing_desktop }}px; --kk-newsletter-action-spacing-mobile: {{ action_spacing_mobile }}px;"
+  style="--kk-newsletter-action-spacing: {{ action_spacing_desktop }}px; --kk-newsletter-action-spacing-mobile: {{ action_spacing_mobile }}px; --kk-newsletter-block-max-width: {{ newsletter_block_max_width }}px;"
 >
   <div
     class="kk-footer-newsletter__card"
-    style="padding: {{ newsletter_padding_top }}px {{ newsletter_padding_side }}px {{ newsletter_padding_bottom }}px; --kk-newsletter-icon-width: {{ club_icon_width }}px; --kk-newsletter-icon-mobile-width: {{ club_icon_width_mobile }}px; --kk-newsletter-icon-gap: {{ icon_gap }}px; --kk-newsletter-icon-top: {{ newsletter_padding_top }}px;"
+    style="padding-top: {{ newsletter_padding_top }}px; padding-bottom: {{ newsletter_padding_bottom }}px; --kk-newsletter-icon-width: {{ club_icon_width }}px; --kk-newsletter-icon-mobile-width: {{ club_icon_width_mobile }}px; --kk-newsletter-icon-gap: {{ icon_gap }}px; --kk-newsletter-icon-top: {{ newsletter_padding_top }}px; --kk-footer-button-size: {{ button_size }}px;"
   >
     <div class="kk-footer-newsletter__body{% if block.settings.club_icon != blank %} kk-footer-newsletter__body--with-image{% endif %}">
       <div class="kk-footer-newsletter__content{% if block.settings.club_icon != blank %} kk-footer-newsletter__content--with-image{% endif %}">
@@ -85,7 +86,6 @@
           <button
             type="submit"
             class="kk-footer__button kk-footer-newsletter__button"
-            style="--kk-footer-button-size: {{ button_size }}px;"
             aria-label="{{ block.settings.button_text | default: 'Få 15% nå' }}"
           >
             {{ block.settings.button_text | default: 'Få 15% nå' }}

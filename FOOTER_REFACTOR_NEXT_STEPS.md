@@ -1,5 +1,8 @@
 # Footer Refactor - Next Steps
 
+## Ultimate Goal
+**Disable `footer.liquid` and use `main-footer.liquid` (refactored) as the only footer in the codebase.**
+
 ## Current Status
 ✅ **Completed:**
 - Created 5 external CSS component files (~942 lines)
