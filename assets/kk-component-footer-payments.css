@@ -1,0 +1,139 @@
+/* ========================================
+   KUL KID Footer - Payments & Policies
+   ======================================== */
+
+.kk-footer__block--payments {
+  flex: none;
+  padding: 0;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  max-width: clamp(420px, 48vw, 640px);
+  margin: clamp(1.5rem, 3vw, 2.5rem) auto 0;
+}
+
+.kk-footer-payments-wrapper,
+.kk-footer__payments-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.kk-footer-payments,
+.kk-footer__payments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: min(100%, 1100px);
+  margin: 12px 0 8px;
+  color: var(--kk-footer-text-color, #000000);
+  text-align: center;
+}
+
+.kk-footer__payment-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  padding: 0;
+}
+
+.kk-footer-payments img,
+.kk-footer-payments svg,
+.kk-footer-payments .kk-footer__icon,
+.kk-footer__payments img,
+.kk-footer__payments svg,
+.kk-footer__payments .kk-footer__icon {
+  height: var(--kk-footer-payments-size, 26px);
+  width: auto;
+  max-height: var(--kk-footer-payments-size, 26px);
+  object-fit: contain;
+  display: block;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.kk-footer__icon {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Policies Section */
+.kk-footer__policies {
+  margin-top: 8px;
+  margin-bottom: var(--kk-policy-bottom-margin, 20px);
+  padding-top: clamp(4px, 2vw, 16px);
+  padding-inline: var(--kk-policy-padding-inline, 0);
+  padding-left: var(--kk-policy-padding-inline, 0);
+  padding-right: var(--kk-policy-padding-inline, 0);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: var(--kk-policy-gap-desktop, 8px);
+  row-gap: clamp(4px, calc(var(--kk-policy-gap-desktop, 8px) * 0.6), 18px);
+  font-size: var(--kk-policy-font-desktop, 14px);
+  width: min(100%, 1100px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kk-footer__policies a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  transform: scale(1);
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.kk-footer__policies a:hover,
+.kk-footer__policies a:focus-visible {
+  background-color: transparent;
+  border-color: transparent;
+  transform: scale(1.04);
+  outline: none;
+  text-decoration: underline;
+}
+
+.kk-footer__policy-separator {
+  display: none;
+}
+
+/* ========================================
+   Responsive: Mobile (768px)
+   ======================================== */
+@media (max-width: 768px) {
+  .kk-footer-payments,
+  .kk-footer__payments {
+    gap: 12px;
+    margin: 12px 0 6px;
+  }
+
+  .kk-footer-payments img,
+  .kk-footer-payments svg,
+  .kk-footer-payments .kk-footer__icon,
+  .kk-footer__payments img,
+  .kk-footer__payments svg,
+  .kk-footer__payments .kk-footer__icon {
+    height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px));
+    max-height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px));
+  }
+
+  .kk-footer__policies {
+    font-size: var(--kk-policy-font-mobile, 12px);
+    gap: var(--kk-policy-gap-mobile, 8px);
+    padding-inline: var(--kk-policy-padding-inline-mobile, var(--kk-policy-padding-inline, 0));
+    padding-left: var(--kk-policy-padding-inline-mobile, var(--kk-policy-padding-inline, 0));
+    padding-right: var(--kk-policy-padding-inline-mobile, var(--kk-policy-padding-inline, 0));
+  }
+}

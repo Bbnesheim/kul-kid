@@ -1,0 +1,141 @@
+/* ========================================
+   KUL KID Footer - Social Icons Component
+   ======================================== */
+
+.kk-footer__block--social_icons,
+.kk-footer__block--social {
+  flex: none;
+  max-width: 100%;
+  align-self: start;
+  padding: 0;
+  margin: clamp(1rem, 3vw, 2rem) 0 0;
+  width: 100%;
+}
+
+.kk-footer__block--social_icons .kk-footer__heading,
+.kk-footer__block--social .kk-footer__heading {
+  text-align: center;
+  margin-bottom: 0.65rem;
+}
+
+.kk-footer-social {
+  margin-bottom: 12px;
+}
+
+.kk-footer__social {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: center;
+  color: var(--kk-footer-text-color, #000000);
+  --kk-footer-social-gap-effective: var(--kk-footer-social-gap, 12px);
+  --kk-footer-social-size-effective: var(--kk-footer-social-size, 28px);
+  gap: var(--kk-footer-social-gap-effective);
+}
+
+.kk-footer__social img,
+.kk-footer__social svg {
+  width: 100%;
+  height: 100%;
+  max-width: var(--kk-footer-social-size-effective);
+  max-height: var(--kk-footer-social-size-effective);
+  object-fit: contain;
+  display: block;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Social Link Base */
+.kk-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--kk-footer-social-size-effective);
+  height: var(--kk-footer-social-size-effective);
+  min-width: var(--kk-footer-social-size-effective);
+  min-height: var(--kk-footer-social-size-effective);
+  flex: 0 0 var(--kk-footer-social-size-effective);
+  border-radius: 999px;
+  transition: transform 0.25s ease, opacity 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0.88;
+  z-index: 0;
+  color: var(--kk-social-brand-color, var(--kk-footer-text-color, #000000));
+}
+
+.kk-footer__social-link::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  border-radius: inherit;
+  background: var(--kk-social-brand-background, rgba(255, 255, 255, 0.2));
+  opacity: 0;
+  transform: scale(0.6);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: -1;
+}
+
+.kk-footer__social-link:hover,
+.kk-footer__social-link:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  opacity: 1;
+  outline: none;
+  color: var(--kk-social-brand-color, currentColor);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.kk-footer__social-link:hover::before,
+.kk-footer__social-link:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kk-footer__social-link--static {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Brand-Specific Colors */
+.kk-footer__social-link--instagram {
+  --kk-social-brand-color: #f56040;
+  --kk-social-brand-background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.kk-footer__social-link--facebook {
+  --kk-social-brand-color: #1877f2;
+  --kk-social-brand-background: rgba(24, 119, 242, 0.25);
+}
+
+.kk-footer__social-link--tiktok {
+  --kk-social-brand-color: #25f4ee;
+  --kk-social-brand-background: linear-gradient(140deg, rgba(37, 244, 238, 0.35), rgba(254, 44, 85, 0.35));
+}
+
+.kk-footer__social-link--spotify {
+  --kk-social-brand-color: #1db954;
+  --kk-social-brand-background: rgba(29, 185, 84, 0.25);
+}
+
+.kk-footer__social-link--youtube {
+  --kk-social-brand-color: #ff0000;
+  --kk-social-brand-background: rgba(255, 0, 0, 0.25);
+}
+
+/* ========================================
+   Responsive: Mobile (768px)
+   ======================================== */
+@media (max-width: 768px) {
+  .kk-footer__social {
+    justify-content: center;
+    --kk-footer-social-gap-effective: var(--kk-footer-social-gap-mobile, var(--kk-footer-social-gap, 12px));
+    --kk-footer-social-size-effective: var(--kk-footer-social-size-mobile, var(--kk-footer-social-size, 28px));
+  }
+
+  .kk-footer__social {
+    align-items: center;
+    justify-content: center;
+  }
+}

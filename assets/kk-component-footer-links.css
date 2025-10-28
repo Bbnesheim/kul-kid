@@ -1,0 +1,182 @@
+/* ========================================
+   KUL KID Footer - Link Groups Component
+   ======================================== */
+
+.kk-footer__block--link_group {
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+.kk-footer__link-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: clamp(2px, 0.6vw, 10px);
+  align-items: start;
+  justify-content: flex-start;
+  justify-items: start;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.kk-footer__link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Accordion Toggle */
+.kk-footer__link-group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: 'Luckiest Guy', var(--font-heading-family, 'Luckiest Guy'), cursive;
+}
+
+.kk-footer__link-group-toggle:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.65);
+  outline-offset: 4px;
+}
+
+.kk-footer__link-group-title {
+  font-size: var(--kk-footer-heading-size, 1.15rem);
+  letter-spacing: 0.02em;
+  font-family: 'Luckiest Guy', var(--font-heading-family, 'Luckiest Guy'), cursive;
+  color: var(--kk-footer-text-color, #000000);
+}
+
+.kk-footer__link-group-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--kk-footer-caret-size, 1.15rem);
+  height: var(--kk-footer-caret-size, 1.15rem);
+  margin-left: clamp(0.35rem, 0.9vw, 0.65rem);
+  transition: transform 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.kk-footer__link-group-icon svg,
+.kk-footer__link-group-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.kk-footer__link-group-toggle[aria-expanded='true'] .kk-footer__link-group-icon {
+  transform: rotate(180deg);
+}
+
+/* Accordion Panel */
+.kk-footer__link-group-panel {
+  display: block;
+}
+
+.kk-footer__link-group-panel[hidden] {
+  display: none;
+}
+
+/* Link List */
+.kk-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--kk-footer-link-gap, 0.75rem);
+  font-size: var(--kk-footer-link-size, 0.95rem);
+  line-height: 1.6;
+  max-width: 520px;
+  color: var(--kk-footer-text-color, #000000);
+}
+
+.kk-footer__link {
+  font-size: var(--kk-footer-link-size, 0.95rem);
+  text-decoration: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  color: var(--kk-footer-text-color, #000000);
+}
+
+.kk-footer__link:hover,
+.kk-footer__link:focus-visible {
+  transform: translateX(2px);
+  color: var(--kk-footer-text-color, #000000);
+}
+
+/* ========================================
+   Responsive: Tablet (1024px)
+   ======================================== */
+@media (max-width: 1024px) {
+  .kk-footer__link-columns {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: clamp(2px, 1vw, 12px);
+    max-width: 100%;
+  }
+}
+
+/* ========================================
+   Responsive: Mobile (768px)
+   ======================================== */
+@media (max-width: 768px) {
+  /* Hide toggle functionality on desktop */
+  @media (min-width: 769px) {
+    .kk-footer__link-group-toggle {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .kk-footer__link-group-icon {
+      display: none;
+    }
+  }
+
+  .kk-footer__block--link_group {
+    padding: 0;
+  }
+
+  .kk-footer__link-group {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 0.75rem;
+  }
+
+  .kk-footer__link-group-toggle {
+    padding: 0.75rem 0;
+  }
+
+  .kk-footer__link-group:last-child {
+    border-bottom: none;
+  }
+
+  .kk-footer__link-group-panel {
+    padding-bottom: 0.75rem;
+  }
+
+  .kk-footer__link-group-panel .kk-footer__list {
+    padding-top: 0.25rem;
+  }
+
+  .kk-footer__link-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .kk-footer__block {
+    max-width: 100%;
+  }
+}

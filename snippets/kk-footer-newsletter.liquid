@@ -1,0 +1,109 @@
+{% comment %}
+  Newsletter block snippet for KK Footer
+  
+  Accepts:
+  - block: newsletter block object with settings
+  - section_id: section ID for unique form ID
+  - newsletter_success_fallback: fallback success message
+{% endcomment %}
+
+{%- assign heading_size = block.settings.heading_font_size | default: 28 | plus: 0 -%}
+{%- assign description_size = block.settings.description_font_size | default: 16 | plus: 0 -%}
+{%- assign button_size = block.settings.button_font_size | default: 15 | plus: 0 -%}
+{%- assign newsletter_padding_top = block.settings.newsletter_padding_top | default: 24 | plus: 0 -%}
+{%- assign newsletter_padding_bottom = block.settings.newsletter_padding_bottom | default: 24 | plus: 0 -%}
+{%- assign newsletter_padding_side = block.settings.newsletter_padding_side | default: 24 | plus: 0 -%}
+{%- assign club_icon_width = block.settings.club_icon_width | default: 160 | plus: 0 -%}
+{%- assign club_icon_width_mobile = block.settings.club_icon_width_mobile -%}
+{%- if club_icon_width_mobile == blank -%}
+  {%- assign club_icon_width_mobile = club_icon_width -%}
+{%- else -%}
+  {%- assign club_icon_width_mobile = club_icon_width_mobile | plus: 0 -%}
+{%- endif -%}
+{%- assign icon_gap = club_icon_width | times: 0.12 | round: 0 -%}
+{%- assign icon_gap = icon_gap | at_least: 12 -%}
+{%- assign icon_gap = icon_gap | at_most: 28 -%}
+{%- assign action_spacing_desktop = block.settings.action_spacing_desktop | default: 16 | plus: 0 -%}
+{%- assign action_spacing_mobile = block.settings.action_spacing_mobile -%}
+{%- if action_spacing_mobile == blank -%}
+  {%- assign action_spacing_mobile = action_spacing_desktop -%}
+{%- else -%}
+  {%- assign action_spacing_mobile = action_spacing_mobile | plus: 0 -%}
+{%- endif -%}
+
+<div
+  class="kk-footer__newsletter"
+  style="--kk-newsletter-action-spacing: {{ action_spacing_desktop }}px; --kk-newsletter-action-spacing-mobile: {{ action_spacing_mobile }}px;"
+>
+  <div
+    class="kk-footer-newsletter__card"
+    style="padding: {{ newsletter_padding_top }}px {{ newsletter_padding_side }}px {{ newsletter_padding_bottom }}px; --kk-newsletter-icon-width: {{ club_icon_width }}px; --kk-newsletter-icon-mobile-width: {{ club_icon_width_mobile }}px; --kk-newsletter-icon-gap: {{ icon_gap }}px; --kk-newsletter-icon-top: {{ newsletter_padding_top }}px;"
+  >
+    <div class="kk-footer-newsletter__body{% if block.settings.club_icon != blank %} kk-footer-newsletter__body--with-image{% endif %}">
+      <div class="kk-footer-newsletter__content{% if block.settings.club_icon != blank %} kk-footer-newsletter__content--with-image{% endif %}">
+        {%- if block.settings.heading != blank -%}
+          <h2 class="kk-footer__heading" style="--kk-footer-heading-size: {{ heading_size }}px;">{{ block.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if block.settings.description != blank -%}
+          <div class="kk-footer__newsletter-copy" style="--kk-footer-text-size: {{ description_size }}px;">{{ block.settings.description }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- if block.settings.club_icon != blank -%}
+        <div class="kk-footer-newsletter__media">
+          <img
+            src="{{ block.settings.club_icon | image_url: width: club_icon_width }}"
+            alt="{{ block.settings.club_icon_alt | escape }}"
+            width="{{ club_icon_width }}"
+            height="{{ club_icon_width | divided_by: block.settings.club_icon.aspect_ratio | round }}"
+            class="kk-footer-newsletter__image"
+            loading="eager"
+            decoding="auto"
+          >
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- form 'customer', id: 'ContactFooter', class: 'kk-footer__newsletter-form kk-footer-newsletter__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+
+      <div class="kk-footer-newsletter__row">
+        <div class="field">
+          <input
+            id="ContactFooter-email"
+            type="email"
+            name="contact[email]"
+            value="{{ form.email }}"
+            placeholder="{{ block.settings.email_placeholder | default: 'Din e-postadresse' }}"
+            autocapitalize="off"
+            autocomplete="email"
+            spellcheck="false"
+            {% if form.errors %}aria-invalid="true" aria-describedby="ContactFooter-error" autofocus{% elsif form.posted_successfully? %}aria-describedby="ContactFooter-success"{% endif %}
+            required
+          >
+          <label class="visually-hidden" for="ContactFooter-email">{{ block.settings.email_placeholder | default: 'Din e-postadresse' }}</label>
+          <button
+            type="submit"
+            class="kk-footer__button kk-footer-newsletter__button"
+            style="--kk-footer-button-size: {{ button_size }}px;"
+            aria-label="{{ block.settings.button_text | default: 'Få 15% nå' }}"
+          >
+            {{ block.settings.button_text | default: 'Få 15% nå' }}
+          </button>
+        </div>
+
+        {%- if form.errors -%}
+          <small class="kk-footer__newsletter-feedback kk-footer__newsletter-feedback--error" id="ContactFooter-error">
+            {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
+          </small>
+        {%- endif -%}
+
+        {%- if form.posted_successfully? -%}
+          <h3 class="kk-footer__newsletter-feedback kk-footer__newsletter-feedback--success" id="ContactFooter-success" tabindex="-1" autofocus>
+            {{ block.settings.success_message | default: newsletter_success_fallback }}
+          </h3>
+        {%- endif -%}
+      </div>
+    {%- endform -%}
+  </div>
+</div>
