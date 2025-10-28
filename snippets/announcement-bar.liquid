@@ -9,11 +9,9 @@
   assign intensity_level = intensity | default: 'normal'
   assign text_width = width | default: 80
   assign font_size_val = font_size | default: 16
-  assign sweep_speed_val = sweep_speed | default: 2
-  assign total_cycle = sweep_speed_val | plus: 3
 -%}
 
-<div class="kk-announcement-bar" data-motion="{{ show_motion }}" style="--kk-text-width: {{ text_width }}%; --kk-font-size: {{ font_size_val }}px; --kk-sweep-speed: 20s; --kk-total-cycle: 10s;">
+<div class="kk-announcement-bar" data-motion="{{ show_motion }}" style="--kk-text-width: {{ text_width }}%; --kk-font-size: {{ font_size_val }}px;">
   <p class="kk-announcement-text" data-intensity="{{ intensity_level }}">
     {{ text | default: 'Announcement text' | escape }}
   </p>
@@ -35,27 +33,12 @@
     font-size: var(--kk-font-size, 16px);
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    position: relative;
-    background: linear-gradient(
-      to right,
-      #000 0%,
-      #000 100%
-    );
-    background-size: 100% 100%;
-    background-position: 0 0;
+    background: linear-gradient(to right, #000 0%, #000 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
-
-  .kk-announcement-text {
-    background-size: 350%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
 
   /* Rainbow gradient sweep */
   .kk-announcement-bar[data-motion='true'] .kk-announcement-text {
@@ -74,21 +57,20 @@
       #000 100%
     );
     background-size: 300% 100%;
-    background-position: 0% 0%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: kk-rainbow-sweep 20s linear infinite;
   }
 
- @keyframes kk-rainbow-sweep {
-  0% {
-    background-position: 300% 0%;
+  @keyframes kk-rainbow-sweep {
+    0% {
+      background-position: 300% 0%;
+    }
+    100% {
+      background-position: -300% 0%;
+    }
   }
-  100% {
-    background-position: -300% 0%;
-  }
-}
 
 
   /* Intensity variants */
