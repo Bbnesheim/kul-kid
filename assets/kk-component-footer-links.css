@@ -51,7 +51,7 @@
 }
 
 .kk-footer__link-group-title {
-  font-size: var(--kk-footer-heading-size, 1.15rem);
+  font-size: var(--kk-footer-heading-size, 1.25rem);
   letter-spacing: 0.02em;
   font-family: 'Luckiest Guy', var(--font-heading-family, 'Luckiest Guy'), cursive;
   color: var(--kk-footer-text-color, #000000);
@@ -105,7 +105,7 @@
 }
 
 .kk-footer__link {
-  font-size: var(--kk-footer-link-size, 0.95rem);
+  font-size: var(--kk-footer-link-size, 1rem);
   text-decoration: none;
   transition: opacity 0.25s ease, transform 0.25s ease;
   color: var(--kk-footer-text-color, #000000);
@@ -129,20 +129,23 @@
 }
 
 /* ========================================
+   Responsive: Desktop (769px+)
+   ======================================== */
+@media (min-width: 769px) {
+  .kk-footer__link-group-toggle {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .kk-footer__link-group-icon {
+    display: none;
+  }
+}
+
+/* ========================================
    Responsive: Mobile (768px)
    ======================================== */
 @media (max-width: 768px) {
-  /* Hide toggle functionality on desktop */
-  @media (min-width: 769px) {
-    .kk-footer__link-group-toggle {
-      cursor: default;
-      pointer-events: none;
-    }
-
-    .kk-footer__link-group-icon {
-      display: none;
-    }
-  }
 
   .kk-footer__block--link_group {
     padding: 0;
