@@ -123,19 +123,22 @@
   padding: 0.75rem 1.2rem;
   border-radius: 8px;
   border: none;
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--kk-footer-text-color, #000000);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
   font-family: 'Quicksand', var(--font-body-family, sans-serif);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  transition: box-shadow 0.2s ease;
 }
 
 .kk-footer-newsletter__row input[type='email']::placeholder {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .kk-footer-newsletter__row input[type='email']:focus-visible {
   outline: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Remove default Dawn field box-shadows/borders inside footer newsletter */
@@ -162,14 +165,31 @@
   cursor: pointer;
   margin-top: 0;
   font-family: 'Quicksand', var(--font-body-family, sans-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: 0.75rem 1.1rem;
+  padding: 0.75rem 1.5rem;
   height: 48px;
   min-height: 48px;
   width: auto;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kk-footer-newsletter__button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.kk-footer-newsletter__button:active {
+  transform: translateY(0);
 }
 
 /* Feedback Messages */
