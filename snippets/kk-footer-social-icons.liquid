@@ -1,0 +1,345 @@
+{% comment %}
+  KK Footer - Social Icons Component
+  
+  Renders social media icons with support for:
+  - Modular social_icon blocks
+  - Legacy direct URL/icon settings
+  - Custom uploaded icons or default SVG icons
+  - Platform-specific hover effects
+  
+  Parameters:
+  - block: social_icons block object
+  - section_blocks: all section blocks (for finding social_icon blocks)
+{% endcomment %}
+
+{% assign heading_size = block.settings.heading_size | default: 20 | plus: 0 %}
+{% assign icon_size = block.settings.social_icon_size | default: 28 | plus: 0 %}
+{% assign icon_gap = block.settings.social_icon_gap | default: 12 | plus: 0 %}
+{% assign icon_size_mobile = block.settings.social_icon_size_mobile %}
+{% if icon_size_mobile == blank %}
+  {% assign icon_size_mobile = icon_size %}
+{% else %}
+  {% assign icon_size_mobile = icon_size_mobile | plus: 0 %}
+{% endif %}
+{% assign icon_gap_mobile = block.settings.social_icon_gap_mobile %}
+{% if icon_gap_mobile == blank %}
+  {% assign icon_gap_mobile = icon_gap %}
+{% else %}
+  {% assign icon_gap_mobile = icon_gap_mobile | plus: 0 %}
+{% endif %}
+{% assign icon_render_width = icon_size | times: 3 %}
+{% if icon_render_width < icon_size %}
+  {% assign icon_render_width = icon_size %}
+{% endif %}
+{% assign icon_render_width = icon_render_width | round %}
+{% assign fallback_size = heading_size | minus: 4 %}
+{% if fallback_size < 12 %}
+  {% assign fallback_size = 12 %}
+{% endif %}
+{% assign social_icon_blocks = section_blocks | where: 'type', 'social_icon' %}
+
+{% if block.settings.heading != blank %}
+  <h2 class="kk-footer__heading" style="--kk-footer-heading-size: {{ heading_size }}px;">{{ block.settings.heading }}</h2>
+{% endif %}
+
+{% if social_icon_blocks.size > 0 %}
+  <div class="kk-footer__social" style="--kk-footer-social-size: {{ icon_size }}px; --kk-footer-social-gap: {{ icon_gap }}px; --kk-footer-social-size-mobile: {{ icon_size_mobile }}px; --kk-footer-social-gap-mobile: {{ icon_gap_mobile }}px;">
+    {% assign rendered_icons = 0 %}
+    {% for icon_block in social_icon_blocks %}
+      {% assign platform = icon_block.settings.platform | default: 'custom' %}
+      {% assign fallback_url = '' %}
+      {% case platform %}
+        {% when 'instagram' %}
+          {% assign fallback_url = block.settings.instagram_link | default: block.settings.instagram_url %}
+        {% when 'facebook' %}
+          {% assign fallback_url = block.settings.facebook_link | default: block.settings.facebook_url %}
+        {% when 'tiktok' %}
+          {% assign fallback_url = block.settings.tiktok_link | default: block.settings.tiktok_url %}
+        {% when 'spotify' %}
+          {% assign fallback_url = block.settings.spotify_link | default: block.settings.spotify_url %}
+        {% when 'youtube' %}
+          {% assign fallback_url = block.settings.youtube_link %}
+        {% else %}
+          {% assign fallback_url = '' %}
+      {% endcase %}
+      {% assign icon_url = icon_block.settings.link | default: icon_block.settings.url | default: icon_block.settings.href | default: fallback_url %}
+      {% assign custom_icon = icon_block.settings.custom_icon %}
+      {% assign gradient_enabled = icon_block.settings.enable_gradient %}
+      {% assign platform_label = '' %}
+      {% assign icon_class = platform %}
+
+      {% case platform %}
+        {% when 'instagram' %}
+          {% assign platform_label = 'Instagram' %}
+        {% when 'facebook' %}
+          {% assign platform_label = 'Facebook' %}
+        {% when 'tiktok' %}
+          {% assign platform_label = 'TikTok' %}
+        {% when 'spotify' %}
+          {% assign platform_label = 'Spotify' %}
+        {% when 'youtube' %}
+          {% assign platform_label = 'YouTube' %}
+        {% else %}
+          {% assign platform_label = 'Sosial kanal' %}
+          {% assign icon_class = 'custom' %}
+      {% endcase %}
+
+      {% assign rendered_icons = rendered_icons | plus: 1 %}
+      {% if icon_url != blank %}
+        <a
+          class="kk-footer__social-link kk-footer__social-link--{{ icon_class }}"
+          href="{{ icon_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{ platform_label }}"
+          data-gradient="{% if gradient_enabled %}true{% else %}false{% endif %}"
+        >
+          <span class="visually-hidden">Følg {{ shop.name }} på {{ platform_label }}</span>
+          {% if custom_icon != blank %}
+            <img
+              src="{{ custom_icon | image_url: width: icon_render_width }}"
+              alt="{{ platform_label }}"
+              class="kk-footer__icon"
+              loading="lazy"
+              decoding="async"
+              width="{{ icon_size }}"
+              height="{{ icon_size }}"
+            >
+          {% else %}
+            {% case platform %}
+              {% when 'instagram' %}{% render 'icon-instagram' %}
+              {% when 'facebook' %}{% render 'icon-facebook' %}
+              {% when 'tiktok' %}{% render 'icon-tiktok' %}
+              {% when 'spotify' %}{% render 'icon-spotify' %}
+              {% when 'youtube' %}{% render 'icon-youtube' %}
+              {% else %}{% render 'icon-external-link' %}
+            {% endcase %}
+          {% endif %}
+        </a>
+      {% else %}
+        <span
+          class="kk-footer__social-link kk-footer__social-link--{{ icon_class }} kk-footer__social-link--static"
+          aria-label="{{ platform_label }}"
+        >
+          {% if custom_icon != blank %}
+            <img
+              src="{{ custom_icon | image_url: width: icon_render_width }}"
+              alt="{{ platform_label }}"
+              class="kk-footer__icon"
+              loading="lazy"
+              decoding="async"
+              width="{{ icon_size }}"
+              height="{{ icon_size }}"
+            >
+          {% else %}
+            {% case platform %}
+              {% when 'instagram' %}{% render 'icon-instagram' %}
+              {% when 'facebook' %}{% render 'icon-facebook' %}
+              {% when 'tiktok' %}{% render 'icon-tiktok' %}
+              {% when 'spotify' %}{% render 'icon-spotify' %}
+              {% when 'youtube' %}{% render 'icon-youtube' %}
+              {% else %}{% render 'icon-external-link' %}
+            {% endcase %}
+          {% endif %}
+        </span>
+      {% endif %}
+    {% endfor %}
+
+    {% if rendered_icons == 0 %}
+      <span class="kk-footer__text" style="--footer-text-size: {{ fallback_size }}px;">Legg til lenker for Instagram, Facebook, TikTok, Spotify eller YouTube i blokkinnstillingene.</span>
+    {% endif %}
+  </div>
+{% else %}
+  {% assign instagram_link = block.settings.instagram_link | default: block.settings.instagram_url %}
+  {% assign facebook_link = block.settings.facebook_link | default: block.settings.facebook_url %}
+  {% assign tiktok_link = block.settings.tiktok_link | default: block.settings.tiktok_url %}
+  {% assign spotify_link = block.settings.spotify_link | default: block.settings.spotify_url %}
+  {% assign youtube_link = block.settings.youtube_link %}
+
+  {% assign instagram_icon_pick = block.settings.instagram_icon %}
+  {% assign facebook_icon_pick = block.settings.facebook_icon %}
+  {% assign tiktok_icon_pick = block.settings.tiktok_icon %}
+  {% assign spotify_icon_pick = block.settings.spotify_icon %}
+  {% assign youtube_icon_pick = block.settings.youtube_icon %}
+
+  {% assign instagram_icon_url = blank %}
+  {% assign facebook_icon_url = blank %}
+  {% assign tiktok_icon_url = blank %}
+  {% assign spotify_icon_url = blank %}
+  {% assign youtube_icon_url = blank %}
+
+  {% if instagram_icon_pick != blank %}
+    {% assign instagram_icon_url = instagram_icon_pick | image_url: width: icon_render_width %}
+    {% if instagram_icon_url == blank %}
+      {% assign instagram_icon_url = instagram_icon_pick | file_url %}
+    {% endif %}
+  {% endif %}
+  {% if facebook_icon_pick != blank %}
+    {% assign facebook_icon_url = facebook_icon_pick | image_url: width: icon_render_width %}
+    {% if facebook_icon_url == blank %}
+      {% assign facebook_icon_url = facebook_icon_pick | file_url %}
+    {% endif %}
+  {% endif %}
+  {% if tiktok_icon_pick != blank %}
+    {% assign tiktok_icon_url = tiktok_icon_pick | image_url: width: icon_render_width %}
+    {% if tiktok_icon_url == blank %}
+      {% assign tiktok_icon_url = tiktok_icon_pick | file_url %}
+    {% endif %}
+  {% endif %}
+  {% if spotify_icon_pick != blank %}
+    {% assign spotify_icon_url = spotify_icon_pick | image_url: width: icon_render_width %}
+    {% if spotify_icon_url == blank %}
+      {% assign spotify_icon_url = spotify_icon_pick | file_url %}
+    {% endif %}
+  {% endif %}
+  {% if youtube_icon_pick != blank %}
+    {% assign youtube_icon_url = youtube_icon_pick | image_url: width: icon_render_width %}
+    {% if youtube_icon_url == blank %}
+      {% assign youtube_icon_url = youtube_icon_pick | file_url %}
+    {% endif %}
+  {% endif %}
+
+  {% assign instagram_has_icon = instagram_icon_url %}
+  {% assign facebook_has_icon = facebook_icon_url %}
+  {% assign tiktok_has_icon = tiktok_icon_url %}
+  {% assign spotify_has_icon = spotify_icon_url %}
+  {% assign youtube_has_icon = youtube_icon_url %}
+
+  {% assign has_social = false %}
+
+  <div class="kk-footer__social" style="--kk-footer-social-size: {{ icon_size }}px; --kk-footer-social-gap: {{ icon_gap }}px; --kk-footer-social-size-mobile: {{ icon_size_mobile }}px; --kk-footer-social-gap-mobile: {{ icon_gap_mobile }}px;">
+    {% if instagram_link != blank or instagram_has_icon %}
+      {% assign has_social = true %}
+      {% if instagram_link != blank %}
+        <a
+          class="kk-footer__social-link kk-footer__social-link--instagram"
+          href="{{ instagram_link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <span class="visually-hidden">Følg {{ shop.name }} på Instagram</span>
+      {% else %}
+        <span class="kk-footer__social-link kk-footer__social-link--instagram kk-footer__social-link--static" aria-label="Instagram">
+      {% endif %}
+        {% if instagram_has_icon %}
+          <img src="{{ instagram_icon_url }}" alt="Instagram" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
+        {% else %}
+          {% render 'icon-instagram' %}
+        {% endif %}
+      {% if instagram_link != blank %}
+        </a>
+      {% else %}
+        </span>
+      {% endif %}
+    {% endif %}
+
+    {% if facebook_link != blank or facebook_has_icon %}
+      {% assign has_social = true %}
+      {% if facebook_link != blank %}
+        <a
+          class="kk-footer__social-link kk-footer__social-link--facebook"
+          href="{{ facebook_link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <span class="visually-hidden">Følg {{ shop.name }} på Facebook</span>
+      {% else %}
+        <span class="kk-footer__social-link kk-footer__social-link--facebook kk-footer__social-link--static" aria-label="Facebook">
+      {% endif %}
+        {% if facebook_has_icon %}
+          <img src="{{ facebook_icon_url }}" alt="Facebook" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
+        {% else %}
+          {% render 'icon-facebook' %}
+        {% endif %}
+      {% if facebook_link != blank %}
+        </a>
+      {% else %}
+        </span>
+      {% endif %}
+    {% endif %}
+
+    {% if tiktok_link != blank or tiktok_has_icon %}
+      {% assign has_social = true %}
+      {% if tiktok_link != blank %}
+        <a
+          class="kk-footer__social-link kk-footer__social-link--tiktok"
+          href="{{ tiktok_link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+        >
+          <span class="visually-hidden">Følg {{ shop.name }} på TikTok</span>
+      {% else %}
+        <span class="kk-footer__social-link kk-footer__social-link--tiktok kk-footer__social-link--static" aria-label="TikTok">
+      {% endif %}
+        {% if tiktok_has_icon %}
+          <img src="{{ tiktok_icon_url }}" alt="TikTok" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
+        {% else %}
+          {% render 'icon-tiktok' %}
+        {% endif %}
+      {% if tiktok_link != blank %}
+        </a>
+      {% else %}
+        </span>
+      {% endif %}
+    {% endif %}
+
+    {% if spotify_link != blank or spotify_has_icon %}
+      {% assign has_social = true %}
+      {% if spotify_link != blank %}
+        <a
+          class="kk-footer__social-link kk-footer__social-link--spotify"
+          href="{{ spotify_link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Spotify"
+        >
+          <span class="visually-hidden">Følg {{ shop.name }} på Spotify</span>
+      {% else %}
+        <span class="kk-footer__social-link kk-footer__social-link--spotify kk-footer__social-link--static" aria-label="Spotify">
+      {% endif %}
+        {% if spotify_has_icon %}
+          <img src="{{ spotify_icon_url }}" alt="Spotify" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
+        {% else %}
+          {% render 'icon-spotify' %}
+        {% endif %}
+      {% if spotify_link != blank %}
+        </a>
+      {% else %}
+        </span>
+      {% endif %}
+    {% endif %}
+
+    {% if youtube_link != blank or youtube_has_icon %}
+      {% assign has_social = true %}
+      {% if youtube_link != blank %}
+        <a
+          class="kk-footer__social-link kk-footer__social-link--youtube"
+          href="{{ youtube_link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <span class="visually-hidden">Følg {{ shop.name }} på YouTube</span>
+      {% else %}
+        <span class="kk-footer__social-link kk-footer__social-link--youtube kk-footer__social-link--static" aria-label="YouTube">
+      {% endif %}
+        {% if youtube_has_icon %}
+          <img src="{{ youtube_icon_url }}" alt="YouTube" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
+        {% else %}
+          {% render 'icon-youtube' %}
+        {% endif %}
+      {% if youtube_link != blank %}
+        </a>
+      {% else %}
+        </span>
+      {% endif %}
+    {% endif %}
+
+    {% unless has_social %}
+      <span class="kk-footer__text" style="--footer-text-size: {{ fallback_size }}px;">Legg til lenker for Instagram, Facebook, TikTok, Spotify eller YouTube i blokkinnstillingene.</span>
+    {% endunless %}
+  </div>
+{% endif %}
