@@ -41,7 +41,7 @@
           "settings": {
             "heading": "Kolleksjoner",
             "heading_size": 20,
-            "link_size": 15,
+            "link_size": 14,
             "link_spacing": 4,
             "menu": "footer-menu",
             "show_all_collections": false,
@@ -55,7 +55,7 @@
           "settings": {
             "heading": "Kategorier",
             "heading_size": 20,
-            "link_size": 15,
+            "link_size": 14,
             "link_spacing": 4,
             "menu": "footer-categories",
             "show_all_collections": true,
@@ -69,7 +69,7 @@
           "settings": {
             "heading": "Annet",
             "heading_size": 20,
-            "link_size": 15,
+            "link_size": 14,
             "link_spacing": 4,
             "menu": "footer-pages",
             "show_all_collections": false,
