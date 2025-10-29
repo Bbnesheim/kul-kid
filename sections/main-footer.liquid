@@ -145,7 +145,7 @@
               {% assign social_icon_blocks = section.blocks | where: 'type', 'social_icon' %}
 
               {% if block.settings.heading != blank %}
-                <h2 class="kk-footer__heading" style="--footer-heading-size: {{ heading_size }}px;">{{ block.settings.heading }}</h2>
+                <h2 class="kk-footer__heading" style="--kk-footer-heading-size: {{ heading_size }}px;">{{ block.settings.heading }}</h2>
               {% endif %}
 
               {% if social_icon_blocks.size > 0 %}
@@ -193,7 +193,7 @@
                     {% assign rendered_icons = rendered_icons | plus: 1 %}
                     {% if icon_url != blank %}
                       <a
-                        class="kk-footer__social-link footer__social-link--{{ icon_class }}"
+                        class="kk-footer__social-link kk-footer__social-link--{{ icon_class }}"
                         href="{{ icon_url }}"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -224,7 +224,7 @@
                       </a>
                     {% else %}
                       <span
-                        class="kk-footer__social-link footer__social-link--{{ icon_class }} footer__social-link--static"
+                        class="kk-footer__social-link kk-footer__social-link--{{ icon_class }} kk-footer__social-link--static"
                         aria-label="{{ platform_label }}"
                       >
                         {% if custom_icon != blank %}
@@ -318,7 +318,7 @@
                     {% assign has_social = true %}
                     {% if instagram_link != blank %}
                       <a
-                        class="kk-footer__social-link footer__social-link--instagram"
+                        class="kk-footer__social-link kk-footer__social-link--instagram"
                         href="{{ instagram_link }}"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -326,7 +326,7 @@
                       >
                         <span class="visually-hidden">Følg {{ shop.name }} på Instagram</span>
                     {% else %}
-                      <span class="kk-footer__social-link footer__social-link--instagram footer__social-link--static" aria-label="Instagram">
+                      <span class="kk-footer__social-link kk-footer__social-link--instagram kk-footer__social-link--static" aria-label="Instagram">
                     {% endif %}
                       {% if instagram_has_icon %}
                         <img src="{{ instagram_icon_url }}" alt="Instagram" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
@@ -344,7 +344,7 @@
                     {% assign has_social = true %}
                     {% if facebook_link != blank %}
                       <a
-                        class="kk-footer__social-link footer__social-link--facebook"
+                        class="kk-footer__social-link kk-footer__social-link--facebook"
                         href="{{ facebook_link }}"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -352,7 +352,7 @@
                       >
                         <span class="visually-hidden">Følg {{ shop.name }} på Facebook</span>
                     {% else %}
-                      <span class="kk-footer__social-link footer__social-link--facebook footer__social-link--static" aria-label="Facebook">
+                      <span class="kk-footer__social-link kk-footer__social-link--facebook kk-footer__social-link--static" aria-label="Facebook">
                     {% endif %}
                       {% if facebook_has_icon %}
                         <img src="{{ facebook_icon_url }}" alt="Facebook" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
@@ -370,7 +370,7 @@
                     {% assign has_social = true %}
                     {% if tiktok_link != blank %}
                       <a
-                        class="kk-footer__social-link footer__social-link--tiktok"
+                        class="kk-footer__social-link kk-footer__social-link--tiktok"
                         href="{{ tiktok_link }}"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -378,7 +378,7 @@
                       >
                         <span class="visually-hidden">Følg {{ shop.name }} på TikTok</span>
                     {% else %}
-                      <span class="kk-footer__social-link footer__social-link--tiktok footer__social-link--static" aria-label="TikTok">
+                      <span class="kk-footer__social-link kk-footer__social-link--tiktok kk-footer__social-link--static" aria-label="TikTok">
                     {% endif %}
                       {% if tiktok_has_icon %}
                         <img src="{{ tiktok_icon_url }}" alt="TikTok" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
@@ -396,7 +396,7 @@
                     {% assign has_social = true %}
                     {% if spotify_link != blank %}
                       <a
-                        class="kk-footer__social-link footer__social-link--spotify"
+                        class="kk-footer__social-link kk-footer__social-link--spotify"
                         href="{{ spotify_link }}"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -404,7 +404,7 @@
                       >
                         <span class="visually-hidden">Følg {{ shop.name }} på Spotify</span>
                     {% else %}
-                      <span class="kk-footer__social-link footer__social-link--spotify footer__social-link--static" aria-label="Spotify">
+                      <span class="kk-footer__social-link kk-footer__social-link--spotify kk-footer__social-link--static" aria-label="Spotify">
                     {% endif %}
                       {% if spotify_has_icon %}
                         <img src="{{ spotify_icon_url }}" alt="Spotify" class="kk-footer__icon" loading="lazy" decoding="async" width="{{ icon_size }}" height="{{ icon_size }}">
@@ -422,7 +422,7 @@
                     {% assign has_social = true %}
                     {% if youtube_link != blank %}
                       <a
-                        class="kk-footer__social-link footer__social-link--youtube"
+                        class="kk-footer__social-link kk-footer__social-link--youtube"
                         href="{{ youtube_link }}"
                         target="_blank"
                         rel="noopener noreferrer"

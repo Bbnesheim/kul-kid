@@ -45,7 +45,10 @@
   object-fit: contain;
   display: block;
   fill: currentColor;
-  stroke: currentColor;
+  stroke: none;
+  stroke-width: 0;
+  border: none;
+  outline: none;
 }
 
 /* Custom uploaded icon images */
@@ -57,6 +60,8 @@
   object-fit: contain;
   display: block;
   border-radius: inherit;
+  border: none;
+  outline: none;
 }
 
 /* Social Link Base */
@@ -72,6 +77,8 @@
   flex: 0 0 var(--kk-footer-social-size-effective);
   transition: transform 0.25s ease;
   z-index: 0;
+  border: none;
+  outline: none;
 }
 
 .kk-footer__social-link:hover,
@@ -88,63 +95,111 @@
 /* Icon color transitions */
 .kk-footer__social img,
 .kk-footer__social svg {
-  transition: filter 0.25s ease;
+  transition: filter 0.25s ease, opacity 0.25s ease;
 }
 
-.kk-footer__social-link:hover img,
-.kk-footer__social-link:focus-visible img {
-  filter: var(--kk-social-hover-filter, none);
+/* Hover gradient effects for uploaded images */
+.kk-footer__social-link--instagram:hover img,
+.kk-footer__social-link--instagram:focus-visible img {
+  filter: drop-shadow(0 2px 12px rgba(225, 48, 108, 0.8)) 
+          drop-shadow(0 0 20px rgba(131, 58, 180, 0.6)) 
+          drop-shadow(0 -2px 8px rgba(253, 29, 29, 0.5)) 
+          brightness(1.2) saturate(1.3);
+}
+
+.kk-footer__social-link--facebook:hover img,
+.kk-footer__social-link--facebook:focus-visible img {
+  filter: drop-shadow(0 2px 16px rgba(24, 119, 242, 0.9)) 
+          drop-shadow(0 0 24px rgba(66, 103, 178, 0.7)) 
+          brightness(1.25) saturate(1.4);
+}
+
+.kk-footer__social-link--tiktok:hover img,
+.kk-footer__social-link--tiktok:focus-visible img {
+  filter: drop-shadow(0 2px 16px rgba(37, 244, 238, 0.9)) 
+          drop-shadow(0 0 20px rgba(254, 44, 85, 0.6)) 
+          brightness(1.25) saturate(1.4);
+}
+
+.kk-footer__social-link--spotify:hover img,
+.kk-footer__social-link--spotify:focus-visible img {
+  filter: drop-shadow(0 2px 16px rgba(29, 185, 84, 0.9)) 
+          drop-shadow(0 0 24px rgba(30, 215, 96, 0.7)) 
+          brightness(1.3) saturate(1.5);
+}
+
+.kk-footer__social-link--youtube:hover img,
+.kk-footer__social-link--youtube:focus-visible img {
+  filter: drop-shadow(0 2px 16px rgba(255, 0, 0, 0.9)) 
+          drop-shadow(0 0 24px rgba(255, 50, 50, 0.7)) 
+          brightness(1.3) saturate(1.4);
 }
 
 /* Brand-Specific Colors - SVG only */
 .kk-footer__social-link--instagram svg {
-  fill: #000000;
-  transition: fill 0.25s ease;
+  stroke: none;
+  stroke-width: 0;
+  transition: filter 0.25s ease;
 }
 
 .kk-footer__social-link--instagram:hover svg,
 .kk-footer__social-link--instagram:focus-visible svg {
-  fill: url(#instagram-gradient);
+  filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.9)) 
+          drop-shadow(0 0 16px rgba(193, 53, 132, 0.7)) 
+          drop-shadow(0 0 24px rgba(131, 58, 180, 0.5)) 
+          drop-shadow(0 0 32px rgba(253, 29, 29, 0.3));
 }
 
 .kk-footer__social-link--facebook svg {
-  fill: #000000;
-  transition: fill 0.25s ease;
+  stroke: none;
+  stroke-width: 0;
+  transition: filter 0.25s ease;
 }
 
 .kk-footer__social-link--facebook:hover svg,
 .kk-footer__social-link--facebook:focus-visible svg {
-  fill: #1877f2;
+  filter: drop-shadow(0 0 8px rgba(24, 119, 242, 1)) 
+          drop-shadow(0 0 16px rgba(24, 119, 242, 0.7)) 
+          drop-shadow(0 0 24px rgba(66, 103, 178, 0.5));
 }
 
 .kk-footer__social-link--tiktok svg {
-  fill: #000000;
-  transition: fill 0.25s ease;
+  stroke: none;
+  stroke-width: 0;
+  transition: filter 0.25s ease;
 }
 
 .kk-footer__social-link--tiktok:hover svg,
 .kk-footer__social-link--tiktok:focus-visible svg {
-  fill: #25f4ee;
+  filter: drop-shadow(0 0 8px rgba(37, 244, 238, 1)) 
+          drop-shadow(0 0 16px rgba(37, 244, 238, 0.7)) 
+          drop-shadow(0 0 24px rgba(254, 44, 85, 0.4));
 }
 
 .kk-footer__social-link--spotify svg {
-  fill: #000000;
-  transition: fill 0.25s ease;
+  stroke: none;
+  stroke-width: 0;
+  transition: filter 0.25s ease;
 }
 
 .kk-footer__social-link--spotify:hover svg,
 .kk-footer__social-link--spotify:focus-visible svg {
-  fill: #1db954;
+  filter: drop-shadow(0 0 8px rgba(29, 185, 84, 1)) 
+          drop-shadow(0 0 16px rgba(29, 185, 84, 0.8)) 
+          drop-shadow(0 0 24px rgba(30, 215, 96, 0.5));
 }
 
 .kk-footer__social-link--youtube svg {
-  fill: #000000;
-  transition: fill 0.25s ease;
+  stroke: none;
+  stroke-width: 0;
+  transition: filter 0.25s ease;
 }
 
 .kk-footer__social-link--youtube:hover svg,
 .kk-footer__social-link--youtube:focus-visible svg {
-  fill: #ff0000;
+  filter: drop-shadow(0 0 8px rgba(255, 0, 0, 1)) 
+          drop-shadow(0 0 16px rgba(255, 0, 0, 0.8)) 
+          drop-shadow(0 0 24px rgba(255, 50, 50, 0.5));
 }
 
 /* ========================================
