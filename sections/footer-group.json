@@ -60,7 +60,7 @@
             "menu": "footer-categories",
             "show_all_collections": true,
             "collection_limit": 6,
-            "view_all_label": "Se alle kategoriene",
+            "view_all_label": "",
             "view_all_url": "/collections"
           }
         },
