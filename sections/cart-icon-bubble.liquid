@@ -1,7 +1,7 @@
 {% if cart == empty %}
-  <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+{% render 'icon-cart' %}
 {% else %}
-  <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+{% render 'icon-cart' %}
 {% endif %}
 
 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>

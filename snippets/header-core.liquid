@@ -71,7 +71,7 @@
         {%- if section.settings.custom_search_icon -%}
           {{ section.settings.custom_search_icon | image_url: width: 30 | image_tag: alt: 'Search', loading: 'lazy' }}
         {%- else -%}
-          <span class="svg-wrapper">{{ 'icon-search.svg' | inline_asset_content }}</span>
+{% render 'icon-search' %}
         {%- endif -%}
       </span>
     </a>
@@ -86,7 +86,7 @@
           {%- if section.settings.custom_account_icon -%}
             {{ section.settings.custom_account_icon | image_url: width: 30 | image_tag: alt: 'Account', loading: 'lazy' }}
           {%- else -%}
-            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+{% render 'icon-account' %}
           {%- endif -%}
         </span>
       </a>
@@ -98,9 +98,9 @@
           {{ section.settings.custom_cart_icon | image_url: width: 30 | image_tag: alt: 'Cart', loading: 'lazy' }}
         {%- else -%}
           {%- if cart == empty -%}
-            <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+{% render 'icon-cart' %}
           {%- else -%}
-            <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+{% render 'icon-cart' %}
           {%- endif -%}
         {%- endif -%}
       </span>
