@@ -26,7 +26,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: var(--kk-footer-payments-gap, 16px);
   width: min(100%, 1100px);
   margin: 12px 0 8px;
   color: var(--kk-footer-text-color, #000000);
@@ -115,7 +115,7 @@
 @media (max-width: 768px) {
   .kk-footer-payments,
   .kk-footer__payments {
-    gap: 12px;
+    gap: var(--kk-footer-payments-gap-mobile, var(--kk-footer-payments-gap, 12px));
     margin: 12px 0 6px;
   }
 

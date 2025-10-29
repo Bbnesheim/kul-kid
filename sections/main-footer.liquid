@@ -122,83 +122,59 @@
                 block: block,
                 section_blocks: section.blocks
               %}
-              {% if block.settings.amex_icon != blank %}
-                {% assign show_amex_icon = true %}
+
+            {% when 'payments' %}
+              {% assign icon_height = block.settings.icon_height | default: 28 | plus: 0 %}
+              {% assign icon_height_mobile = block.settings.icon_height_mobile | default: 24 | plus: 0 %}
+              {% assign icon_gap = block.settings.payments_icon_gap | default: 12 | plus: 0 %}
+              {% assign icon_gap_mobile = block.settings.payments_icon_gap_mobile | default: 10 | plus: 0 %}
+              {% assign heading_size = block.settings.heading_size | default: 20 | plus: 0 %}
+              {% assign render_payment_icon = 0 %}
+
+              {% if block.settings.heading != blank %}
+                <h2 class="kk-footer__heading" style="--kk-footer-heading-size: {{ heading_size }}px;">{{ block.settings.heading }}</h2>
               {% endif %}
-              {% if block.settings.paypal_icon != blank %}
-                {% assign show_paypal_icon = true %}
-              {% endif %}
-              {% if block.settings.apple_pay_icon != blank %}
-                {% assign show_apple_pay_icon = true %}
-              {% endif %}
-              {% if block.settings.klarna_icon != blank %}
-                {% assign show_klarna_icon = true %}
-              {% endif %}
 
-              <div class="kk-footer-payments kk-footer__payments" style="--kk-footer-payments-size: {{ icon_height }}px; --kk-footer-payments-size-mobile: {{ icon_height_mobile }}px;">
-                {% if show_visa_icon %}
+              <div class="kk-footer-payments kk-footer__payments" style="--kk-footer-payments-size: {{ icon_height }}px; --kk-footer-payments-size-mobile: {{ icon_height_mobile }}px; --kk-footer-payments-gap: {{ icon_gap }}px; --kk-footer-payments-gap-mobile: {{ icon_gap_mobile }}px;">
+                {% if block.settings.show_visa %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
-                    {% if block.settings.visa_icon != blank %}
-                      <img src="{{ block.settings.visa_icon | image_url }}" alt="Visa" class="kk-footer__icon" loading="eager" decoding="auto">
-                    {% else %}
-                      {% render 'icon-payment', name: 'visa' %}
-                    {% endif %}
+                    {% render 'icon-payment', name: 'visa' %}
                   </div>
                 {% endif %}
 
-                {% if show_mastercard_icon %}
+                {% if block.settings.show_mastercard %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
-                    {% if block.settings.mastercard_icon != blank %}
-                      <img src="{{ block.settings.mastercard_icon | image_url }}" alt="Mastercard" class="kk-footer__icon" loading="eager" decoding="auto">
-                    {% else %}
-                      {% render 'icon-payment', name: 'mastercard' %}
-                    {% endif %}
+                    {% render 'icon-payment', name: 'mastercard' %}
                   </div>
                 {% endif %}
 
-                {% if show_amex_icon %}
+                {% if block.settings.show_amex %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
-                    {% if block.settings.amex_icon != blank %}
-                      <img src="{{ block.settings.amex_icon | image_url }}" alt="American Express" class="kk-footer__icon" loading="eager" decoding="auto">
-                    {% else %}
-                      {% render 'icon-payment', name: 'amex' %}
-                    {% endif %}
+                    {% render 'icon-payment', name: 'amex' %}
                   </div>
                 {% endif %}
 
-                {% if show_paypal_icon %}
+                {% if block.settings.show_paypal %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
-                    {% if block.settings.paypal_icon != blank %}
-                      <img src="{{ block.settings.paypal_icon | image_url }}" alt="PayPal" class="kk-footer__icon" loading="eager" decoding="auto">
-                    {% else %}
-                      {% render 'icon-payment', name: 'paypal' %}
-                    {% endif %}
+                    {% render 'icon-payment', name: 'paypal' %}
                   </div>
                 {% endif %}
 
-                {% if show_apple_pay_icon %}
+                {% if block.settings.show_apple_pay %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
-                    {% if block.settings.apple_pay_icon != blank %}
-                      <img src="{{ block.settings.apple_pay_icon | image_url }}" alt="Apple Pay" class="kk-footer__icon" loading="eager" decoding="auto">
-                    {% else %}
-                      {% render 'icon-payment', name: 'apple_pay' %}
-                    {% endif %}
+                    {% render 'icon-payment', name: 'apple_pay' %}
                   </div>
                 {% endif %}
 
-                {% if show_klarna_icon %}
+                {% if block.settings.show_klarna %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
-                    {% if block.settings.klarna_icon != blank %}
-                      <img src="{{ block.settings.klarna_icon | image_url }}" alt="Klarna" class="kk-footer__icon" loading="eager" decoding="auto">
-                    {% else %}
-                      {% render 'icon-payment', name: 'klarna' %}
-                    {% endif %}
+                    {% render 'icon-payment', name: 'klarna' %}
                   </div>
                 {% endif %}
 
@@ -210,7 +186,7 @@
                 {% endif %}
 
                 {% if render_payment_icon == 0 %}
-                  <span class="kk-footer__text" style="--footer-text-size: {{ empty_state_size }}px;">Aktiver betalingsikoner i blokkinnstillingene.</span>
+                  <span class="kk-footer__text" style="--footer-text-size: 14px;">Aktiver betalingsikoner i blokkinnstillingene.</span>
                 {% endif %}
               </div>
           {% endcase %}
