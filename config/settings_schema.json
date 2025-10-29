@@ -1451,5 +1451,16 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Development",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "use_main_overlay_header",
+        "label": "Use Main Overlay Header (dev)",
+        "default": false
+      }
+    ]
   }
 ]

@@ -1,0 +1,114 @@
+{% assign block_uid = block.id | replace: '_', '' | downcase %}
+{% assign ai_gen_id = block_uid %}
+
+{% comment %} Rainbow FAQ Block (snippet) {% endcomment %}
+
+{% style %}
+  .ai-rainbow-faq-wrapper-{{ ai_gen_id }} { margin: {{ block.settings.margin_top }}px {{ block.settings.horizontal_margin }}px {{ block.settings.margin_bottom }}px; padding: 0; }
+  .ai-rainbow-faq-{{ ai_gen_id }} { max-width: {{ block.settings.max_width }}px; margin: 0 auto; padding: {{ block.settings.section_padding }}px; }
+  .ai-rainbow-faq__title-{{ ai_gen_id }} { text-align:center; margin-bottom: {{ block.settings.title_spacing }}px; font-size: {{ block.settings.title_size }}px; font-weight:700; background: {{ block.settings.title_gradient }}; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color: {{ block.settings.title_color }}; }
+  .ai-rainbow-faq__title-{{ ai_gen_id }} * { background: {{ block.settings.title_gradient }}; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color: {{ block.settings.title_color }}; margin:0; }
+  .ai-rainbow-faq__subtitle-{{ ai_gen_id }} { text-align:center; margin-bottom: {{ block.settings.subtitle_spacing }}px; font-size: {{ block.settings.subtitle_size }}px; color: {{ block.settings.subtitle_color }}; opacity:.8; }
+  .ai-rainbow-faq__subtitle-{{ ai_gen_id }} * { color: {{ block.settings.subtitle_color }}; margin:0; }
+  .ai-rainbow-faq__list-{{ ai_gen_id }} { display:flex; flex-direction:column; gap: {{ block.settings.item_spacing }}px; margin: {{ block.settings.list_margin_top }}px 0 {{ block.settings.list_margin_bottom }}px; padding: {{ block.settings.list_padding }}px; }
+  .ai-rainbow-faq__item-{{ ai_gen_id }} { background: {{ block.settings.item_background }}; border-radius: {{ block.settings.border_radius }}px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,.1); transition:.3s cubic-bezier(0.4,0,0.2,1); border:2px solid transparent; background-clip:padding-box; margin: {{ block.settings.item_margin }}px 0; padding: {{ block.settings.item_padding }}px; }
+  .ai-rainbow-faq__item-{{ ai_gen_id }}:hover { transform: translateY(-2px); box-shadow:0 8px 25px rgba(0,0,0,.15); }
+  .ai-rainbow-faq__item-{{ ai_gen_id }}.active { background: {{ block.settings.active_item_background }}; border-image: {{ block.settings.rainbow_gradient }} 1; }
+  .ai-rainbow-faq__question-{{ ai_gen_id }} { width:100%; padding: {{ block.settings.question_padding }}px; background:none; border:none; text-align:left; font-size: {{ block.settings.question_size }}px; font-weight:600; color: {{ block.settings.question_color }}; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:.3s; position:relative; overflow:hidden; margin: {{ block.settings.question_margin }}px 0; }
+  .ai-rainbow-faq__question-{{ ai_gen_id }}:hover { color: {{ block.settings.question_hover_color }}; }
+  .ai-rainbow-faq__question-{{ ai_gen_id }}:focus { outline:2px solid {{ block.settings.focus_color }}; outline-offset:2px; }
+  .ai-rainbow-faq__question-{{ ai_gen_id }}::before { content:''; position:absolute; inset:0 0 0 -100%; background: {{ block.settings.rainbow_gradient }}; opacity:0; transition:.5s; z-index:-1; }
+  .ai-rainbow-faq__question-{{ ai_gen_id }}:hover::before { left:0; opacity:.1; }
+  .ai-rainbow-faq__icon-{{ ai_gen_id }} { width: {{ block.settings.icon_size }}px; height: {{ block.settings.icon_size }}px; transition: .4s cubic-bezier(0.68,-0.55,0.265,1.55); flex-shrink:0; margin-left:16px; }
+  .ai-rainbow-faq__item-{{ ai_gen_id }}.active .ai-rainbow-faq__icon-{{ ai_gen_id }} { transform: rotate(180deg); }
+  .ai-rainbow-faq__answer-{{ ai_gen_id }} { max-height:0; overflow:hidden; transition: all .5s cubic-bezier(0.4,0,0.2,1); opacity:0; }
+  .ai-rainbow-faq__answer-{{ ai_gen_id }}.active { max-height:500px; opacity:1; }
+  .ai-rainbow-faq__answer-content-{{ ai_gen_id }} { padding: {{ block.settings.answer_padding_top }}px {{ block.settings.question_padding }}px {{ block.settings.answer_padding }}px; font-size: {{ block.settings.answer_size }}px; line-height:1.6; color: {{ block.settings.answer_color }}; transform: translateY(-10px); transition: transform .3s ease .2s; margin: {{ block.settings.answer_margin }}px 0; }
+  .ai-rainbow-faq__answer-{{ ai_gen_id }}.active .ai-rainbow-faq__answer-content-{{ ai_gen_id }} { transform: translateY(0); }
+  .ai-rainbow-faq__cta-{{ ai_gen_id }} { text-align:center; margin: {{ block.settings.cta_margin_top }}px 0 {{ block.settings.cta_margin_bottom }}px; padding: {{ block.settings.cta_padding }}px; }
+  .ai-rainbow-faq__cta-buttons-{{ ai_gen_id }} { display:flex; justify-content:center; align-items:center; gap: {{ block.settings.button_gap }}px; flex-wrap:wrap; }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }} { display:inline-block; padding: {{ block.settings.cta_button_padding_vertical }}px {{ block.settings.cta_button_padding_horizontal }}px; text-decoration:none; border-radius: {{ block.settings.cta_border_radius }}px; font-weight:600; font-size: {{ block.settings.cta_size }}px; transition:.3s; position:relative; overflow:hidden; border:none; cursor:pointer; margin: {{ block.settings.cta_button_margin }}px; }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}--primary { background: {{ block.settings.rainbow_gradient }}; color: {{ block.settings.cta_text_color }}; }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}--secondary { background: {{ block.settings.secondary_button_background }}; color: {{ block.settings.secondary_button_text_color }}; border:2px solid {{ block.settings.secondary_button_border_color }}; }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}:hover { transform: translateY(-2px); box-shadow:0 8px 25px rgba(0,0,0,.2); }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}--primary:hover { box-shadow:0 8px 25px rgba(255,107,107,.3); }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}--secondary:hover { background: {{ block.settings.secondary_button_hover_background }}; color: {{ block.settings.secondary_button_hover_text_color }}; }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}:focus { outline:2px solid {{ block.settings.focus_color }}; outline-offset:2px; }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}::before { content:''; position:absolute; inset:0 0 0 -100%; background: linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent); transition:left .6s; }
+  .ai-rainbow-faq__cta-button-{{ ai_gen_id }}:hover::before { left:100%; }
+  @keyframes ai-rainbow-bounce-{{ ai_gen_id }} { 0%,20%,50%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-8px)} 60%{transform:translateY(-4px)} }
+  .ai-rainbow-faq__item-{{ ai_gen_id }}.bounce { animation: ai-rainbow-bounce-{{ ai_gen_id }} .6s ease; }
+  @keyframes ai-rainbow-fade-in-{{ ai_gen_id }} { from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)} }
+  .ai-rainbow-faq__item-{{ ai_gen_id }}.fade-in { animation: ai-rainbow-fade-in-{{ ai_gen_id }} .5s ease forwards; }
+  @media (max-width:749px){
+    .ai-rainbow-faq-wrapper-{{ ai_gen_id }} { margin: {{ block.settings.mobile_margin_top }}px {{ block.settings.mobile_horizontal_margin }}px {{ block.settings.mobile_margin_bottom }}px; }
+    .ai-rainbow-faq-{{ ai_gen_id }} { padding: {{ block.settings.mobile_section_padding }}px; }
+    .ai-rainbow-faq__title-{{ ai_gen_id }} { font-size: {{ block.settings.mobile_title_size }}px; margin-bottom: {{ block.settings.mobile_title_spacing }}px; }
+    .ai-rainbow-faq__subtitle-{{ ai_gen_id }} { font-size: {{ block.settings.mobile_subtitle_size }}px; margin-bottom: {{ block.settings.mobile_subtitle_spacing }}px; }
+    .ai-rainbow-faq__list-{{ ai_gen_id }} { gap: {{ block.settings.mobile_item_spacing }}px; padding: {{ block.settings.mobile_list_padding }}px; margin: {{ block.settings.mobile_list_margin_top }}px 0 {{ block.settings.mobile_list_margin_bottom }}px; }
+    .ai-rainbow-faq__item-{{ ai_gen_id }} { padding: {{ block.settings.mobile_item_padding }}px; margin: {{ block.settings.mobile_item_margin }}px 0; border-radius: {{ block.settings.mobile_border_radius }}px; }
+    .ai-rainbow-faq__question-{{ ai_gen_id }} { padding: {{ block.settings.mobile_question_padding }}px; font-size: {{ block.settings.mobile_question_size }}px; margin: {{ block.settings.mobile_question_margin }}px 0; }
+    .ai-rainbow-faq__answer-content-{{ ai_gen_id }} { padding: {{ block.settings.mobile_answer_padding_top }}px {{ block.settings.mobile_question_padding }}px {{ block.settings.mobile_answer_padding }}px; font-size: {{ block.settings.mobile_answer_size }}px; margin: {{ block.settings.mobile_answer_margin }}px 0; }
+    .ai-rainbow-faq__icon-{{ ai_gen_id }} { width: {{ block.settings.mobile_icon_size }}px; height: {{ block.settings.mobile_icon_size }}px; }
+    .ai-rainbow-faq__cta-{{ ai_gen_id }} { padding: {{ block.settings.mobile_cta_padding }}px; margin: {{ block.settings.mobile_cta_margin_top }}px 0 {{ block.settings.mobile_cta_margin_bottom }}px; }
+    .ai-rainbow-faq__cta-buttons-{{ ai_gen_id }} { gap: {{ block.settings.mobile_button_gap }}px; flex-direction: {{ block.settings.mobile_button_layout }}; }
+    .ai-rainbow-faq__cta-button-{{ ai_gen_id }} { padding: {{ block.settings.mobile_cta_button_padding_vertical }}px {{ block.settings.mobile_cta_button_padding_horizontal }}px; margin: {{ block.settings.mobile_cta_button_margin }}px; font-size: {{ block.settings.mobile_cta_size }}px; border-radius: {{ block.settings.mobile_cta_border_radius }}px; }
+    .ai-rainbow-faq__cta-buttons-{{ ai_gen_id }}[data-mobile-layout="column"] .ai-rainbow-faq__cta-button-{{ ai_gen_id }} { width:100%; text-align:center; }
+  }
+{% endstyle %}
+
+<div class="ai-rainbow-faq-wrapper-{{ ai_gen_id }}">
+  <rainbow-faq-{{ ai_gen_id }} class="ai-rainbow-faq-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+    {% if block.settings.title != blank %}<div class="ai-rainbow-faq__title-{{ ai_gen_id }}">{{ block.settings.title }}</div>{% endif %}
+    {% if block.settings.subtitle != blank %}<div class="ai-rainbow-faq__subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</div>{% endif %}
+    <div class="ai-rainbow-faq__list-{{ ai_gen_id }}">
+      {% for i in (1..20) %}
+        {% liquid assign qk = 'question_' | append: i assign ak = 'answer_' | append: i assign q = block.settings[qk] assign a = block.settings[ak] %}
+        {% if q != blank and a != blank %}
+          <div class="ai-rainbow-faq__item-{{ ai_gen_id }}" data-faq-item="{{ i }}">
+            <button class="ai-rainbow-faq__question-{{ ai_gen_id }}" aria-expanded="false" aria-controls="ai-rainbow-faq-answer-{{ ai_gen_id }}-{{ i }}" data-faq-question="{{ i }}">
+              <span>{{ q }}</span>
+              <svg class="ai-rainbow-faq__icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="ai-rainbow-faq__answer-{{ ai_gen_id }}" id="ai-rainbow-faq-answer-{{ ai_gen_id }}-{{ i }}" data-faq-answer="{{ i }}"><div class="ai-rainbow-faq__answer-content-{{ ai_gen_id }}">{{ a }}</div></div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% liquid assign show_single=false assign show_dual=false if block.settings.cta_style == 'single' and block.settings.cta_text != blank assign show_single = true elsif block.settings.cta_style == 'dual' if block.settings.primary_cta_text != blank or block.settings.secondary_cta_text != blank assign show_dual = true endif endif %}
+    {% if show_single %}
+      <div class="ai-rainbow-faq__cta-{{ ai_gen_id }}"><div class="ai-rainbow-faq__cta-buttons-{{ ai_gen_id }}">
+        {% if block.settings.cta_link != blank %}<a href="{{ block.settings.cta_link }}" class="ai-rainbow-faq__cta-button-{{ ai_gen_id }} ai-rainbow-faq__cta-button-{{ ai_gen_id }}--primary">{{ block.settings.cta_text }}</a>
+        {% else %}<button class="ai-rainbow-faq__cta-button-{{ ai_gen_id }} ai-rainbow-faq__cta-button-{{ ai_gen_id }}--primary">{{ block.settings.cta_text }}</button>{% endif %}
+      </div></div>
+    {% elsif show_dual %}
+      <div class="ai-rainbow-faq__cta-{{ ai_gen_id }}">
+        <div class="ai-rainbow-faq__cta-buttons-{{ ai_gen_id }}" data-mobile-layout="{{ block.settings.mobile_button_layout }}">
+          {% if block.settings.primary_cta_text != blank %}
+            {% if block.settings.primary_cta_link != blank %}<a href="{{ block.settings.primary_cta_link }}" class="ai-rainbow-faq__cta-button-{{ ai_gen_id }} ai-rainbow-faq__cta-button-{{ ai_gen_id }}--primary">{{ block.settings.primary_cta_text }}</a>
+            {% else %}<button class="ai-rainbow-faq__cta-button-{{ ai_gen_id }} ai-rainbow-faq__cta-button-{{ ai_gen_id }}--primary">{{ block.settings.primary_cta_text }}</button>{% endif %}
+          {% endif %}
+          {% if block.settings.secondary_cta_text != blank %}
+            {% if block.settings.secondary_cta_link != blank %}<a href="{{ block.settings.secondary_cta_link }}" class="ai-rainbow-faq__cta-button-{{ ai_gen_id }} ai-rainbow-faq__cta-button-{{ ai_gen_id }}--secondary">{{ block.settings.secondary_cta_text }}</a>
+            {% else %}<button class="ai-rainbow-faq__cta-button-{{ ai_gen_id }} ai-rainbow-faq__cta-button-{{ ai_gen_id }}--secondary">{{ block.settings.secondary_cta_text }}</button>{% endif %}
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </rainbow-faq-{{ ai_gen_id }}>
+</div>
+
+<script>
+(function(){
+  class RainbowFaq{{ ai_gen_id }} extends HTMLElement {
+    constructor(){ super(); this.activeItem=null; }
+    connectedCallback(){ this.setupEventListeners(); this.animateOnLoad(); }
+    setupEventListeners(){ this.querySelectorAll('.ai-rainbow-faq__question-{{ ai_gen_id }}').forEach(q=>{ q.addEventListener('click',e=>this.toggle(e)); q.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); this.toggle(e); } }); }); }
+    toggle(e){ const q=e.currentTarget; const id=q.dataset.faqQuestion; const item=this.querySelector(`[data-faq-item="${id}"]`); const a=this.querySelector(`[data-faq-answer="${id}"]`); const on=item.classList.contains('active'); if(on){ this.close(item,q,a);} else { if(this.activeItem&&this.activeItem!==item){ const aq=this.activeItem.querySelector('.ai-rainbow-faq__question-{{ ai_gen_id }}'); const aa=this.activeItem.querySelector('.ai-rainbow-faq__answer-{{ ai_gen_id }}'); this.close(this.activeItem,aq,aa);} this.open(item,q,a);} }
+    open(item,q,a){ item.classList.add('active'); q.setAttribute('aria-expanded','true'); a.classList.add('active'); this.activeItem=item; {% if block.settings.enable_bounce_animation %} item.classList.add('bounce'); setTimeout(()=>item.classList.remove('bounce'),600); {% endif %} }
+    close(item,q,a){ item.classList.remove('active'); q.setAttribute('aria-expanded','false'); a.classList.remove('active'); this.activeItem=null; }
+    animateOnLoad(){ {% if block.settings.enable_fade_animation %} this.querySelectorAll('.ai-rainbow-faq__item-{{ ai_gen_id }}').forEach((it,i)=>{ setTimeout(()=>it.classList.add('fade-in'), i*100); }); {% endif %} }
+  }
+  customElements.define('rainbow-faq-{{ ai_gen_id }}', RainbowFaq{{ ai_gen_id }});
+})();
+</script>

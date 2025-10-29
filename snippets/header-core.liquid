@@ -1,0 +1,118 @@
+{%- comment -%}
+  header-core.liquid
+  Extracted core logic adapted from Dawn's sections/header.liquid for use inside overlay header.
+  Responsibilities:
+  - Preload core header component styles
+  - Render logo with Dawn-style fallbacks
+  - Render desktop navigation (two-level dropdown)
+  - Render account/search/cart icons (conditional)
+  Accepts:
+  - section: the calling section object
+  - overlay_id: unique string for scoping classes
+{%- endcomment -%}
+
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- if settings.predictive_search_enabled -%}
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
+
+<div class="main-overlay-header-logo-{{ overlay_id }}">
+  <a href="{{ routes.root_url }}" class="link link--text focus-inset">
+    {%- if section.settings.logo != blank -%}
+      {{ section.settings.logo | image_url: width: 600 | image_tag: alt: shop.name, loading: 'lazy', class: 'header__heading-logo' }}
+    {%- elsif settings.logo != blank -%}
+      {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+      {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+      {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+      {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+      {{
+        settings.logo
+        | image_url: width: 600
+        | image_tag:
+          class: 'header__heading-logo motion-reduce',
+          widths: widths,
+          height: logo_height,
+          width: settings.logo_width,
+          alt: logo_alt,
+          sizes: sizes,
+          preload: true
+      }}
+    {%- else -%}
+      <span class="main-overlay-header-logo-text-{{ overlay_id }}">{{ shop.name }}</span>
+    {%- endif -%}
+  </a>
+</div>
+
+<nav class="main-overlay-header-nav-desktop-{{ overlay_id }}" role="navigation">
+  <ul class="main-overlay-header-nav-list-{{ overlay_id }}" role="list">
+    {%- if section.settings.menu and section.settings.menu.links.size > 0 -%}
+      {%- for link in section.settings.menu.links -%}
+        <li class="main-overlay-header-nav-item-{{ overlay_id }}">
+          <a href="{{ link.url }}" class="main-overlay-header-nav-link-{{ overlay_id }}" {% if link.title %}aria-label="{{ link.title | escape }}"{% endif %}>{{ link.title }}</a>
+          {%- if link.links.size > 0 -%}
+            <div class="main-overlay-header-dropdown-{{ overlay_id }}">
+              {%- for child_link in link.links -%}
+                <a href="{{ child_link.url }}" class="main-overlay-header-dropdown-link-{{ overlay_id }}">{{ child_link.title }}</a>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
+</nav>
+
+<div class="main-overlay-header-actions-{{ overlay_id }}">
+  <div class="main-overlay-header-actions-desktop-{{ overlay_id }}">
+    <a href="{{ routes.search_url }}" class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-search-icon-{{ overlay_id }}">
+      <span class="icon-wrapper">
+        {%- if section.settings.custom_search_icon -%}
+          {{ section.settings.custom_search_icon | image_url: width: 30 | image_tag: alt: 'Search', loading: 'lazy' }}
+        {%- else -%}
+          <span class="svg-wrapper">{{ 'icon-search.svg' | inline_asset_content }}</span>
+        {%- endif -%}
+      </span>
+    </a>
+
+    {%- if shop.customer_accounts_enabled -%}
+      <a
+        href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+        class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-account-icon-{{ overlay_id }}"
+        rel="nofollow"
+      >
+        <span class="icon-wrapper">
+          {%- if section.settings.custom_account_icon -%}
+            {{ section.settings.custom_account_icon | image_url: width: 30 | image_tag: alt: 'Account', loading: 'lazy' }}
+          {%- else -%}
+            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+          {%- endif -%}
+        </span>
+      </a>
+    {%- endif -%}
+
+    <a href="{{ routes.cart_url }}" class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-cart-icon-{{ overlay_id }}" id="cart-icon-bubble-{{ overlay_id }}">
+      <span class="icon-wrapper">
+        {%- if section.settings.custom_cart_icon -%}
+          {{ section.settings.custom_cart_icon | image_url: width: 30 | image_tag: alt: 'Cart', loading: 'lazy' }}
+        {%- else -%}
+          {%- if cart == empty -%}
+            <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+          {%- else -%}
+            <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+          {%- endif -%}
+        {%- endif -%}
+      </span>
+      <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+      {%- if cart != empty -%}
+        <div class="cart-count-bubble">
+          {%- if cart.item_count < 100 -%}
+            <span aria-hidden="true">{{ cart.item_count }}</span>
+          {%- endif -%}
+          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+        </div>
+      {%- endif -%}
+    </a>
+  </div>
+</div>
