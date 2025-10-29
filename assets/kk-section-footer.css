@@ -80,7 +80,7 @@
 /* Typography */
 .kk-footer__heading {
   font-size: var(--kk-footer-heading-size, 1.15rem);
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
   letter-spacing: 0.02em;
   white-space: nowrap;
