@@ -195,7 +195,7 @@
         "legal_notice_link": "shopify://policies/legal-notice",
         "legal_notice_text": "",
         "policies_bottom_margin": 14,
-        "policies_padding_preset": "narrow",
+        "policies_padding_preset": "extra_narrow",
         "policies_side_padding": 12,
         "policies_side_padding_mobile": 4,
         "policy_font_size_desktop": 12,
