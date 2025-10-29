@@ -67,6 +67,20 @@
       }
     });
 
+    // Hook our search icon to open the predictive search modal
+    const customSearchIcon = qs('[class*="main-overlay-header-search-icon-"]');
+    if (customSearchIcon) {
+      customSearchIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        const searchSummary = document.querySelector('.header__search summary');
+        if (searchSummary) {
+          searchSummary.click();
+        } else {
+          window.location.href = (window.routes && window.routes.predictive_search_url) || (customSearchIcon.getAttribute('href') || '/search');
+        }
+      });
+    }
+
     // Icon gradient interactions
     const iconGradient = qs('[id^="mh-rainbow-icon-gradient-"]') || qs('#mh-rainbow-icon-gradient');
     const headerIcons = Array.from(qsa('[class*="main-overlay-header-icon-"] , .main-overlay-header-icon'));

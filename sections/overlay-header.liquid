@@ -1,0 +1,392 @@
+{% assign overlay_id = section.id | replace: '_', '' | downcase %}
+
+{{ 'main-overlay-header.css' | asset_url | stylesheet_tag }}
+{{ 'main-overlay-header.js' | asset_url | script_tag }}
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- if settings.predictive_search_enabled -%}
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+<style>
+  /* Ensure icon rainbow gradient mapping (reference: comprehensive-overlay-header block) */
+  .main-overlay-header[data-overlay-id="{{ overlay_id }}"] .mh-rainbow-active svg path,
+  .main-overlay-header[data-overlay-id="{{ overlay_id }}"] .mh-rainbow-active svg rect,
+  .main-overlay-header[data-overlay-id="{{ overlay_id }}"] .mh-rainbow-active svg circle,
+  .main-overlay-header[data-overlay-id="{{ overlay_id }}"] .mh-rainbow-active svg ellipse,
+  .main-overlay-header[data-overlay-id="{{ overlay_id }}"] .mh-rainbow-active svg polygon,
+  .main-overlay-header[data-overlay-id="{{ overlay_id }}"] .mh-rainbow-active svg polyline,
+  .main-overlay-header[data-overlay-id="{{ overlay_id }}"] .mh-rainbow-active svg line { fill: url(#mh-rainbow-icon-gradient-{{ overlay_id }}); }
+
+  /* Hide default search toggle icon; we open modal via our search icon */
+  .main-overlay-header .header__search summary.header__icon { display: none; }
+
+  /* Spacing and sticky header sizing parity */
+  .header {
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+  }
+  .section-header { position: sticky; margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px; }
+  @media screen and (min-width: 750px) { .section-header { margin-bottom: {{ section.settings.margin_bottom }}px; } }
+  @media screen and (min-width: 990px) { .header { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
+</style>
+
+{%- liquid
+  assign has_app_block = false
+  for block in section.blocks
+    if block.type == '@app'
+      assign has_app_block = true
+    endif
+  endfor
+-%}
+
+{% liquid
+  assign header_tag = 'div'
+  if section.settings.sticky_header_type != 'none'
+    assign header_tag = 'sticky-header'
+  endif
+%}
+
+<{{ header_tag }}
+  {% if header_tag == 'sticky-header' %}
+    data-sticky-type="{{ section.settings.sticky_header_type }}"
+  {% endif %}
+  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+>
+  <header class="header header--middle-left header--mobile-center page-width{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}">
+    <main-overlay-header-{{ overlay_id }} class="main-overlay-header main-overlay-header-{{ overlay_id }} color-{{ section.settings.color_scheme }} gradient" data-section-id="{{ section.id }}" data-overlay-id="{{ overlay_id }}">
+      <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute; left:0; top:0; pointer-events:none;">
+        <defs>
+          <!-- Rainbow icon gradient (CSS reference taken from comprehensive-overlay-header block) -->
+          <linearGradient id="mh-rainbow-icon-gradient-{{ overlay_id }}" class="main-overlay-header-gradient-{{ overlay_id }}" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+            <stop offset="0%"   stop-color="#ff0000" style="--ai-overlay-stop-index: 0; --ai-overlay-stop-color: #ff0000;"></stop>
+            <stop offset="16%"  stop-color="#ff8000" style="--ai-overlay-stop-index: 1; --ai-overlay-stop-color: #ff8000;"></stop>
+            <stop offset="33%"  stop-color="#ffff00" style="--ai-overlay-stop-index: 2; --ai-overlay-stop-color: #ffff00;"></stop>
+            <stop offset="50%"  stop-color="#00ff00" style="--ai-overlay-stop-index: 3; --ai-overlay-stop-color: #00ff00;"></stop>
+            <stop offset="66%"  stop-color="#0000ff" style="--ai-overlay-stop-index: 4; --ai-overlay-stop-color: #0000ff;"></stop>
+            <stop offset="83%"  stop-color="#8000ff" style="--ai-overlay-stop-index: 5; --ai-overlay-stop-color: #8000ff;"></stop>
+            <stop offset="100%" stop-color="#ff00ff" style="--ai-overlay-stop-index: 6; --ai-overlay-stop-color: #ff00ff;"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="main-overlay-header-container-{{ overlay_id }}">
+        <!-- Logo -->
+        <div class="main-overlay-header-logo-{{ overlay_id }}">
+          <a href="{{ routes.root_url }}" class="link link--text focus-inset">
+            {%- if settings.logo != blank -%}
+              {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+              {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+              {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+              {{
+                settings.logo
+                | image_url: width: 600
+                | image_tag:
+                  class: 'header__heading-logo motion-reduce',
+                  widths: widths,
+                  height: logo_height,
+                  width: settings.logo_width,
+                  alt: logo_alt,
+                  sizes: sizes,
+                  preload: true
+              }}
+            {%- else -%}
+              <span class="main-overlay-header-logo-text-{{ overlay_id }}">{{ shop.name }}</span>
+            {%- endif -%}
+          </a>
+        </div>
+
+        <!-- Desktop navigation -->
+        <nav class="main-overlay-header-nav-desktop-{{ overlay_id }}" role="navigation">
+          <ul class="main-overlay-header-nav-list-{{ overlay_id }}" role="list">
+            {%- if section.settings.menu and section.settings.menu.links.size > 0 -%}
+              {%- for link in section.settings.menu.links -%}
+                <li class="main-overlay-header-nav-item-{{ overlay_id }}">
+                  <a href="{{ link.url }}" class="main-overlay-header-nav-link-{{ overlay_id }}">{{ link.title }}</a>
+                  {%- if link.links.size > 0 -%}
+                    <div class="main-overlay-header-dropdown-{{ overlay_id }}">
+                      {%- for child_link in link.links -%}
+                        <a href="{{ child_link.url }}" class="main-overlay-header-dropdown-link-{{ overlay_id }}">{{ child_link.title }}</a>
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        </nav>
+
+        <!-- Actions (desktop) -->
+        <div class="main-overlay-header-actions-{{ overlay_id }} main-overlay-header-actions-desktop-{{ overlay_id }}">
+          {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+            <localization-form class="small-hide medium-hide" data-prevent-hide>
+              {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+                <div>
+                  <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
+                  {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {% endif %}
+          {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+            <localization-form class="small-hide medium-hide" data-prevent-hide>
+              {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+                <div>
+                  <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+                  {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {%- endif -%}
+
+          {% if settings.predictive_search_enabled %}
+            {% render 'header-search', input_id: 'Search-In-Modal-Overlay' %}
+            <a href="{{ routes.search_url }}" class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-search-icon-{{ overlay_id }}">
+              <span class="icon-wrapper">
+                <span class="svg-wrapper">{{ 'icon-search.svg' | inline_asset_content }}</span>
+              </span>
+            </a>
+          {% endif %}
+
+          {%- if shop.customer_accounts_enabled -%}
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+               class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-account-icon-{{ overlay_id }}"
+               rel="nofollow">
+              <span class="icon-wrapper">
+                <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+              </span>
+            </a>
+          {%- endif -%}
+
+          <a href="{{ routes.cart_url }}" class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-cart-icon-{{ overlay_id }}" id="cart-icon-bubble">
+            <span class="icon-wrapper">
+              {% if cart == empty %}
+                <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+              {% else %}
+                <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+              {% endif %}
+            </span>
+            <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+            {%- if cart != empty -%}
+              <div class="cart-count-bubble">
+                {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                {%- endif -%}
+                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              </div>
+            {%- endif -%}
+          </a>
+
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {% render block %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button class="main-overlay-header-hamburger-{{ overlay_id }}" type="button" aria-label="Toggle menu" aria-controls="main-overlay-{{ overlay_id }}">
+          <span class="main-overlay-header-hamburger-line-{{ overlay_id }}"></span>
+          <span class="main-overlay-header-hamburger-line-{{ overlay_id }}"></span>
+          <span class="main-overlay-header-hamburger-line-{{ overlay_id }}"></span>
+        </button>
+      </div>
+
+      <!-- Mobile overlay -->
+      <div id="main-overlay-{{ overlay_id }}" class="main-overlay-header-mobile-overlay-{{ overlay_id }}">
+        <div class="main-overlay-header-mobile-overlay-content-{{ overlay_id }}">
+          {% if section.settings.menu and section.settings.menu.links.size > 0 %}
+            <ul class="main-overlay-header-mobile-nav-{{ overlay_id }}">
+              {% for link in section.settings.menu.links %}
+                <li class="main-overlay-header-mobile-nav-item-{{ overlay_id }}">
+                  <a href="{{ link.url }}" class="main-overlay-header-mobile-nav-link-{{ overlay_id }}" data-has-dropdown="{% if link.links.size > 0 %}true{% else %}false{% endif %}">
+                    <span class="main-overlay-header-mobile-nav-label-{{ overlay_id }}">{{ link.title }}</span>
+                    {% if link.links.size > 0 %}
+                      <span class="main-overlay-header-caret-{{ overlay_id }}">
+                        <span class="main-overlay-header-caret-symbol-{{ overlay_id }}">▼</span>
+                      </span>
+                    {% endif %}
+                  </a>
+                  {% if link.links.size > 0 %}
+                    <div class="main-overlay-header-mobile-dropdown-{{ overlay_id }}">
+                      {% for child_link in link.links %}
+                        <a href="{{ child_link.url }}" class="main-overlay-header-mobile-dropdown-link-{{ overlay_id }}">{{ child_link.title }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <div class="main-overlay-header-mobile-icons-{{ overlay_id }}">
+            {% if settings.predictive_search_enabled %}
+              <a href="{{ routes.search_url }}" class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-search-icon-{{ overlay_id }}">
+                <span class="icon-wrapper">
+                  <span class="svg-wrapper">{{ 'icon-search.svg' | inline_asset_content }}</span>
+                </span>
+              </a>
+            {% endif %}
+
+            {% if shop.customer_accounts_enabled %}
+              <a href="{{ routes.account_url }}" class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-account-icon-{{ overlay_id }}">
+                <span class="icon-wrapper">
+                  <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+                </span>
+              </a>
+            {% endif %}
+
+            <a href="{{ routes.cart_url }}" class="header__icon main-overlay-header-icon-{{ overlay_id }} main-overlay-header-cart-icon-{{ overlay_id }}">
+              <span class="icon-wrapper">
+                {% if cart == empty %}
+                  <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+                {% else %}
+                  <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+                {% endif %}
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main-overlay-header-{{ overlay_id }}>
+  </header>
+</{{ header_tag }}>
+
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: 'dropdown' -%}
+{%- endif -%}
+
+{% javascript %}
+  class StickyHeader extends HTMLElement {
+    constructor() { super(); }
+    connectedCallback() {
+      this.header = document.querySelector('.section-header');
+      this.headerIsAlwaysSticky =
+        this.getAttribute('data-sticky-type') === 'always' ||
+        this.getAttribute('data-sticky-type') === 'reduce-logo-size';
+      this.headerBounds = {};
+      this.setHeaderHeight();
+      window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+      if (this.headerIsAlwaysSticky) { this.header.classList.add('shopify-section-header-sticky'); }
+      this.currentScrollTop = 0;
+      this.preventReveal = false;
+      this.predictiveSearch = this.querySelector('predictive-search');
+      this.onScrollHandler = this.onScroll.bind(this);
+      this.hideHeaderOnScrollUp = () => (this.preventReveal = true);
+      this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.addEventListener('scroll', this.onScrollHandler, false);
+      this.createObserver();
+    }
+    setHeaderHeight() { document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`); }
+    disconnectedCallback() {
+      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.removeEventListener('scroll', this.onScrollHandler);
+    }
+    createObserver() {
+      let observer = new IntersectionObserver((entries, observer) => {
+        this.headerBounds = entries[0].intersectionRect;
+        observer.disconnect();
+      });
+      observer.observe(this.header);
+    }
+    onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
+      if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        if (this.preventHide) return;
+        requestAnimationFrame(this.hide.bind(this));
+      } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        if (!this.preventReveal) {
+          requestAnimationFrame(this.reveal.bind(this));
+        } else {
+          window.clearTimeout(this.isScrolling);
+          this.isScrolling = setTimeout(() => { this.preventReveal = false; }, 66);
+          requestAnimationFrame(this.hide.bind(this));
+        }
+      } else if (scrollTop <= this.headerBounds.top) {
+        this.header.classList.remove('scrolled-past-header');
+        requestAnimationFrame(this.reset.bind(this));
+      }
+      this.currentScrollTop = scrollTop;
+    }
+    hide() { if (this.headerIsAlwaysSticky) return; this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky'); this.closeMenuDisclosure(); this.closeSearchModal(); }
+    reveal() { if (this.headerIsAlwaysSticky) return; this.header.classList.add('shopify-section-header-sticky', 'animate'); this.header.classList.remove('shopify-section-header-hidden'); }
+    reset() { if (this.headerIsAlwaysSticky) return; this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate'); }
+    closeMenuDisclosure() { this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu'); this.disclosures.forEach((disclosure) => disclosure.close()); }
+    closeSearchModal() { this.searchModal = this.searchModal || this.header.querySelector('details-modal'); this.searchModal && this.searchModal.close && this.searchModal.close(false); }
+  }
+  customElements.define('sticky-header', StickyHeader);
+{% endjavascript %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if settings.logo %}
+      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Overlay header",
+  "class": "section-header",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "checkbox", "id": "show_line_separator", "default": true, "label": "t:sections.header.settings.show_line_separator.label" },
+    { "type": "link_list", "id": "menu", "default": "main-menu", "label": "t:sections.header.settings.menu.label" },
+    { "type": "select", "id": "sticky_header_type", "options": [
+        {"value": "none", "label": "t:sections.header.settings.sticky_header_type.options__1.label"},
+        {"value": "on-scroll-up", "label": "t:sections.header.settings.sticky_header_type.options__2.label"},
+        {"value": "always", "label": "t:sections.header.settings.sticky_header_type.options__3.label"},
+        {"value": "reduce-logo-size", "label": "t:sections.header.settings.sticky_header_type.options__4.label"}
+      ], "default": "on-scroll-up", "label": "t:sections.header.settings.sticky_header_type.label" },
+    { "type": "checkbox", "id": "enable_country_selector", "default": true, "label": "t:sections.header.settings.enable_country_selector.label", "info": "t:sections.header.settings.enable_country_selector.info" },
+    { "type": "checkbox", "id": "enable_language_selector", "default": true, "label": "t:sections.header.settings.enable_language_selector.label", "info": "t:sections.header.settings.enable_language_selector.info" },
+    { "type": "checkbox", "id": "enable_customer_avatar", "default": true, "label": "t:sections.header.settings.enable_customer_avatar.label", "info": "t:sections.header.settings.enable_customer_avatar.info" },
+    { "type": "header", "content": "t:sections.all.spacing" },
+    { "type": "range", "id": "margin_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.header.settings.margin_bottom.label", "default": 0 },
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 36, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 20 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 36, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 20 }
+  ],
+  "blocks": [ { "type": "@app" } ],
+  "presets": [ { "name": "Overlay header" } ]
+}
+{% endschema %}
