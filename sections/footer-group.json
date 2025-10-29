@@ -1,1 +1,221 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"main_footer_XqaxpY":{"type":"main-footer","blocks":{"newsletter_block_zxDXGF":{"type":"newsletter_block","settings":{"heading":"Bli med i klubben!","heading_font_size":23,"description":"<p>Meld deg på Kul Kid-klubben og få eksklusive fordeler, lanseringer og tilbud rett i innboksen.<\/p>","description_font_size":16,"club_icon":"shopify:\/\/shop_images\/Kundeklubb_679653a3-53d7-496a-bacd-a3b696c13940.svg","club_icon_alt":"Kul Kid klubbikon","club_icon_width":160,"newsletter_form_max_width":540,"club_icon_width_mobile":240,"newsletter_padding_top":24,"newsletter_padding_bottom":24,"newsletter_padding_side":24,"action_spacing_desktop":12,"action_spacing_mobile":0,"email_placeholder":"Din e-postadresse","button_text":"Få 15% nå","button_font_size":15,"success_message":"Tusen takk! Sjekk innboksen din."}},"link_group_3TjYrR":{"type":"link_group","settings":{"heading":"Kolleksjoner","heading_size":20,"link_size":15,"link_spacing":4,"menu":"footer-menu","show_all_collections":false,"collection_limit":6,"view_all_label":"","view_all_url":""}},"link_group_MR3zph":{"type":"link_group","settings":{"heading":"Kategorier","heading_size":20,"link_size":15,"link_spacing":4,"menu":"footer-categories","show_all_collections":true,"collection_limit":6,"view_all_label":"Se alle kategoriene","view_all_url":"\/collections"}},"link_group_izKze9":{"type":"link_group","settings":{"heading":"Annet","heading_size":20,"link_size":15,"link_spacing":12,"menu":"footer-pages","show_all_collections":false,"collection_limit":6,"view_all_label":"","view_all_url":""}},"social_icons_TNwjhh":{"type":"social_icons","settings":{"heading":"Følg oss","heading_size":26,"instagram_url":"https:\/\/www.instagram.com\/kulkidno","instagram_icon":"shopify:\/\/shop_images\/instagram-logo-facebook-svgrepo-com.svg","facebook_url":"","facebook_icon":"shopify:\/\/shop_images\/facebook-svgrepo-com_1.svg","tiktok_url":"","tiktok_icon":"shopify:\/\/shop_images\/brand-tiktok-sq-svgrepo-com.svg","spotify_url":"","spotify_icon":"shopify:\/\/shop_images\/spotify-fill-svgrepo-com.svg","youtube_link":"","youtube_icon":"shopify:\/\/shop_images\/youtube-168-svgrepo-com.svg","social_icon_size":48,"social_icon_gap":36,"social_icon_size_mobile":40,"social_icon_gap_mobile":22,"social_spacing_bottom":0}},"social_icon_gLT4RQ":{"type":"social_icon","settings":{"platform":"instagram","link":"","enable_gradient":true}},"social_icon_DnQPdx":{"type":"social_icon","settings":{"platform":"facebook","link":"","enable_gradient":true}},"social_icon_K7pE9A":{"type":"social_icon","settings":{"platform":"tiktok","link":"","enable_gradient":true}},"social_icon_JEP47P":{"type":"social_icon","settings":{"platform":"spotify","link":"","enable_gradient":true}},"social_icon_PrKEt9":{"type":"social_icon","settings":{"platform":"youtube","link":"","enable_gradient":true}},"payments_gcXHjj":{"type":"payments","settings":{"heading":"","heading_size":20,"icon_height":48,"icon_height_mobile":40,"payments_icon_gap":12,"payments_icon_gap_mobile":28,"show_visa":true,"visa_icon":"shopify:\/\/shop_images\/symbols_1.png","show_mastercard":true,"mastercard_icon":"shopify:\/\/shop_images\/card.png","show_amex":true,"amex_icon":"shopify:\/\/shop_images\/amex.png","show_paypal":true,"paypal_icon":"shopify:\/\/shop_images\/paypal-logo.png","show_apple_pay":true,"apple_pay_icon":"shopify:\/\/shop_images\/apple-pay.png","show_klarna":true,"klarna_icon":"shopify:\/\/shop_images\/symbols.png","custom_payment_label":"","payments_spacing_bottom":24}}},"block_order":["newsletter_block_zxDXGF","link_group_3TjYrR","link_group_MR3zph","link_group_izKze9","social_icons_TNwjhh","social_icon_gLT4RQ","social_icon_DnQPdx","social_icon_K7pE9A","social_icon_JEP47P","social_icon_PrKEt9","payments_gcXHjj"],"name":"Kul Kid Main Footer","settings":{"enable_gradient":true,"static_bg_color":"#334fb4","gradient_speed":15,"gradient_direction":45,"gradient_size":400,"gradient_color_1":"#ff6b6b","gradient_color_2":"#4ecdc4","gradient_color_3":"#45b7d1","gradient_color_4":"#96ceb4","gradient_color_5":"#feca57","gradient_color_6":"#ff9ff3","gradient_color_7":"#54a0ff","master_text_color":"#000000","padding_top":40,"padding_bottom":40,"footer_padding":60,"section_spacing":20,"footer_aria_label":"Kul Kid footer","cookie_preferences_link":"shopify:\/\/policies\/terms-of-service","cookie_preferences_text":"","contact_info_link":"shopify:\/\/policies\/contact-information","contact_info_text":"","legal_notice_link":"shopify:\/\/policies\/legal-notice","legal_notice_text":"","policies_bottom_margin":14,"policies_padding_preset":"narrow","policies_side_padding":12,"policies_side_padding_mobile":16,"policy_font_size_desktop":14,"policy_font_size_mobile":12,"policy_gap_desktop":10,"policy_gap_mobile":8,"copyright_top_margin":24,"copyright_text":"Alle rettigheter forbeholdt www.","newsletter_success_fallback":"Tusen takk! Sjekk innboksen din."}}},"order":["main_footer_XqaxpY"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "main_footer_XqaxpY": {
+      "type": "main-footer",
+      "blocks": {
+        "newsletter_block_zxDXGF": {
+          "type": "newsletter_block",
+          "settings": {
+            "heading": "Bli med i klubben!",
+            "heading_font_size": 23,
+            "description": "<p>Meld deg på Kul Kid-klubben og få eksklusive fordeler, lanseringer og tilbud rett i innboksen.</p>",
+            "description_font_size": 16,
+            "club_icon": "shopify://shop_images/Kundeklubb_679653a3-53d7-496a-bacd-a3b696c13940.svg",
+            "club_icon_alt": "Kul Kid klubbikon",
+            "club_icon_width": 160,
+            "newsletter_block_width": 700,
+            "club_icon_width_mobile": 240,
+            "newsletter_padding_top": 24,
+            "newsletter_padding_bottom": 24,
+            "action_spacing_desktop": 12,
+            "action_spacing_mobile": 0,
+            "email_placeholder": "Din e-postadresse",
+            "button_text": "Få 15% nå",
+            "button_font_size": 15,
+            "success_message": "Tusen takk! Sjekk innboksen din."
+          }
+        },
+        "link_group_3TjYrR": {
+          "type": "link_group",
+          "settings": {
+            "heading": "Kolleksjoner",
+            "heading_size": 20,
+            "link_size": 15,
+            "link_spacing": 4,
+            "menu": "footer-menu",
+            "show_all_collections": false,
+            "collection_limit": 6,
+            "view_all_label": "",
+            "view_all_url": ""
+          }
+        },
+        "link_group_MR3zph": {
+          "type": "link_group",
+          "settings": {
+            "heading": "Kategorier",
+            "heading_size": 20,
+            "link_size": 15,
+            "link_spacing": 4,
+            "menu": "footer-categories",
+            "show_all_collections": true,
+            "collection_limit": 6,
+            "view_all_label": "Se alle kategoriene",
+            "view_all_url": "/collections"
+          }
+        },
+        "link_group_izKze9": {
+          "type": "link_group",
+          "settings": {
+            "heading": "Annet",
+            "heading_size": 20,
+            "link_size": 15,
+            "link_spacing": 12,
+            "menu": "footer-pages",
+            "show_all_collections": false,
+            "collection_limit": 6,
+            "view_all_label": "",
+            "view_all_url": ""
+          }
+        },
+        "social_icons_TNwjhh": {
+          "type": "social_icons",
+          "settings": {
+            "heading": "Følg oss",
+            "heading_size": 26,
+            "instagram_url": "https://www.instagram.com/kulkidno",
+            "instagram_icon": "shopify://shop_images/instagram-icon1.svg",
+            "facebook_url": "",
+            "tiktok_url": "",
+            "spotify_url": "",
+            "youtube_link": "",
+            "social_icon_size": 48,
+            "social_icon_gap": 36,
+            "social_icon_size_mobile": 40,
+            "social_icon_gap_mobile": 22,
+            "social_spacing_bottom": 0
+          }
+        },
+        "social_icon_gLT4RQ": {
+          "type": "social_icon",
+          "settings": {
+            "platform": "instagram",
+            "link": "",
+            "enable_gradient": true
+          }
+        },
+        "social_icon_DnQPdx": {
+          "type": "social_icon",
+          "settings": {
+            "platform": "facebook",
+            "link": "",
+            "enable_gradient": true
+          }
+        },
+        "social_icon_K7pE9A": {
+          "type": "social_icon",
+          "settings": {
+            "platform": "tiktok",
+            "link": "",
+            "enable_gradient": true
+          }
+        },
+        "social_icon_JEP47P": {
+          "type": "social_icon",
+          "settings": {
+            "platform": "spotify",
+            "link": "",
+            "enable_gradient": true
+          }
+        },
+        "social_icon_PrKEt9": {
+          "type": "social_icon",
+          "settings": {
+            "platform": "youtube",
+            "link": "",
+            "enable_gradient": true
+          }
+        },
+        "payments_gcXHjj": {
+          "type": "payments",
+          "settings": {
+            "heading": "",
+            "heading_size": 20,
+            "icon_height": 48,
+            "icon_height_mobile": 40,
+            "payments_icon_gap": 12,
+            "payments_icon_gap_mobile": 28,
+            "show_visa": true,
+            "visa_icon": "shopify://shop_images/symbols_1.png",
+            "show_mastercard": true,
+            "mastercard_icon": "shopify://shop_images/card.png",
+            "show_amex": true,
+            "amex_icon": "shopify://shop_images/amex.png",
+            "show_paypal": true,
+            "paypal_icon": "shopify://shop_images/paypal-logo.png",
+            "show_apple_pay": true,
+            "apple_pay_icon": "shopify://shop_images/apple-pay.png",
+            "show_klarna": true,
+            "klarna_icon": "shopify://shop_images/symbols.png",
+            "custom_payment_label": "",
+            "payments_spacing_bottom": 24
+          }
+        }
+      },
+      "block_order": [
+        "newsletter_block_zxDXGF",
+        "link_group_3TjYrR",
+        "link_group_MR3zph",
+        "link_group_izKze9",
+        "social_icons_TNwjhh",
+        "social_icon_gLT4RQ",
+        "social_icon_DnQPdx",
+        "social_icon_K7pE9A",
+        "social_icon_JEP47P",
+        "social_icon_PrKEt9",
+        "payments_gcXHjj"
+      ],
+      "name": "Kul Kid Main Footer",
+      "settings": {
+        "enable_gradient": true,
+        "static_bg_color": "#334fb4",
+        "gradient_speed": 15,
+        "gradient_direction": 45,
+        "gradient_size": 400,
+        "gradient_color_1": "#ff6b6b",
+        "gradient_color_2": "#4ecdc4",
+        "gradient_color_3": "#45b7d1",
+        "gradient_color_4": "#96ceb4",
+        "gradient_color_5": "#feca57",
+        "gradient_color_6": "#ff9ff3",
+        "gradient_color_7": "#54a0ff",
+        "master_text_color": "#000000",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "footer_padding": 60,
+        "section_spacing": 20,
+        "footer_aria_label": "Kul Kid footer",
+        "cookie_preferences_link": "shopify://policies/terms-of-service",
+        "cookie_preferences_text": "",
+        "contact_info_link": "shopify://policies/contact-information",
+        "contact_info_text": "",
+        "legal_notice_link": "shopify://policies/legal-notice",
+        "legal_notice_text": "",
+        "policies_bottom_margin": 14,
+        "policies_padding_preset": "narrow",
+        "policies_side_padding": 12,
+        "policies_side_padding_mobile": 16,
+        "policy_font_size_desktop": 14,
+        "policy_font_size_mobile": 12,
+        "policy_gap_desktop": 10,
+        "policy_gap_mobile": 8,
+        "copyright_top_margin": 24,
+        "copyright_text": "Alle rettigheter forbeholdt www.",
+        "newsletter_success_fallback": "Tusen takk! Sjekk innboksen din."
+      }
+    }
+  },
+  "order": [
+    "main_footer_XqaxpY"
+  ]
+}
