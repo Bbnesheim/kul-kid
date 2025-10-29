@@ -150,16 +150,18 @@
 @media (max-width: 768px) {
   .kk-footer__layout {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: clamp(1.5rem, 6vw, 2.5rem) clamp(1.25rem, 6vw, 2rem);
     width: 100%;
   }
 
   .kk-footer__column {
     padding-inline: 0;
+    gap: 0.5rem;
   }
 
   .kk-footer__block {
     width: 100%;
+    padding: 0.25rem 0.5rem;
   }
 }

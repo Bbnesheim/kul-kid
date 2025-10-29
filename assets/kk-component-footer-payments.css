@@ -13,6 +13,12 @@
   margin: clamp(0.75rem, 2vw, 1.5rem) auto 0;
 }
 
+@media (max-width: 768px) {
+  .kk-footer__block--payments {
+    margin-top: 1rem;
+  }
+}
+
 .kk-footer-payments-wrapper,
 .kk-footer__payments-wrapper {
   width: 100%;
