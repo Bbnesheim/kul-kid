@@ -118,37 +118,10 @@
               {% render 'kk-footer-link-group', block: block %}
 
             {% when 'social_icons', 'social' %}
-              {% assign heading_size = block.settings.heading_size | default: 20 | plus: 0 %}
-              {% assign icon_size = block.settings.social_icon_size | default: 28 | plus: 0 %}
-              {% assign icon_gap = block.settings.social_icon_gap | default: 12 | plus: 0 %}
-              {% assign icon_size_mobile = block.settings.social_icon_size_mobile %}
-              {% if icon_size_mobile == blank %}
-                {% assign icon_size_mobile = icon_size %}
-              {% else %}
-                {% assign icon_size_mobile = icon_size_mobile | plus: 0 %}
-              {% endif %}
-              {% assign icon_gap_mobile = block.settings.social_icon_gap_mobile %}
-              {% if icon_gap_mobile == blank %}
-                {% assign icon_gap_mobile = icon_gap %}
-              {% else %}
-                {% assign icon_gap_mobile = icon_gap_mobile | plus: 0 %}
-              {% endif %}
-              {% assign icon_render_width = icon_size | times: 3 %}
-              {% if icon_render_width < icon_size %}
-                {% assign icon_render_width = icon_size %}
-              {% endif %}
-              {% assign icon_render_width = icon_render_width | round %}
-              {% assign fallback_size = heading_size | minus: 4 %}
-              {% if fallback_size < 12 %}
-                {% assign fallback_size = 12 %}
-              {% endif %}
-              {% assign social_icon_blocks = section.blocks | where: 'type', 'social_icon' %}
-
-              {% if block.settings.heading != blank %}
-                <h2 class="kk-footer__heading" style="--kk-footer-heading-size: {{ heading_size }}px;">{{ block.settings.heading }}</h2>
-              {% endif %}
-
-              {% if social_icon_blocks.size > 0 %}
+              {% render 'kk-footer-social-icons', 
+                block: block,
+                section_blocks: section.blocks
+              %}
                 <div class="kk-footer__social" style="--kk-footer-social-size: {{ icon_size }}px; --kk-footer-social-gap: {{ icon_gap }}px; --kk-footer-social-size-mobile: {{ icon_size_mobile }}px; --kk-footer-social-gap-mobile: {{ icon_gap_mobile }}px;">
                   {% assign rendered_icons = 0 %}
                   {% for icon_block in social_icon_blocks %}
