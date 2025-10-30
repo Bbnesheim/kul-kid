@@ -178,7 +178,7 @@
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Halloween for de minste!",
-        "heading_size": "h0",
+        "heading_size": "h1",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "product-card-wrapper",
