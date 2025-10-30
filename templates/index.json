@@ -60,6 +60,7 @@
             "category_5_image": "shopify://shop_images/KUL-KID-Varsity-Jakke.webp",
             "category_5_link": "shopify://collections/jakker-barn",
             "category_6_name": "T-skjorter",
+            "category_6_image": "shopify://shop_images/baby-body-superkul-hvit-transparent-alt-0-36-mnd.webp",
             "category_6_link": "shopify://collections/t-skjorter-baby",
             "category_7_name": "Gensere",
             "category_7_image": "shopify://shop_images/crew-basic-person.jpg",
@@ -175,6 +176,7 @@
         "product_XewhLQ",
         "collection_nwHJqR"
       ],
+      "disabled": true,
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Halloween for de minste!",
