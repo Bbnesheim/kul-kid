@@ -60,7 +60,6 @@
             "category_5_image": "shopify://shop_images/KUL-KID-Varsity-Jakke.webp",
             "category_5_link": "shopify://collections/jakker-barn",
             "category_6_name": "T-skjorter",
-            "category_6_image": "shopify://shop_images/baby-t-skjorte-superkul-hvit-0-36-mnd.webp",
             "category_6_link": "shopify://collections/t-skjorter-baby",
             "category_7_name": "Gensere",
             "category_7_image": "shopify://shop_images/crew-basic-person.jpg",
@@ -179,7 +178,7 @@
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Halloween for de minste!",
-        "heading_size": "h2",
+        "heading_size": "h0",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "product-card-wrapper",
@@ -247,7 +246,7 @@
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Skremmende KUL!",
-        "heading_size": "h2",
+        "heading_size": "h0",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "none",
@@ -315,7 +314,7 @@
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Kuleste kiden i gata",
-        "heading_size": "h2",
+        "heading_size": "h0",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "none",
@@ -383,7 +382,7 @@
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Små superhelter",
-        "heading_size": "h2",
+        "heading_size": "h0",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "none",
