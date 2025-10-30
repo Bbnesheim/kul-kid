@@ -191,6 +191,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "halloween",
         "products_to_show": 8,
@@ -467,10 +468,10 @@
     "blocks_kaGUqn",
     "collage_XVyCFA",
     "featured_collection",
-    "collage_EpPzqQ",
-    "featured_collection_d3a8nz",
     "collage_AQ6B9j",
     "featured_collection_nQkNmN",
+    "collage_EpPzqQ",
+    "featured_collection_d3a8nz",
     "collage_AwQmV7",
     "featured_collection_FWXeJF",
     "collection_list_8arfqR"
