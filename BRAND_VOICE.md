@@ -1,4 +1,4 @@
-# KULKID – Merkevarestemme
+# KULKID – Merkevarestemme - E-poster skal skrives på norsk bokmål.
 
 ## Tone
 - Lekent, varmt og oppmuntrende – barn først, men snakker også til foresatte.
