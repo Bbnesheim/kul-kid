@@ -1,112 +1,89 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velkommen til KUL KID!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body style="margin: 0; padding: 0; font-family: 'Quicksand', Arial, sans-serif; background-color: #FFFFFF;">
-    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #FFFFFF;">
-        <tr>
-            <td align="center">
-                <table width="600" cellspacing="0" cellpadding="0" border="0" style="background-color: #ffffff; margin: 20px 0;">
-                    <!-- Header -->
-                    <tr>
-                        <td align="center" style="padding: 40px 20px 20px; background-color: #ffffff;">
-                            <h1 style="color: #121212; font-size: 32px; margin: 0; font-family: 'Luckiest Guy', cursive; font-weight: 400; line-height: 1.2;">
-                                Velkommen til KUL KID Kundeklubb, {{ first_name|default:"venn" }}! 🌟
-                            </h1>
-                        </td>
-                    </tr>
-                    <!-- Main Content -->
-                    <tr>
-                        <td style="padding: 0 40px 20px;">
-                            <p style="font-size: 16px; line-height: 1.6; color: #121212; margin-bottom: 20px; font-family: 'Quicksand', sans-serif;">
-                                Tusen takk for at du ble med i KUL KID Kundeklubb!
-                            </p>
-                            <p style="font-size: 16px; line-height: 1.6; color: #121212; margin-bottom: 20px; font-family: 'Quicksand', sans-serif;">
-                                Vi er så glade for å ha deg med. Som takk for at du meldte deg på, får du <strong>15% rabatt</strong> på ditt første kjøp.
-                            </p>
-                            <!-- Discount Code -->
-                            <div style="background-color: #F3F3F3; border: 2px solid #121212; padding: 20px; text-align: center; margin: 20px 0; border-radius: 0;">
-                                <p style="margin: 0; font-size: 14px; color: #121212; font-family: 'Quicksand', sans-serif;">Din personlige rabattkode:</p>
-                                <h2 style="color: #121212; font-size: 24px; margin: 10px 0; font-family: 'Luckiest Guy', cursive; font-weight: 400; letter-spacing: 1px;">
-                                    KULKID15
-                                </h2>
-                                <p style="margin: 0; font-size: 14px; color: #121212; font-family: 'Quicksand', sans-serif;">
-                                    Gyldig i 7 dager
-                                </p>
-                            </div>
-                            <p style="font-size: 16px; line-height: 1.6; color: #121212; margin-bottom: 20px; font-family: 'Quicksand', sans-serif;">
-                                Vi ser frem til å hjelpe deg finne de perfekte plaggene! Start gjerne med å se våre mest populære kolleksjoner:
-                            </p>
-                        </td>
-                    </tr>
-                    <!-- Collections -->
-                    <tr>
-                        <td style="padding: 0 40px;">
-                            <table width="100%" cellspacing="0" cellpadding="10">
-                                <tr>
-                                    <td style="width: 33.33%; text-align: center; padding: 10px;">
-                                        <a href="https://kulkid.no/collections/basics?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="text-decoration: none; color: #121212;">
-                                            <div style="border: 2px solid #121212; padding: 15px; border-radius: 0; background-color: #F3F3F3;">
-                                                <h3 style="margin: 0; font-size: 16px; font-family: 'Luckiest Guy', cursive; font-weight: 400; color: #121212;">BASICS</h3>
-                                                <p style="margin: 5px 0 0; font-size: 12px; color: #121212; font-family: 'Quicksand', sans-serif;">Tidløse favoritter</p>
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td style="width: 33.33%; text-align: center; padding: 10px;">
-                                        <a href="https://kulkid.no/collections/superhelter?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="text-decoration: none; color: #121212;">
-                                            <div style="border: 2px solid #121212; padding: 15px; border-radius: 0; background-color: #F3F3F3;">
-                                                <h3 style="margin: 0; font-size: 16px; font-family: 'Luckiest Guy', cursive; font-weight: 400; color: #121212;">SUPERHELTER</h3>
-                                                <p style="margin: 5px 0 0; font-size: 12px; color: #121212; font-family: 'Quicksand', sans-serif;">For de tøffeste</p>
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td style="width: 33.33%; text-align: center; padding: 10px;">
-                                        <a href="https://kulkid.no/collections/gymtime?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="text-decoration: none; color: #121212;">
-                                            <div style="border: 2px solid #121212; padding: 15px; border-radius: 0; background-color: #F3F3F3;">
-                                                <h3 style="margin: 0; font-size: 16px; font-family: 'Luckiest Guy', cursive; font-weight: 400; color: #121212;">GYMTIME</h3>
-                                                <p style="margin: 5px 0 0; font-size: 12px; color: #121212; font-family: 'Quicksand', sans-serif;">Komfort i hverdagen</p>
-                                            </div>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <!-- CTA Button -->
-                    <tr>
-                        <td align="center" style="padding: 30px 40px;">
-                            <a href="https://kulkid.no?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="background-color: #121212; color: #FFFFFF; padding: 15px 30px; text-decoration: none; border-radius: 0; font-family: 'Luckiest Guy', cursive; font-weight: 400; font-size: 16px; display: inline-block;">
-                                Kul shopping! 👕✨
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- Social Media -->
-                    <tr>
-                        <td align="center" style="padding: 20px 40px 40px; border-top: 1px solid #121212;">
-                            <p style="font-size: 14px; color: #121212; margin-bottom: 15px; font-family: 'Quicksand', sans-serif;">
-                                P.S. Følg oss på Instagram for daglig inspirasjon!
-                            </p>
-                            <a href="https://instagram.com/kulkidno" style="background-color: #334FB4; color: #FFFFFF; padding: 10px 20px; text-decoration: none; border-radius: 0; font-size: 14px; font-family: 'Quicksand', sans-serif; display: inline-block;">
-                                @kulkidno
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- Footer -->
-                    <tr>
-                        <td style="background-color: #F3F3F3; padding: 20px; text-align: center;">
-                            <p style="font-size: 12px; color: #121212; margin: 0; font-family: 'Quicksand', sans-serif;">
-                                Teamet på KULKID.no<br>
-                                <a href="{{ unsubscribe_url }}" style="color: #121212; text-decoration: underline;">Avmeld deg her</a>
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</body>
-</html>
+{% comment %}
+Welcome Email 1: 15% Discount for New Subscribers
+Aligned with Klaviyo flow-template structure
+References brand assets already implemented in Klaviyo via website
+{% endcomment %}
+
+<h1 style="text-align: center; font-family: 'Luckiest Guy', Helvetica, Arial, sans-serif; font-size: 32px; color: #121314; margin: 20px 0; font-weight: 400;">
+Velkommen til KUL KID Kundeklubb, {{ first_name|default:"venn" }}! 🌟
+</h1>
+
+<p style="text-align: center; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-size: 16px; color: #121314; line-height: 1.6; margin: 10px 0;">
+Tusen takk for at du ble med i KUL KID Kundeklubb!
+</p>
+
+<p style="text-align: center; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-size: 16px; color: #121314; line-height: 1.6; margin: 10px 0;">
+Vi er så glade for å ha deg med. Som takk for at du meldte deg på, får du <strong>15% rabatt</strong> på ditt første kjøp.
+</p>
+
+<div style="background-color: #F3F3F3; border: 2px solid #121314; padding: 20px; text-align: center; margin: 20px auto; max-width: 400px;">
+  <p style="margin: 0 0 10px 0; font-size: 14px; color: #121314; font-family: 'Quicksand', Helvetica, Arial, sans-serif;">Din personlige rabattkode:</p>
+  <h2 style="color: #121314; font-size: 28px; margin: 10px 0; font-family: 'Luckiest Guy', Helvetica, Arial, sans-serif; font-weight: 400; letter-spacing: 2px;">
+    KULKID15
+  </h2>
+  <p style="margin: 10px 0 0 0; font-size: 14px; color: #121314; font-family: 'Quicksand', Helvetica, Arial, sans-serif;">
+    Gyldig i 7 dager
+  </p>
+</div>
+
+<p style="text-align: center; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-size: 16px; color: #121314; line-height: 1.6; margin: 20px 0;">
+Vi ser frem til å hjelpe deg finne de perfekte plaggene! Start gjerne med å se våre mest populære kolleksjoner:
+</p>
+
+<table width="100%" cellspacing="0" cellpadding="10" style="margin: 20px 0;">
+  <tr>
+    <td style="width: 33.33%; text-align: center; padding: 10px;">
+      <a href="https://kulkid.no/collections/basics?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="text-decoration: none; color: #121314; display: block;">
+        <div style="border: 2px solid #121314; padding: 15px; background-color: #F3F3F3;">
+          <h3 style="margin: 0; font-size: 18px; font-family: 'Luckiest Guy', Helvetica, Arial, sans-serif; font-weight: 400; color: #121314;">BASICS</h3>
+          <p style="margin: 8px 0 0; font-size: 13px; color: #121314; font-family: 'Quicksand', Helvetica, Arial, sans-serif;">Tidløse favoritter</p>
+        </div>
+      </a>
+    </td>
+    <td style="width: 33.33%; text-align: center; padding: 10px;">
+      <a href="https://kulkid.no/collections/superhelter?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="text-decoration: none; color: #121314; display: block;">
+        <div style="border: 2px solid #121314; padding: 15px; background-color: #F3F3F3;">
+          <h3 style="margin: 0; font-size: 18px; font-family: 'Luckiest Guy', Helvetica, Arial, sans-serif; font-weight: 400; color: #121314;">SUPERHELTER</h3>
+          <p style="margin: 8px 0 0; font-size: 13px; color: #121314; font-family: 'Quicksand', Helvetica, Arial, sans-serif;">For de tøffeste</p>
+        </div>
+      </a>
+    </td>
+    <td style="width: 33.33%; text-align: center; padding: 10px;">
+      <a href="https://kulkid.no/collections/gymtime?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="text-decoration: none; color: #121314; display: block;">
+        <div style="border: 2px solid #121314; padding: 15px; background-color: #F3F3F3;">
+          <h3 style="margin: 0; font-size: 18px; font-family: 'Luckiest Guy', Helvetica, Arial, sans-serif; font-weight: 400; color: #121314;">GYMTIME</h3>
+          <p style="margin: 8px 0 0; font-size: 13px; color: #121314; font-family: 'Quicksand', Helvetica, Arial, sans-serif;">Komfort i hverdagen</p>
+        </div>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<div style="text-align: center; margin: 30px 0;">
+  <a href="https://kulkid.no?utm_source=klaviyo&utm_medium=email&utm_campaign=welcome_15" style="background-color: #121314; color: #FFFFFF; padding: 15px 40px; text-decoration: none; font-family: 'Luckiest Guy', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 18px; display: inline-block;">
+    Kul shopping! 👕✨
+  </a>
+</div>
+
+<hr style="border: none; border-top: 1px solid #CCCCCC; margin: 30px 0;" />
+
+<p style="text-align: center; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-size: 14px; color: #121314; line-height: 1.6; margin: 20px 0;">
+P.S. Følg oss på Instagram og TikTok for tidlige oppdateringer på de nyeste kolleksjonene og tilbudene! 👀
+</p>
+
+<div style="text-align: center; margin: 20px 0;">
+  <a href="https://instagram.com/kulkidno" style="display: inline-block; margin: 0 5px;">
+    <img alt="Instagram" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/default/instagram_96.png" style="width:32px;" width="32"/>
+  </a>
+  <a href="https://www.facebook.com/kulkidno" style="display: inline-block; margin: 0 5px;">
+    <img alt="Facebook" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/default/facebook_96.png" style="width:32px;" width="32"/>
+  </a>
+  <a href="https://www.tiktok.com/@kulkidno" style="display: inline-block; margin: 0 5px;">
+    <img alt="Tiktok" src="https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/default/tiktok_96.png" style="width:32px;" width="32"/>
+  </a>
+</div>
+
+<p style="text-align: center; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-size: 12px; color: #727272; line-height: 1.5; margin: 30px 0;">
+Ønsker du ikke å motta e-mailer fra oss? <a href="{% unsubscribe_link %}" style="color: #121314; text-decoration: underline;">Avmelding</a><br/>
+{{ organization.name }} {{ organization.full_address }}
+</p>
