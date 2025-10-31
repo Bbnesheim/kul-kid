@@ -12,8 +12,8 @@
 
 **Preview Text:** Din personlige rabattkode venter – perfekte plagg til din lille helt
 
-**From Name:** KUL KID  
-**From Email:** hei@kulkid.no
+**From Name:** KUL KID Kundeklubb  
+**From Email:** post@kulkid.no
 
 ---
 

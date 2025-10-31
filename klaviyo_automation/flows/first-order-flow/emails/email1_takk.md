@@ -12,8 +12,8 @@
 
 **Preview Text:** Dine KULKID-plagg er på vei – her er noen tips til deg
 
-**From Name:** KUL KID  
-**From Email:** hei@kulkid.no
+**From Name:** KUL KID Kundeklubb  
+**From Email:** post@kulkid.no
 
 ---
 
