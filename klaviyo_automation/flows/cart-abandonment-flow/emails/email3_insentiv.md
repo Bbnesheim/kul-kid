@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Vi ser at du fortsatt ikke har fullført bestillingen. Som et lite dytt i riktig retning, gir vi deg **10% ekstra rabatt**!
 

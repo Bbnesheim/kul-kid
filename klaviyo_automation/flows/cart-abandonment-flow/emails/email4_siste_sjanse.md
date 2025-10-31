@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Dette er en siste påminnelse – både handlekurven din og **10% rabatten** utløper om få timer.
 

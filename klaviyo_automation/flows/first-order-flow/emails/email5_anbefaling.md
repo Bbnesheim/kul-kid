@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Elsker du KUL KID like mye som vi håper? Del gleden med vennene dine!
 

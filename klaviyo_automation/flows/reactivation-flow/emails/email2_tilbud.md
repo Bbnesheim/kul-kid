@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Vi setter virkelig pris på at du har vært kunde hos oss. Som takk for din lojalitet, vil vi gi deg en ekstra spesiell rabatt.
 

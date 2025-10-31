@@ -100,16 +100,23 @@
 
 ## 🎯 Brand Name Usage
 
+**IMPORTANT: In all text content, ALWAYS use "KUL KID" (with space), never "KULKID" (no space)**
+
 **Correct:**
-- KULKID (all caps in body text)
-- KUL KID (all caps with space in headings)
-- KULKID.no (website references)
+- KUL KID (in body text and headings)
+- KUL KID's (possessive form)
 - KUL KID Kundeklubb (customer club)
+- KUL KID Kundeklubb's (possessive)
+- www.KULKID.no (website URL only)
+- KULKID.no (website references)
 
 **Incorrect:**
+- ❌ KULKID (no space in body text - only acceptable in domain/URLs)
 - ❌ Kul Kid (title case)
 - ❌ kulkid (lowercase in formal contexts)
 - ❌ Kul-Kid (hyphenated)
+- ❌ KULKID-fellesskapet (should be: KUL KID-fellesskapet)
+- ❌ KULKID-plagg (should be: KUL KID-plagg)
 
 ---
 

@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Lurer du på hva andre foreldre handler mest? Her er våre bestselgere som alle snakker om!
 

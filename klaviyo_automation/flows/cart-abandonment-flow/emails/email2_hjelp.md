@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Vi så at du fortsatt ikke har fullført bestillingen din. Kanskje du lurer på noe?
 
@@ -36,7 +36,7 @@ Vi så at du fortsatt ikke har fullført bestillingen din. Kanskje du lurer på 
 A: Fri frakt over 500 kr. Under 500 kr koster frakt 49 kr.
 
 **Q: Hvor lang er leveringstiden?**  
-A: 2-4 virkedager med Posten/Bring.
+A: 12-14 virkedager med Posten/Bring.
 
 **Q: Kan jeg returnere hvis det ikke passer?**  
 A: Absolutt! 30 dagers åpent kjøp, ingen spørsmål stilt.

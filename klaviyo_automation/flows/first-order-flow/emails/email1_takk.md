@@ -10,7 +10,7 @@
 
 **Subject Line:** Takk for din første bestilling! 🎉
 
-**Preview Text:** Dine KULKID-plagg er på vei – her er noen tips til deg
+**Preview Text:** Dine KUL KID-plagg er på vei – her er noen tips til deg
 
 **From Name:** KUL KID Kundeklubb  
 **From Email:** post@kulkid.no
@@ -20,7 +20,7 @@
 ## Email Content (Norwegian)
 
 ### Header
-**Heading:** Takk {{ first_name|default:"venn" }}! 🎉
+**Heading:** Tusen takk{% if first_name %}, {{ first_name }}{% endif %}! 🎉
 
 ### Body Copy
 
@@ -51,7 +51,7 @@ Vi er så glade for at du valgte oss. Dine {{ event.extra.item_count|default:"ny
 
 **Hva skjer videre?**
 
-Du vil motta sporingsinfo på e-post når pakken er sendt. Leveringstid er normalt 2-5 virkedager.
+Du vil motta sporingsinfo på e-post når pakken er sendt. Leveringstid er normalt 12-14 virkedager.
 
 ### Primary Button
 **Text:** Se min bestilling  
@@ -59,7 +59,7 @@ Du vil motta sporingsinfo på e-post når pakken er sendt. Leveringstid er norma
 
 ### Community Invite
 
-Mens du venter: Bli med i KULKID-fellesskapet på Instagram! Vi deler styling
+Mens du venter: Bli med i KUL KID-fellesskapet på Instagram! Vi deler styling
 
 tips, kampanjer og inspirasjon hver dag.
 

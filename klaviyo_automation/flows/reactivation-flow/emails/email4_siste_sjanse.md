@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Dette er siste melding fra oss denne gangen. Din **20% rabatt** utløper snart, og vi ville ikke at du skulle gå glipp av den.
 
