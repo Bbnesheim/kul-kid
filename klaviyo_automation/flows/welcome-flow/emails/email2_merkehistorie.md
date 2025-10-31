@@ -22,17 +22,17 @@
 ## Email Content (Norwegian)
 
 ### Header
-**Heading:** Historien bak KULKID
+**Heading:** Historien bak KUL KID
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
-Vi er så glade for at du er med i KUL KID Kundeklubb. I dag vil vi dele historien om hvordan KULKID ble til.
+Vi er så glade for at du er med i KUL KID Kundeklubb. I dag vil vi dele historien om hvordan KUL KID ble til.
 
 **Fra hjerte til barneplagg**
 
-KULKID startet med en enkel ide: barn fortjener klær som er like kule som de selv er. Vi tror på at barndommen skal fylles med lek, fantasi og frihet til å være seg selv.
+KUL KID startet med en enkel ide: barn fortjener klær som er like kule som de selv er. Vi tror på at barndommen skal fylles med lek, fantasi og frihet til å være seg selv.
 
 Derfor lager vi plagg som:
 - **Tåler aktivitet** – fordi barn skal leke, ikke bekymre seg for klærne
@@ -61,7 +61,7 @@ Har du ikke handlet ennå? Din 15% rabatt venter fortsatt!
 
 **Subheading:** Bli med i fellesskapet
 
-Vi elsker å se hvordan dere styler KULKID-plaggene! Del bilder med oss på Instagram og bruk #kulkidstyle
+Vi elsker å se hvordan dere styler KUL KID-plaggene! Del bilder med oss på Instagram og bruk #kulkidstyle
 
 ### Instagram Button
 **Text:** Følg @kulkidno  

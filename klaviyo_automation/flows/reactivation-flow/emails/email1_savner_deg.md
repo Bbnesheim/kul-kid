@@ -8,7 +8,7 @@
 
 ## Email Metadata
 
-**Subject Line:** Vi savner deg, {{ first_name|default:"venn" }}! 💙
+**Subject Line:** Vi savner deg{% if first_name %}, {{ first_name }}{% endif %}! 💙
 
 **Preview Text:** Det har vært en stund – kom innom og se hva som er nytt
 
@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Det har vært en stund siden sist vi så deg. Vi håper alt står bra til!
 

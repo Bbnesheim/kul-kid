@@ -20,7 +20,7 @@
 ## Email Content (Norwegian)
 
 ### Header
-**Heading:** Velkommen til KUL KID Kundeklubb, {{ first_name|default:"venn" }}! 🌟
+**Heading:** Velkommen til KUL KID Kundeklubb{% if first_name %}, {{ first_name }}{% endif %}! 🌟
 
 ### Body Copy
 

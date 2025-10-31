@@ -24,7 +24,7 @@
 
 ### Body Copy
 
-Hei {{ first_name|default:"venn" }}!
+Hei {% if first_name %}{{ first_name }}{% else %}der{% endif %}!
 
 Håper du elsker ditt nye KUL KID-plagg! Vi tenkte du kanskje vil ha noen tips til hvordan du kan style det.
 
