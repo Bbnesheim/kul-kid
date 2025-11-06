@@ -21,7 +21,7 @@
             "heading_font_size": 23,
             "description": "<p>Meld deg inn i KUL KID Kundeklubb  og få eksklusive fordeler, lanseringer og tilbud rett i innboksen.</p>",
             "description_font_size": 16,
-            "club_icon": "shopify://shop_images/Kundeklubb_679653a3-53d7-496a-bacd-a3b696c13940.svg",
+            "club_icon": "shopify://shop_images/KUL_KID_Kundeklubb.svg",
             "club_icon_alt": "Kul Kid klubbikon",
             "club_icon_width": 150,
             "newsletter_block_width": 700,
@@ -89,9 +89,9 @@
             "spotify_url": "https://open.spotify.com/artist/5gUHOcGdJU7evr7qx0cvjN",
             "youtube_link": "https://www.youtube.com",
             "social_icon_size": 48,
-            "social_icon_gap": 36,
+            "social_icon_gap": 24,
             "social_icon_size_mobile": 38,
-            "social_icon_gap_mobile": 16,
+            "social_icon_gap_mobile": 12,
             "social_spacing_bottom": 16
           }
         },
