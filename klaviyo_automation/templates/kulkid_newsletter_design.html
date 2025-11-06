@@ -9,7 +9,20 @@
     @import url(https://static-forms.klaviyo.com/fonts/api/v1/XkZSsU/custom_fonts.css);
     
     /* Reset */
-    body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #FFFFFF; }
+    body { 
+      margin: 0; 
+      padding: 0; 
+      -webkit-text-size-adjust: 100%; 
+      -ms-text-size-adjust: 100%; 
+      /* Light background that works across email clients */
+      background: #E8F4F8;
+    }
+    
+    /* Main email wrapper with gradient */
+    .email-wrapper {
+      background: linear-gradient(180deg, #87CEEB 0%, #C8E6C9 30%, #FFE0B2 60%, #FFCDD2 85%, #C8E6C9 100%);
+      min-height: 100vh;
+    }
     table { border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0; }
     img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; max-width: 100%; display: block; }
     
@@ -73,6 +86,9 @@
 </head>
 <body>
   
+  <!-- Email wrapper with gradient background -->
+  <div class="email-wrapper">
+  
   <!-- Banner Image -->
   <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
@@ -80,6 +96,7 @@
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
             <td>
+              <!-- UPLOAD klaviyo_automation/assets/banner/email-banner.png to Klaviyo → Content → Images, then replace this URL -->
               <img src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/email-banner.png" alt="KUL KID Kundeklubb" style="width: 100%; height: auto; display: block;" />
             </td>
           </tr>
@@ -115,7 +132,7 @@
   </table>
 
   <!-- Product Section 1 -->
-  <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background: linear-gradient(135deg, #C8E6C9 0%, #FFE0B2 50%, #FFCDD2 100%);">
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
       <td align="center" class="mobile-padding" style="padding: 30px 15px;">
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
@@ -156,7 +173,7 @@
   </table>
 
   <!-- Product Section 2 -->
-  <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background: linear-gradient(135deg, #FFCDD2 0%, #E1BEE7 50%, #C8E6C9 100%);">
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
       <td align="center" class="mobile-padding" style="padding: 30px 15px;">
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
@@ -282,6 +299,8 @@
       </td>
     </tr>
   </table>
+
+  </div> <!-- End email wrapper -->
 
 </body>
 </html>
