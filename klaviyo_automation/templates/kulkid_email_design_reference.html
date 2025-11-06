@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>KUL KID Email Reference Template</title>
+  <!-- Fonts: Klaviyo custom font alias for Luckiest Guy + Quicksand -->
+  <style type="text/css">
+    @import url(https://static-forms.klaviyo.com/fonts/api/v1/XkZSsU/custom_fonts.css);
+    /* Base */
+    body { margin:0; padding:0; background:#FFFFFF; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table { border-collapse:collapse; }
+    img { border:0; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; height:auto; max-width:100%; }
+    /* Colors */
+    :root {
+      --kk-black: #121212;
+      --kk-surface: #F3F3F3;
+      --kk-accent: #334FB4;
+      --kk-white: #FFFFFF;
+    }
+    /* Typography */
+    h1, h2, h3 { font-family: 'luckiestguy', Helvetica, Arial, sans-serif; font-weight:400; color:var(--kk-black); margin:0 0 16px; }
+    p, a, li, span { font-family: 'Quicksand', Helvetica, Arial, sans-serif; color:var(--kk-black); font-size:16px; line-height:1.6; }
+    /* Buttons */
+    .kk-btn { background:var(--kk-black); color:#FFFFFF !important; text-decoration:none; display:inline-block; padding:14px 24px; border-radius:0; font-family:'Quicksand', Helvetica, Arial, sans-serif; font-weight:700; font-size:16px; }
+    /* Card */
+    .kk-card { border:2px solid var(--kk-black); background:var(--kk-surface); border-radius:0; padding:20px; }
+    /* Container */
+    .kk-container { width:100%; }
+    .kk-inner { width:600px; margin:0 auto; background:#FFFFFF; }
+    .kk-pad { padding:24px 32px; }
+    .kk-divider { border-top:1px solid #CCCCCC; height:1px; line-height:1px; }
+    @media only screen and (max-width: 620px) {
+      .kk-inner { width:100% !important; }
+      .kk-pad { padding:18px !important; }
+    }
+  </style>
+</head>
+<body>
+  <table class="kk-container" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+    <tr>
+      <td align="center">
+        <table class="kk-inner" cellpadding="0" cellspacing="0" role="presentation">
+          <!-- Header -->
+          <tr>
+            <td class="kk-pad" align="center">
+              <!-- Replace with logo hosted in Klaviyo image library -->
+              <!-- <img src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/logo.png" width="140" alt="KUL KID" /> -->
+              <h1 style="font-size:32px;">VELKOMMEN TIL KUL KID KUNDEKLUBB</h1>
+              <p style="margin:0;">Hei {{ first_name|default:"venn" }},</p>
+            </td>
+          </tr>
+          <!-- Body slot (copy this block per-email) -->
+          <tr>
+            <td class="kk-pad">
+              <p>Dette er referansetemplaten. Slett denne teksten og bygg innhold her med avsnitt, bilder og knapper.</p>
+              <div class="kk-card" style="text-align:center; margin:20px 0;">
+                <p style="margin:0 0 6px; font-size:14px;">Din rabattkode</p>
+                <h2 style="margin:0; font-size:24px;">KULKID15</h2>
+                <p style="margin:6px 0 0; font-size:14px;">Gyldig i 7 dager</p>
+              </div>
+              <p>Utforsk kolleksjonene våre:</p>
+              <p>
+                <a class="kk-btn" href="https://kulkid.no/collections/all?utm_source=klaviyo&utm_medium=email&utm_campaign=template_ref" target="_blank">Til butikken</a>
+              </p>
+            </td>
+          </tr>
+          <!-- Divider -->
+          <tr><td class="kk-pad"><div class="kk-divider"></div></td></tr>
+          <!-- Footer -->
+          <tr>
+            <td class="kk-pad" align="center" style="background:var(--kk-surface);">
+              <p style="font-size:12px; margin:0 0 6px;">Teamet på KULKID.no</p>
+              <p style="font-size:12px; margin:0 0 6px;"><a href="{{ unsubscribe_url }}" style="color:var(--kk-black); text-decoration:underline;">Avmeld deg her</a></p>
+              <p style="font-size:10px; margin:0;">{{ organization.name }} {{ organization.full_address }}</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

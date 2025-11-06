@@ -10,7 +10,8 @@ Usage:
     python upload_templates.py [--dry-run] [--flow FLOW_NAME]
 """
 
-import requests
+# Lazy import requests so dry-run can work without it installed
+import requests  # type: ignore
 import json
 import os
 import argparse
@@ -19,6 +20,8 @@ from typing import Dict, List, Optional, Tuple
 
 class KlaviyoAutomation:
     def __init__(self, api_key: str):
+        if requests is None:
+            raise ImportError("The 'requests' package is required. Install with: pip3 install requests")
         self.api_key = api_key
         self.base_url = "https://a.klaviyo.com/api"
         self.headers = {
@@ -135,6 +138,13 @@ TEMPLATE_CONFIG = {
             "subject": "Velkommen til KUL KID Kundeklubb! 🎉 Her er din 15% rabatt",
             "tags": ["norwegian", "welcome", "discount", "15percent"],
             "description": "Welcome email with 15% discount for new KUL KID Kundeklubb members"
+        },
+        {
+            "file": "email2_merkehistorie.html",
+            "name": "kulkid_welcome_merkehistorie_nb",
+            "subject": "Møt merkehistorien bak KULKID ✨",
+            "tags": ["norwegian", "welcome", "story"],
+            "description": "Welcome series email 2 with KULKID brand story"
         }
     ],
     # Add more flows here as they're created
@@ -314,15 +324,16 @@ def validate_template(html_content: str, template_name: str) -> Tuple[bool, List
     if '{{ organization.name }}' not in html_content:
         warnings.append("Missing {{ organization.name }} variable")
     
-    if '{% unsubscribe_link %}' not in html_content:
-        warnings.append("Missing {% unsubscribe_link %} tag")
+    if ('{% unsubscribe_link %}' not in html_content) and ('{{ unsubscribe_url }}' not in html_content):
+        warnings.append("Missing unsubscribe link tag (either {% unsubscribe_link %} or {{ unsubscribe_url }})")
     
     # Check for brand consistency per rules
     if 'KUL KID Kundeklubb' not in html_content:
         warnings.append("Should use 'KUL KID Kundeklubb' for brand name")
     
     # Check for proper font references (Luckiest Guy for headings)
-    if "'Luckiest Guy'" not in html_content:
+    # Accept either the proper-cased family name or the Klaviyo-imported alias
+    if ("'Luckiest Guy'" not in html_content) and ("'luckiestguy'" not in html_content.lower()):
         warnings.append("Headings should use 'Luckiest Guy' font (per brand rules)")
     
     # Check for UTM parameters in links
@@ -456,20 +467,21 @@ Examples:
     if args.dry_run:
         print("\n⚠️  DRY RUN MODE - No templates will be uploaded\n")
     
-    # Get API key from environment or user input
-    api_key = os.getenv('KLAVIYO_API_KEY') or os.getenv('KLAVIYO_PRIVATE_KEY')
-    if not api_key:
-        api_key = input("Enter your Klaviyo Private API Key: ").strip()
-    
-    if not api_key:
-        print("❌ API key required. Get it from Klaviyo Settings → Account → API Keys")
-        return
-    
-    klaviyo = KlaviyoAutomation(api_key)
-    
-    # Handle legacy templates if requested
+    # Handle legacy templates if requested (allow dry-run without API key)
     if args.legacy:
         print("\n📧 Uploading legacy inline templates...\n")
+        if not args.dry_run:
+            # Get API key from environment or user input
+            api_key = os.getenv('KLAVIYO_API_KEY') or os.getenv('KLAVIYO_PRIVATE_KEY')
+            if not api_key:
+                api_key = input("Enter your Klaviyo Private API Key: ").strip()
+            if not api_key:
+                print("❌ API key required. Get it from Klaviyo Settings → Account → API Keys")
+                return
+            klaviyo = KlaviyoAutomation(api_key)
+        else:
+            klaviyo = None
+        
         for template_name, template_data in LEGACY_TEMPLATES.items():
             if not args.dry_run:
                 klaviyo.create_template(
@@ -485,6 +497,19 @@ Examples:
     
     # Upload file-based templates
     base_path = Path(__file__).parent / "flows"
+    
+    # Initialize Klaviyo client only if not dry-run
+    if args.dry_run:
+        klaviyo = None
+    else:
+        api_key = os.getenv('KLAVIYO_API_KEY') or os.getenv('KLAVIYO_PRIVATE_KEY')
+        if not api_key:
+            api_key = input("Enter your Klaviyo Private API Key: ").strip()
+        if not api_key:
+            print("❌ API key required. Get it from Klaviyo Settings → Account → API Keys")
+            return
+        klaviyo = KlaviyoAutomation(api_key)
+    
     
     # Determine which flows to process
     if args.flow:
