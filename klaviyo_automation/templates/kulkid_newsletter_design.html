@@ -30,40 +30,34 @@
     h1, h2, h3 { font-family: 'luckiestguy', Helvetica, Arial, sans-serif; font-weight: 400; margin: 0; line-height: 1.1; }
     p, a, span, td { font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.4; margin: 0; }
     
-    /* Container - Mobile-first design */
+    /* Container - mobile-first; desktop just scales width */
     .email-container { 
-      width: 100%; 
-      max-width: 320px; /* Much narrower for mobile-first */
+      width: 100%;
+      max-width: 340px; /* Base for mobile */
       margin: 0 auto;
     }
     
-    /* Buttons - Mobile-first sizing */
+    /* Buttons - single sizing system */
     .btn-primary, .btn-pink {
       color: #FFFFFF !important;
       text-decoration: none;
       display: inline-block;
-      padding: 10px 16px;
+      padding: 12px 16px;
       border-radius: 2px;
       font-family: 'luckiestguy', Helvetica, Arial, sans-serif;
-      font-size: 12px; /* Smaller default */
+      font-size: 14px;
       font-weight: 400;
-      width: 120px; /* Smaller default */
+      width: 130px;
       text-align: center;
       box-sizing: border-box;
     }
+    .btn-primary { background: #121212; }
+    .btn-pink { background: #FF1493; }
     
-    .btn-primary {
-      background: #121212;
-    }
-    
-    .btn-pink {
-      background: #FF1493;
-    }
-    
-    /* Logo text styling - mobile-first */
+    /* Headings/Logo - single mobile-first sizes */
     .logo-text {
       font-family: 'luckiestguy', Helvetica, Arial, sans-serif;
-      font-size: 18px; /* Smaller default */
+      font-size: 20px;
       font-weight: 400;
       line-height: 0.9;
     }
@@ -71,41 +65,16 @@
     /* Discount text - vertical option for right column */
     .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; display: inline-block; line-height: 1; }
     .vertical-invert { transform: rotate(180deg); display: inline-block; }
-    
-    /* Legacy rotated fallback (some clients) */
+    /* Legacy rotated fallback */
     .discount-rotated { transform: rotate(-15deg); display: inline-block; }
     
-    /* Larger screens (desktop) */
-    @media only screen and (min-width: 481px) {
-      .email-container { max-width: 400px !important; }
-      .btn-primary, .btn-pink { width: 140px !important; font-size: 14px !important; padding: 12px 20px !important; }
-      .logo-text { font-size: 28px !important; }
-    }
-    
-    /* Mobile responsive adjustments */
-    @media only screen and (max-width: 480px) {
-      .email-container { width: 95% !important; max-width: 300px !important; }
-      /* Keep two-column structure on mobile (no forced stacking) */
-      .mobile-center { text-align: center !important; }
-      .mobile-padding { padding: 8px !important; }
-      /* Smaller fonts for mobile */
-      h2 { font-size: 14px !important; }
-      p { font-size: 11px !important; }
-      /* Adjust discount section for mobile */
-      .discount-rotated span:last-child { font-size: 20px !important; }
-      /* Even smaller buttons for mobile */
-      .btn-primary, .btn-pink { width: 100px !important; font-size: 11px !important; padding: 8px 12px !important; }
-    }
-    
-    /* Extra small screens */
-    @media only screen and (max-width: 360px) {
-      .email-container { width: 98% !important; max-width: 280px !important; }
-      .mobile-padding { padding: 6px !important; }
-      /* Even smaller elements */
-      h2 { font-size: 12px !important; }
-      p { font-size: 10px !important; }
-      .btn-primary, .btn-pink { width: 90px !important; font-size: 10px !important; padding: 6px 8px !important; }
-      .logo-text { font-size: 14px !important; }
+    /* Desktop enhancement: scale container and type slightly, keep margins narrow */
+    @media only screen and (min-width: 600px) {
+      .email-container { max-width: 560px !important; }
+      h2 { font-size: 24px !important; }
+      p { font-size: 15px !important; }
+      .logo-text { font-size: 26px !important; }
+      .btn-primary, .btn-pink { width: 150px !important; font-size: 15px !important; padding: 12px 18px !important; }
     }
   </style>
 </head>
@@ -143,14 +112,14 @@
           </tr>
           <!-- Top row with RECEIVE and USE CODE -->
           <tr>
-            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 20px 8px 6px; vertical-align: center;">
-              <h2 style="color: #FF1493; font-size: 36px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left;">Motta</h2>
+            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 14px 10px 8px; vertical-align: middle;">
+              <h2 style="color: #FF1493; font-size: 46px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left;">MOTTA</h2>
             </td>
-            <td class="mobile-stack" style="width: 50%; padding: 12px 8px 6px; text-align: left; vertical-align: top;">
-              <p style="color: #121212; font-size: 30x; margin: 0; font-weight: 700; letter-spacing: 1px;">BRUK KODE</p>
+            <td class="mobile-stack" style="width: 50%; padding: 14px 10px 8px; text-align: center; vertical-align: middle;">
+              <p style="color: #121212; font-size: 16px; margin: 0; font-weight: 700; letter-spacing: 1px;">USE CODE</p>
               <!-- Dynamic coupon code with fallback; replace with Klaviyo coupon function if configured -->
-              <p style="color: #121212; font-size: 12px; margin: 2px 0 0; font-weight: 700;">
-                {{ person|lookup:'discount_code'|default:'VELKOMST15' }}
+              <p style="color: #121212; font-size: 14px; margin: 4px 0 0; font-weight: 700;">
+                {{ person|lookup:'discount_code'|default:'WELCOME40' }}
               </p>
             </td>
           </tr>
@@ -167,13 +136,13 @@
           </tr>
           <!-- Bottom row with EXCLUSIVE CONTENT and 40% OFF -->
           <tr>
-            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 6px 8px 12px; vertical-align: middle;">
-              <h2 style="color: #FFFFFF; font-size: 14px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: center; line-height: 1.1;">EXCLUSIVE CONTENT</h2>
+            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 10px 10px 16px; vertical-align: middle;">
+              <h2 style="color: #FFFFFF; font-size: 24px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.05;">EXCLUSIVE<br>CONTENT</h2>
             </td>
-            <td class="mobile-stack" style="width: 50%; padding: 6px 8px 12px; text-align: center; vertical-align: middle;">
-              <div style="display: flex; align-items: center; justify-content: space-between; height: 120px;">
-                <span class="vertical-text" style="color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 1px;">DISC</span>
-                <span class="vertical-text vertical-invert" style="color: #121212; font-size: 26px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">{{ person|lookup:'discount_percent'|default:'40%' }} Off</span>
+            <td class="mobile-stack" style="width: 50%; padding: 8px 10px 14px; text-align: center; vertical-align: middle;">
+              <div style="display: flex; align-items: center; justify-content: space-between; height: 140px;">
+                <span class="vertical-text" style="color: #FFFFFF; font-size: 14px; font-weight: 700; letter-spacing: 1px;">DISC</span>
+                <span class="vertical-text vertical-invert" style="color: #121212; font-size: 32px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">{{ person|lookup:'discount_percent'|default:'40%' }} Off</span>
               </div>
             </td>
           </tr>
@@ -192,15 +161,15 @@
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
             <!-- Content -->
-            <td class="mobile-stack" style="width: 60%; padding: 10px; vertical-align: middle;">
-              <h2 style="color: #121212; font-size: 18px; margin-bottom: 8px; text-decoration: underline; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">PRODUCT NAME</h2>
-              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px;">
+            <td class="mobile-stack" style="width: 60%; padding: 12px; vertical-align: middle;">
+              <h2 style="color: #121212; font-size: 22px; margin-bottom: 10px; text-decoration: underline; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">PRODUCT NAME</h2>
+              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 6px; margin-bottom: 10px; font-size: 13px; line-height: 1.6;">
                 Perfekte plagg for aktive barn som elsker å være i bevegelse.
               </p>
-              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px;">
+              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 6px; margin-bottom: 10px; font-size: 13px; line-height: 1.6;">
                 Komfortable materialer og kule designs.
               </p>
-              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 4px; margin-bottom: 15px; font-size: 12px;">
+              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.6;">
                 Laget for å tåle lek og aktivitet.
               </p>
               <a href="https://kulkid.no/collections/all?utm_source=klaviyo&utm_medium=email&utm_campaign=newsletter" class="btn-primary">
@@ -248,23 +217,23 @@
               </div>
             </td>
             <!-- Content -->
-            <td class="mobile-stack" style="width: 60%; padding: 10px; vertical-align: middle;">
+            <td class="mobile-stack" style="width: 60%; padding: 12px; vertical-align: middle;">
               <!-- KUL KID colorful logo -->
               <div style="text-align: right; margin-bottom: 10px;">
-                <div class="logo-text" style="font-size: 16px; line-height: 0.8;">
+                <div class="logo-text" style="font-size: 18px; line-height: 0.8;">
                   <span style="color: #FF1493; background: #FFE0B2; padding: 1px 3px; margin: 1px;">K</span><span style="color: #FFD700; background: #E1BEE7; padding: 1px 3px; margin: 1px;">U</span><span style="color: #32CD32; background: #C8E6C9; padding: 1px 3px; margin: 1px;">L</span><br>
                   <span style="color: #FF1493; background: #E1BEE7; padding: 1px 3px; margin: 1px;">K</span><span style="color: #FFD700; background: #C8E6C9; padding: 1px 3px; margin: 1px;">I</span><span style="color: #32CD32; background: #FFE0B2; padding: 1px 3px; margin: 1px;">D</span>
                 </div>
               </div>
               
-              <h2 style="color: #121212; font-size: 18px; margin-bottom: 8px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">PRODUCT <span style="background: #FFFFFF; padding: 0 3px;">NAME</span></h2>
-              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px;">
+              <h2 style="color: #121212; font-size: 22px; margin-bottom: 8px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">PRODUCT <span style="background: #FFFFFF; padding: 0 3px;">NAME</span></h2>
+              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 6px; margin-bottom: 10px; font-size: 13px; line-height: 1.6;">
                 Stilige klær som barn elsker å ha på seg
               </p>
-              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 4px; margin-bottom: 8px; font-size: 12px;">
+              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 6px; margin-bottom: 10px; font-size: 13px; line-height: 1.6;">
                 Kvalitetsmaterialer for maksimal komfort
               </p>
-              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 4px; margin-bottom: 15px; font-size: 12px;">
+              <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.6;">
                 Designet for aktive og lekne barn
               </p>
             </td>
@@ -284,9 +253,9 @@
         <!-- Black section with Follow Us -->
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
-            <td style="background: #000000; padding: 20px 10px; text-align: center;">
-              <h2 style="color: #FFFFFF; font-size: 20px; display: inline-block; margin-right: 10px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">FOLLOW US</h2>
-              <span style="color: #FFFFFF; font-size: 16px; text-decoration: underline;">➤</span>
+            <td style="background: #000000; padding: 22px 12px; text-align: center;">
+              <h2 style="color: #FFFFFF; font-size: 26px; display: inline-block; margin-right: 10px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">FOLLOW US</h2>
+              <span style="color: #FFFFFF; font-size: 18px; text-decoration: underline;">➤</span>
             </td>
           </tr>
         </table>
