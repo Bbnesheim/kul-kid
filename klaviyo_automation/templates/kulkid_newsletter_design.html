@@ -14,8 +14,8 @@
       padding: 0; 
       -webkit-text-size-adjust: 100%; 
       -ms-text-size-adjust: 100%; 
-      /* Light background that works across email clients */
-      background: #E8F4F8;
+      /* Gradient background matching email content */
+      background: linear-gradient(180deg, #C8E6C9 0%, #FFE0B2 40%, #FFCDD2 70%, #C8E6C9 100%);
     }
     
     /* Main email wrapper with gradient - starts from discount section */
@@ -65,8 +65,19 @@
     /* Discount text - vertical option for right column */
     .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; display: inline-block; line-height: 1; }
     .vertical-invert { transform: rotate(180deg); display: inline-block; }
-    /* Legacy rotated fallback */
-    .discount-rotated { transform: rotate(-15deg); display: inline-block; }
+    /* Coupon code with left tilt/skew */
+    .coupon-code { 
+      display: block; 
+      transform: skewY(-8deg); 
+      line-height: 1;
+      text-align: center;
+      overflow: hidden;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
+      hyphens: auto;
+    }
     
     /* Desktop enhancement: scale container and type slightly, keep margins narrow */
     @media only screen and (min-width: 600px) {
@@ -103,7 +114,7 @@
   <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
       <td align="center">
-        <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
+        <table class="email-container" cellpadding="0" cellspacing="0" role="presentation" style="table-layout: fixed;">
           <!-- Personalization preface (hidden visually; for screen readers) -->
           <tr>
             <td style="font-size:0; line-height:0; color:#FFFFFF; height:0; overflow:hidden;" aria-hidden="true">
@@ -112,15 +123,11 @@
           </tr>
           <!-- Top row with RECEIVE and USE CODE -->
           <tr>
-            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 14px 10px 8px; vertical-align: middle;">
-              <h2 style="color: #FF1493; font-size: 46px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left;">MOTTA</h2>
+            <td width="60%" class="mobile-stack" style="background: #000000; padding: 14px 10px 8px; vertical-align: middle;">
+              <h2 style="color: #FF1493; font-size: 30px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left;">MOTTA</h2>
             </td>
-            <td class="mobile-stack" style="width: 50%; padding: 14px 10px 8px; text-align: center; vertical-align: middle;">
-              <p style="color: #121212; font-size: 16px; margin: 0; font-weight: 700; letter-spacing: 1px;">USE CODE</p>
-              <!-- Dynamic coupon code with fallback; replace with Klaviyo coupon function if configured -->
-              <p style="color: #121212; font-size: 14px; margin: 4px 0 0; font-weight: 700;">
-                {{ person|lookup:'discount_code'|default:'WELCOME40' }}
-              </p>
+            <td width="40%" class="mobile-stack" style="padding: 14px 10px 8px; text-align: center; vertical-align: center;">
+              <p style="color: #121212; font-size: 10px; margin: 0; font-weight: 700; letter-spacing: 0.8px;">Bruk koden under <br> ved utsjekk</p>
             </td>
           </tr>
           <!-- Single continuous divider line across both columns -->
@@ -128,21 +135,29 @@
             <td colspan="2" style="padding: 0; height: 2px;">
               <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
                 <tr>
-                  <td style="width: 50%; height: 2px; background: #FFFFFF;"></td>
-                  <td style="width: 50%; height: 2px; background: #121212;"></td>
+                  <td style="width: 10px; height: 2px; background: transparent;"></td>
+                  <td style="width: calc(60% - 10px); height: 2px; background: transparent;"></td>
+                  <td style="width: calc(40% - 10px); height: 2px; background: #121212;"></td>
+                  <td style="width: 10px; height: 2px; background: transparent;"></td>
                 </tr>
               </table>
             </td>
           </tr>
-          <!-- Bottom row with EXCLUSIVE CONTENT and 40% OFF -->
+          <!-- Bottom row with EXCLUSIVE CONTENT and 15% OFF -->
           <tr>
-            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 10px 10px 16px; vertical-align: middle;">
-              <h2 style="color: #FFFFFF; font-size: 24px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.05;">EXCLUSIVE<br>CONTENT</h2>
+            <td width="60%" class="mobile-stack" style="background: #000000; padding: 10px 10px 16px; vertical-align: middle;">
+              <h2 style="color: #FFFFFF; font-size: 24px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.05;">DIN <br> EKSKLUSIVE<br>RABATT</h2>
             </td>
-            <td class="mobile-stack" style="width: 50%; padding: 8px 10px 14px; text-align: center; vertical-align: middle;">
-              <div style="display: flex; align-items: center; justify-content: space-between; height: 140px;">
-                <span class="vertical-text" style="color: #FFFFFF; font-size: 14px; font-weight: 700; letter-spacing: 1px;">DISC</span>
-                <span class="vertical-text vertical-invert" style="color: #121212; font-size: 32px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">{{ person|lookup:'discount_percent'|default:'40%' }} Off</span>
+            <td width="40%" class="mobile-stack" style="padding: 8px 10px 14px; text-align: right; vertical-align: bottom; overflow: hidden;">
+              <!-- Discount percentage (horizontal with left tilt) -->
+              <div class="coupon-code" style="color: #121212; font-size: 52px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; padding-right: 10px; margin-top: 14px; margin-bottom: 10px; max-width: 100%; box-sizing: border-box; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
+                15%
+              </div>
+              <!-- Example discount code (smaller, highlighted) -->
+              <div style="text-align: right; padding-right: 10px;">
+                <span style="background: #FFFFFF; color: #121212; font-size: 10px; font-weight: 700; padding: 3px 5px; display: inline-block; border-radius: 2px; letter-spacing: 0.5px;">
+                  VELKOMST15-2252F3C4
+                </span>
               </div>
             </td>
           </tr>
