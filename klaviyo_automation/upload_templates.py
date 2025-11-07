@@ -147,6 +147,15 @@ TEMPLATE_CONFIG = {
             "description": "Welcome series email 2 with KULKID brand story"
         }
     ],
+    "newsletter": [
+        {
+            "file": "../templates/kulkid_newsletter_design.html",
+            "name": "kulkid_newsletter_design_nb",
+            "subject": "Nytt fra KUL KID 🌈 Eksklusivt innhold og 40% rabatt!",
+            "tags": ["norwegian", "newsletter", "discount", "products"],
+            "description": "Modern newsletter template with gradient backgrounds, product showcase, and social media integration"
+        }
+    ],
     # Add more flows here as they're created
 }
 
