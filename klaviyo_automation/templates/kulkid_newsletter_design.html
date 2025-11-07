@@ -33,29 +33,27 @@
     /* Container - Even narrower for mobile optimization */
     .email-container { width: 100%; max-width: 400px; margin: 0 auto; }
     
-    /* Buttons - Mobile optimized */
-    .btn-primary {
-      background: #121212;
+    /* Buttons - Standardized width and 2px border radius */
+    .btn-primary, .btn-pink {
       color: #FFFFFF !important;
       text-decoration: none;
       display: inline-block;
-      padding: 12px 24px;
-      border-radius: 25px;
+      padding: 12px 20px;
+      border-radius: 2px;
       font-family: 'luckiestguy', Helvetica, Arial, sans-serif;
       font-size: 14px;
       font-weight: 400;
+      width: 140px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    
+    .btn-primary {
+      background: #121212;
     }
     
     .btn-pink {
       background: #FF1493;
-      color: #FFFFFF !important;
-      text-decoration: none;
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 25px;
-      font-family: 'luckiestguy', Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      font-weight: 400;
     }
     
     /* Logo text styling */
@@ -83,6 +81,8 @@
       p { font-size: 12px !important; }
       /* Adjust discount section for mobile */
       .discount-rotated span:last-child { font-size: 24px !important; }
+      /* Maintain button consistency on mobile */
+      .btn-primary, .btn-pink { width: 120px !important; font-size: 12px !important; padding: 10px 16px !important; }
     }
     
     /* Extra small screens */
@@ -91,6 +91,8 @@
       .mobile-padding { padding: 10px !important; }
       h2 { font-size: 14px !important; }
       p { font-size: 11px !important; }
+      /* Even smaller buttons for tiny screens */
+      .btn-primary, .btn-pink { width: 110px !important; font-size: 11px !important; padding: 8px 12px !important; }
     }
   </style>
 </head>
@@ -195,7 +197,7 @@
                 <div style="position: absolute; top: -8px; left: -8px; width: 20px; height: 20px; background: #FFFFFF; border-radius: 50%;"></div>
                 <!-- Product image placeholder -->
                 <img src="https://via.placeholder.com/150x200/333333/FFFFFF?text=PRODUCT" alt="Product" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
-                <a href="https://kulkid.no/collections/all?utm_source=klaviyo&utm_medium=email&utm_campaign=newsletter" class="btn-primary" style="border-radius: 0; font-size: 12px;">
+                <a href="https://kulkid.no/collections/all?utm_source=klaviyo&utm_medium=email&utm_campaign=newsletter" class="btn-primary">
                   SEE MORE
                 </a>
               </div>
@@ -244,7 +246,7 @@
         <!-- Light green section with social media -->
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
-            <td style="background: #C8E6C9; padding: 30px 15px;">
+            <td style="padding: 30px 15px;">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <!-- Content -->
