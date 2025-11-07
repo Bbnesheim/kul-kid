@@ -80,9 +80,12 @@
       h2 { font-size: 16px !important; }
       p { font-size: 12px !important; }
       /* Adjust discount section for mobile */
-      .discount-rotated span:last-child { font-size: 24px !important; }
+      .discount-rotated span:last-child { font-size: 22px !important; }
       /* Maintain button consistency on mobile */
       .btn-primary, .btn-pink { width: 120px !important; font-size: 12px !important; padding: 10px 16px !important; }
+      /* Mobile discount section adjustments */
+      .mobile-stack td h2 { font-size: 14px !important; }
+      .mobile-stack td p { font-size: 12px !important; }
     }
     
     /* Extra small screens */
@@ -124,16 +127,19 @@
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
             <!-- Left side - Black with pink text -->
-            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 25px 12px; vertical-align: middle;">
-              <h2 style="color: #FF1493; font-size: 20px; margin-bottom: 6px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">RECEIVE</h2>
-              <h2 style="color: #FFFFFF; font-size: 18px; margin-bottom: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">EXCLUSIVE</h2>
-              <h2 style="color: #FFFFFF; font-size: 18px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">CONTENT</h2>
+            <td class="mobile-stack" style="width: 50%; background: #000000; padding: 20px 12px; vertical-align: middle;">
+              <h2 style="color: #FF1493; font-size: 20px; margin-bottom: 8px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: center;">RECEIVE</h2>
+              <!-- White divider line -->
+              <div style="height: 2px; background: #FFFFFF; margin: 8px 0; width: 100%;"></div>
+              <h2 style="color: #FFFFFF; font-size: 16px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: center; line-height: 1.1;">EXCLUSIVE CONTENT</h2>
             </td>
             <!-- Right side - No background, part of gradient -->
-            <td class="mobile-stack" style="width: 50%; padding: 25px 12px; text-align: center; vertical-align: middle;">
-              <p style="color: #121212; font-size: 13px; margin-bottom: 6px; font-weight: 600;">USE CODE</p>
-              <div class="discount-rotated" style="margin: 12px 0;">
-                <span style="color: #121212; font-size: 11px; font-weight: 500;">DISC</span><br>
+            <td class="mobile-stack" style="width: 50%; padding: 20px 12px; text-align: center; vertical-align: middle;">
+              <p style="color: #121212; font-size: 14px; margin-bottom: 8px; font-weight: 600;">USE CODE</p>
+              <!-- Black divider line -->
+              <div style="height: 2px; background: #121212; margin: 8px 0; width: 100%;"></div>
+              <div class="discount-rotated" style="margin: 8px 0;">
+                <span style="color: #121212; font-size: 12px; font-weight: 500;">DISC</span><br>
                 <span style="color: #121212; font-size: 28px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; line-height: 0.8;">40% Off</span>
               </div>
             </td>
