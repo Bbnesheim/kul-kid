@@ -150,7 +150,8 @@
             "show_paypal": true,
             "show_apple_pay": true,
             "show_klarna": true,
-            "custom_payment_label": "",
+            "custom_payment_svg": "shopify://shop_images/Vipps.svg",
+            "custom_payment_label": "Vipps betalingsløsning ikon logo",
             "payments_spacing_bottom": 24
           }
         }
