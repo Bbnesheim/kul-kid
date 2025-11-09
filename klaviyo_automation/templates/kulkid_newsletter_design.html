@@ -110,6 +110,30 @@
     </tr>
   </table>
 
+  <!-- Spacer -->
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation"><tr><td style="height: 16px; line-height: 16px; font-size: 0;">&nbsp;</td></tr></table>
+
+  <!-- Welcome Message -->
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+    <tr>
+      <td align="center">
+        <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
+          <tr>
+            <td style="padding: 0 12px;">
+              <p style="color: #121212; font-size: 16px; line-height: 1.4; margin: 0 0 8px 0; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; text-align: left;">
+                Hei, {{ person|lookup:'first_name'|default:'du' }}!
+              </p>
+              <h1 style="color: #121212; font-size: 28px; margin: 0 0 8px 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; line-height: 1.2; text-align: center;">VELKOMMEN TIL KUL KID KUNDEKLUBB!</h1>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Spacer -->
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation"><tr><td style="height: 20px; line-height: 20px; font-size: 0;">&nbsp;</td></tr></table>
+
   <!-- Discount Section -->
   <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
@@ -117,17 +141,11 @@
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation" style="table-layout: fixed;">
           <!-- Personalization preface (hidden visually; for screen readers) -->
           <tr>
-            <td style="font-size:0; line-height:0; color:#FFFFFF; height:0; overflow:hidden;" aria-hidden="true">
-              Hei {{ person|lookup:'first_name'|default:'venn' }}!
-            </td>
-          </tr>
-          <!-- Top row with RECEIVE and USE CODE -->
-          <tr>
             <td width="60%" class="mobile-stack" style="background: #000000; padding: 14px 10px 8px; vertical-align: middle;">
               <h2 style="color: #FF1493; font-size: 30px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left;">MOTTA</h2>
             </td>
             <td width="40%" class="mobile-stack" style="padding: 14px 10px 8px; text-align: center; vertical-align: center;">
-              <p style="color: #121212; font-size: 10px; margin: 0; font-weight: 700; letter-spacing: 0.8px;">Bruk koden under <br> ved utsjekk</p>
+              <p style="color: #121212; font-size: 10px; margin: 0; font-weight: 700; letter-spacing: 0.8px;">Din personlige rabatt<br> ved utsjekk</p>
             </td>
           </tr>
           <!-- Single continuous divider line across both columns -->
@@ -148,13 +166,13 @@
             <td width="60%" class="mobile-stack" style="background: #000000; padding: 10px 10px 16px; vertical-align: middle;">
               <h2 style="color: #FFFFFF; font-size: 24px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.05;">DIN <br> EKSKLUSIVE<br>RABATT</h2>
             </td>
-            <td width="40%" class="mobile-stack" style="padding: 8px 10px 14px; text-align: right; vertical-align: bottom; overflow: hidden;">
+            <td width="40%" class="mobile-stack" style="padding: 8px 10px 14px; text-align: center; vertical-align: bottom; overflow: hidden;">
               <!-- Discount percentage (horizontal with left tilt) -->
-              <div class="coupon-code" style="color: #121212; font-size: 52px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; padding-right: 10px; margin-top: 14px; margin-bottom: 10px; max-width: 100%; box-sizing: border-box; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
+              <div class="coupon-code" style="color: #121212; font-size: 52px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; margin-top: 14px; margin-bottom: 10px; max-width: 100%; box-sizing: border-box; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
                 15%
               </div>
               <!-- Example discount code (smaller, highlighted) -->
-              <div style="text-align: right; padding-right: 10px;">
+              <div style="text-align: center;">
                 <span style="background: #FFFFFF; color: #121212; font-size: 10px; font-weight: 700; padding: 3px 5px; display: inline-block; border-radius: 2px; letter-spacing: 0.5px;">
                   VELKOMST15-2252F3C4
                 </span>
@@ -169,15 +187,21 @@
   <!-- Spacer -->
   <table width="100%" cellpadding="0" cellspacing="0" role="presentation"><tr><td style="height: 16px; line-height: 16px; font-size: 0;">&nbsp;</td></tr></table>
 
-  <!-- Product Section 1 -->
+  <!-- Product Section 1 - Collections -->
   <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
     <tr>
       <td align="center" class="mobile-padding" style="padding: 12px 10px;">
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
+          <!-- Heading Row -->
+          <tr>
+            <td colspan="2" style="padding: 0 12px 12px 12px;">
+              <h2 style="color: #121212; font-size: 30px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">Kolleksjoner</h2>
+            </td>
+          </tr>
+          <!-- Content Row -->
           <tr>
             <!-- Content -->
-            <td class="mobile-stack" style="width: 60%; padding: 12px; vertical-align: middle;">
-              <h2 style="color: #121212; font-size: 22px; margin-bottom: 10px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">Kolleksjoner</h2>
+            <td class="mobile-stack" style="width: 60%; padding: 0 12px 12px 12px; vertical-align: top;">
               <p style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 6px; margin-bottom: 10px; font-size: 15px; line-height: 1.6; margin-top: 0;">
                 <a href="https://kulkid.no/collections/basics?utm_source=klaviyo&utm_medium=email&utm_campaign=newsletter" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700;">➤ Basics</a>
               </p>
@@ -189,7 +213,7 @@
               </p>
             </td>
             <!-- Image -->
-            <td class="mobile-stack" style="width: 40%; padding: 10px; text-align: center; vertical-align: middle;">
+            <td class="mobile-stack" style="width: 40%; padding: 0 12px 12px 12px; text-align: center; vertical-align: top;">
               <a href="https://kulkid.no/collections/basics?utm_source=klaviyo&utm_medium=email&utm_campaign=newsletter" style="display: block; text-decoration: none;">
                 <div style="background: linear-gradient(45deg, #FFE0B2, #FFCDD2); border-radius: 12px; padding: 12px; position: relative;">
                   <!-- UPLOAD a product image from Basics collection to Klaviyo → Content → Images, then replace this URL -->
@@ -276,9 +300,8 @@
         <!-- Black section with Follow Us -->
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
-            <td style="background: #000000; padding: 22px 12px; text-align: left;">
-              <h2 style="color: #FFFFFF; font-size: 26px; display: inline-block; margin-right: 10px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">FØLG OSS</h2>
-              <span style="color: #FFFFFF; font-size: 18px; text-decoration: underline;">➤</span>
+            <td style="background: #000000; padding: 14px 12px; text-align: left;">
+              <h2 style="color: #FFFFFF; font-size: 26px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">FØLG OSS</h2>
             </td>
           </tr>
         </table>
@@ -334,7 +357,7 @@
       <td align="center" style="padding: 18px 15px;">
         <table class="email-container" cellpadding="0" cellspacing="0" role="presentation">
           <tr>
-            <td align="center" style="padding: 0 10px;">
+            <td align="center" style="padding: 0 2px;">
               <p style="font-size: 10px; color: #121212; margin: 0 0 6px; line-height: 1.5; font-family: 'Quicksand', Helvetica, Arial, sans-serif;">
                 Ønsker du ikke å motta tilbud fra oss? Avmelding fra nyhetsbrev <a href="{{ unsubscribe_url }}" style="color: #121212; text-decoration: underline; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-size: 10px;">her</a>
               </p>
