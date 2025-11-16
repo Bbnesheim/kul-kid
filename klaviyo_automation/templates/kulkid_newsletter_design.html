@@ -85,6 +85,42 @@
       .email-container { max-width: 560px !important; }
       .logo-text { font-size: 26px !important; }
       .btn-primary, .btn-pink { width: 150px !important; font-size: 15px !important; padding: 12px 18px !important; }
+      /* Kolleksjoner header bigger */
+      img.koll-header { height: 116px !important; width: auto !important; }
+      /* Collections list: larger type and spacing */
+      .collection-item a { font-size: 26px !important; }
+      .collection-item { padding-bottom: 12px !important; margin-bottom: 18px !important; }
+      /* Right column responsiveness */
+      img.kk-logo-fade { width: 200px !important; height: auto !important; }
+      img.why-heading-img { height: 40px !important; }
+      .why-text { padding-left: 0 !important; padding-right: 8px !important; font-size: 14px !important; }
+      .why-divider { margin-left: 0 !important; width: calc(100% - 10px) !important; }
+      /* Social icon spacing on wide view */
+      td.social-cell { padding: 0 16px !important; }
+    }
+
+    /* Wider desktop refinements */
+    @media only screen and (min-width: 900px) {
+      img.kk-logo-fade { width: 220px !important; }
+      img.why-heading-img { height: 44px !important; }
+      .why-text { padding-left: 6% !important; font-size: 15px !important; white-space: nowrap !important; }
+      .why-divider { margin-left: 10% !important; width: calc(90% - 10px) !important; }
+      td.social-cell { padding: 0 20px !important; }
+    }
+
+    /* Bridge range so 700-899px matches the 10% gap behavior */
+    @media only screen and (min-width: 700px) and (max-width: 899px) {
+      .why-text { white-space: nowrap !important; padding-left: 10% !important; padding-right: 8px !important; font-size: 13px !important; text-align: right !important; }
+      .why-divider { margin-left: 10% !important; width: calc(90% - 10px) !important; }
+      td.social-cell { padding: 0 18px !important; }
+    }
+
+    @media only screen and (min-width: 1200px) {
+      img.kk-logo-fade { width: 240px !important; }
+      img.why-heading-img { height: 48px !important; }
+      .why-text { padding-left: 10% !important; padding-right: 8px !important; font-size: 14px !important; text-align: right !important; white-space: nowrap !important; }
+      .why-divider { margin-left: 10% !important; width: calc(90% - 10px) !important; }
+      td.social-cell { padding: 0 24px !important; }
     }
   </style>
   </head>
@@ -96,7 +132,7 @@
             <table cellpadding="0" cellspacing="0" class="email-container" role="presentation">              
               <tr>                
                 <td style="padding: 0px;">                  
-                  <img alt="KUL KID Kundeklubb" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/d3520361-be03-46ae-98b7-11fd4208241c.png" style="width: 100%; height: auto; display: block; border-radius: 2px;"/>
+                  <img alt="KUL KID Kundeklubb" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/d3520361-be03-46ae-98b7-11fd4208241c.png" style="width: 100%; height: auto; display: block; border-radius: 0px;"/>
                 </td>
               </tr>
             </table>
@@ -110,11 +146,14 @@
             <table cellpadding="0" cellspacing="0" class="email-container" role="presentation" style="table-layout: fixed;">              <!-- Personalization preface (hidden visually; for screen readers) -->
               <tr>                
                 <td class="mobile-stack" style="background: #000000; padding: 24px 10px 8px; vertical-align: middle;" width="60%">
-                  <h2 style="color: #FF1493; font-size: 26px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left;">
+                  <img src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/d1a70aef-5d13-43ba-b606-290c9f45b237.png" alt="Velkommen!" style="height: 38px; width: auto; display: block; margin-top: 30px; border: 0;" />
+                  <!--[if mso]>
+                  <h2 style="color: #FF1493; font-size: 26px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left; display: none; mso-hide: all;">
                     Velkommen!
                   </h2>
+                  <![endif]-->
                 </td>
-                <td class="mobile-stack" style="padding: 14px 10px 8px; text-align: center; vertical-align: center;" width="40%">                  
+                <td class="mobile-stack" style="padding: 50px 10px 8px; text-align: center; " width="40%">                  
                   <p style="color: #121212; font-size: 10px; margin: 0; font-weight: 700; letter-spacing: 0.8px;">
                     Din personlige kode<br/> ved utsjekk for
                   </p>
@@ -134,14 +173,20 @@
 <!-- Bottom row with EXCLUSIVE CONTENT and 15% OFF -->
               <tr>                
                 <td class="mobile-stack" style="background: #000000; padding: 10px 10px 16px; vertical-align: middle;" width="60%">                  
-                  <h2 style="color: #FFFFFF; font-size: 266x; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.05;">
-                    MOTTA DIN<br/> EKSKLUSIVE<br/>RABATT
+                  <img src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/64dd85a4-6d06-4b4f-bfdc-a745db5a8c4f.png" alt="MOTTA DIN EKSKLUSIVE RABATT" style="width: 100%; max-width: 130px; height: auto; display: block; border: 0;" />
+                  <!--[if mso]>
+                  <h2 style="color: #FFFFFF; font-size: 36px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: left; line-height: 1.05; display: none; mso-hide: all;">
+                    MOTTA DIN EKSKLUSIVE RABATT
                   </h2>
+                  <![endif]-->
                 </td>
                 <td class="mobile-stack" style="padding: 8px 10px 14px; text-align: center; vertical-align: bottom; overflow: hidden;" width="40%">                  <!-- Discount percentage (horizontal with left tilt) -->
-                  <div class="coupon-code" style="color: #121212; font-size: 56px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; margin-top: 14px; margin-bottom: 10px; max-width: 100%; box-sizing: border-box; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
+                  <img src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/e8d55846-84c0-4305-a197-cdbd6297c9a1.png" alt="15%" style="height: 40px; width: auto; display: block; margin: 14px auto 10px; border: 0;" />
+                  <!--[if mso]>
+                  <div class="coupon-code" style="color: #121212; font-size: 56px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; margin-top: 14px; margin-bottom: 10px; display: none; mso-hide: all;">
                     15%
                   </div>
+                  <![endif]-->
 <!-- Example discount code (smaller, highlighted) -->
                   <div style="text-align: center;">                    <span style="background: #FDFDFD; color: #121212; font-size: 9px; text-align: right; font-weight: 700; padding: 3px 5px; display: inline-block; border-radius: 2px; letter-spacing: 0.2px;">
                   <strong>{{ VELKOMST15 }}</strong>
@@ -167,36 +212,43 @@
           <td align="center" class="mobile-padding" style="padding: 2px 1px;">            
             <table cellpadding="0" cellspacing="0" class="email-container" role="presentation">              <!-- Heading Row -->
               <tr>                
-                <td colspan="2" style="padding: 0 1px 1px 1px;">                  
-                  <h2 style="color: #121212; font-size: 40px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; padding-left: 10px; vertical-align: center; padding-top: 15px; line-height: 0.75;">
+                <td colspan="2" style="padding: 0 1px 1px 10px;">                  
+                  <img class="koll-header" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/0d9ab4ce-e31c-4661-864e-7d897826d9c5.png" alt="Kolleksjoner" style="height: 58px; width: auto; display: block; margin-top: 15px; border: 0;" />
+                  <!--[if mso]>
+                  <h2 style="color: #121212; font-size: 40px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; padding-left: 10px; padding-top: 15px; line-height: 0.75; display: none; mso-hide: all;">
                     Kolleksjoner
                   </h2>
+                  <![endif]-->
                 </td>
               </tr>
 <!-- Content Row -->
               <tr>                <!-- Content -->
                 <td class="mobile-stack" style="width: 40%; padding: 0 12px 12px 0; vertical-align: center;">                  
-                  <h2 style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 16px; font-size: 20px; line-height: 1.0; margin-top: 0;">                    
-                    <a href="https://kulkid.no/collections/basics?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 20px !important; padding-left: 5px;">➤ Basics</a>
+                  <h2 class="collection-item" style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 16px; font-size: 16px; line-height: 1.0; margin-top: 0;">                    
+                    <a href="https://kulkid.no/collections/basics?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" class="collection-link" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 16px; padding-left: 5px;">➤ Basics</a>
                   </h2>
-                  <h2 style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 16px; font-size: 20px; line-height: 1.0; margin-top: 0;">                    
-                    <a href="https://kulkid.no/collections/superkul?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 20px !important; padding-left: 5px;">➤ Superkul</a>
+                  <h2 class="collection-item" style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 16px; font-size: 16px; line-height: 1.0; margin-top: 0;">                    
+                    <a href="https://kulkid.no/collections/gymtime?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" class="collection-link" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 16px; padding-left: 5px;">➤ Gymtime</a>
                   </h2>
-                  <h2 style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 1px; font-size: 20px; line-height: 1.0; margin-top: 0;">                    
-                    <a href="https://kulkid.no/collections/superhelter?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 20px !important; padding-left: 5px;">➤ Superhelter</a>
+                  <h2 class="collection-item" style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 16px; font-size: 16px; line-height: 1.0; margin-top: 0;">                  
+                    <a href="https://kulkid.no/collections/skole?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" class="collection-link" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 16px; padding-left: 5px;">➤ Skole &amp; Sekk</a>
+                  </h2>
+                  <h2 class="collection-item" style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 16px; font-size: 16px; line-height: 1.0; margin-top: 0;">                    
+                    <a href="https://kulkid.no/collections/superhelter?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" class="collection-link" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 16px; padding-left: 5px;">➤ Superhelter</a>
+                  </h2>
+                  <h2 class="collection-item" style="color: #121212; border-bottom: 2px solid #121212; padding-bottom: 10px; margin-bottom: 1px; font-size: 16px; line-height: 1.0; margin-top: 0;">                    
+                    <a href="https://kulkid.no/collections/superkul?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" class="collection-link" style="color: #121212; text-decoration: none; font-family: 'Quicksand', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 16px; padding-left: 5px;">➤ Superkul</a>
                   </h2>
                 </td>
 <!-- Image -->
                 <td class="mobile-stack" style="width: 40%; padding: 0 2px 2px 2px; text-align: center; vertical-align: center;">                  
                     <a href="https://kulkid.no/collections/basics?utm_source=klaviyo&amp;utm_medium=email&amp;utm_campaign=newsletter" style="display: block; text-decoration: none;">
                     <div style="background: linear-gradient(45deg, #FFE0B2, #FFCDD2); border-radius: 12px; padding: 12px; position: relative;">
-                      <img alt="Basics Collection" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/906b76c3-f565-4050-a743-1b86c105d5b3.png" style="width: 100%; border-radius: 2px;"/>
-<!-- Decorative circles -->
-                      <div style="position: absolute; bottom: 3px; right: 3px;">
-                        <div style="width: 20px; height: 3px; background: #FFFFFF; border-radius: 2px; margin-bottom: 2px;"></div>
-                        <div style="width: 20px; height: 3px; background: #FFFFFF; border-radius: 2px; margin-bottom: 2px;"></div>
-                        <div style="width: 20px; height: 3px; background: #FFFFFF; border-radius: 2px;"></div>
-                    </div>
+                      <img alt="Basics Collection" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/da8b9f08-7437-48e2-8920-11145abd98ab.png" style="width: 100%; border-radius: 2px;"/>
+<!-- Decorative star icon -->
+                      <div style="position: absolute; bottom: 3px; right: 3px; width: 18px; height: 18px; background: #FFFFFF; border-radius: 50%; text-align: center; line-height: 18px; font-size: 12px; color: #121212;">
+                        &#9733;
+                      </div>
                     </a>
                 </td>
               </tr>
@@ -244,27 +296,32 @@
               <tr>                <!-- Image -->
                 <td class="mobile-stack" style="width: 50%; padding: 00px; text-align: center; vertical-align: middle;">                 
                  <a href="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/00012e8d-a69f-4fbc-912c-bb24b7f9d14d.png" style="display: block; text-decoration: none; position: relative;">
-                    <div style="position: absolute; top: -6px; left: -6px; width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -6px; left: -6px; width: 18px; height: 18px; background: #FFFFFF; border-radius: 50%; text-align: center; line-height: 18px; font-size: 12px; color: #121212;">
+                      &#9733;
+                    </div>
                     <img alt="Product" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/00012e8d-a69f-4fbc-912c-bb24b7f9d14d.png" style="width: 100%; border-radius: 8px;"/>
 </a>
                 </td>
 <!-- Content -->
-                <td class="mobile-stack" style="width: 50%; padding: 2px 12px 2px 2px; vertical-align: middle;">
-                  <div style="text-align: right; margin-bottom: 6px;"> 
-                    <img alt="KUL KID Kundeklubb" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/741d30e3-5ac4-4110-905d-addfd58b928e.png" style="width: 100px; height: auto; display: inline-block; opacity: 30%;"/>
+                <td class="mobile-stack" style="width: 50%; padding: 2px 0 2px 2px; vertical-align: middle;">
+                  <div style="text-align: right; margin-bottom: 6px; padding-right: 8px;"> 
+                    <img class="kk-logo-fade" alt="KUL KID Kundeklubb" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/741d30e3-5ac4-4110-905d-addfd58b928e.png" style="width: 100px; height: auto; display: inline-block; opacity: 30%;"/>
                   </div>
-                  <h2 style="color: #121212; font-size: 14px; margin-bottom: 8px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: right;">
+                  <img class="why-heading-img" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/40ec53a7-bcdd-4bbe-b0b1-ad462426103a.png" alt="Hvorfor KUL KID?" style="height: 20px; width: auto; display: block; margin-left: auto; margin-right: 8px; margin-bottom: 8px; border: 0;" />
+                  <!--[if mso]>
+                  <h2 style="color: #121212; font-size: 14px; margin-bottom: 8px; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; text-align: right; display: none; mso-hide: all;">
                     Hvorfor KUL KID?
                   </h2>
-                  <p style="color: #121212; font-size: 10px; padding: 0 0 8px 30%; line-height: 1.2; margin: 0; font-family: 'Quicksand', Helvetica, Arial, sans-serif; text-align: right; font-weight: 700;">
+                  <![endif]-->
+                  <p class="why-text" style="color: #121212; font-size: 10px; padding: 0 8px 4px 40%; line-height: 1.2; margin: 0; font-family: 'Quicksand', Helvetica, Arial, sans-serif; text-align: right; font-weight: 700;">
                     Noe for en hver anledning
                   </p>
-                  <div style="border-bottom: 2px solid #000000; margin: 0 0 8px 30%;"></div>
-                  <p style="color: #121212; font-size: 10px; padding: 0 0 8px 30%; line-height: 1.2; margin: 0; font-family: 'Quicksand', Helvetica, Arial, sans-serif; text-align: right; font-weight: 700;">
+                  <div class="why-divider" style="border-bottom: 2px solid #000000; margin: 0 -10px 4px 40%;"></div>
+                  <p class="why-text" style="color: #121212; font-size: 10px; padding: 0 8px 8px 40%; line-height: 1.2; margin: 0; font-family: 'Quicksand', Helvetica, Arial, sans-serif; text-align: right; font-weight: 700;">
                     Kule design og morsomme farger
                   </p>
-                  <div style="border-bottom: 2px solid #000000; margin: 0 0 8px 30%;"></div>
-                  <p style="color: #121212; font-size: 10px; padding: 0 0 0 30%; line-height: 1.2; margin: 0; font-family: 'Quicksand', Helvetica, Arial, sans-serif; text-align: right; font-weight: 700;">
+                  <div class="why-divider" style="border-bottom: 2px solid #000000; margin: 0 -10px 4px 40%;"></div>
+                  <p class="why-text" style="color: #121212; font-size: 10px; padding: 0 8px 0 40%; line-height: 1.2; margin: 0; font-family: 'Quicksand', Helvetica, Arial, sans-serif; text-align: right; font-weight: 700;">
                     Klær barna faktisk vil bruke                  </p>
                 </td>
               </tr>
@@ -286,33 +343,42 @@
           <td align="center">            <!-- Black section with Follow Us -->
             <table cellpadding="0" cellspacing="0" class="email-container" role="presentation">              
               <tr>                
-                <td style="background: #000000; padding: 14px 12px; text-align: left;">                  
-                  <h2 style="color: #FFFFFF; font-size: 26px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif;">
-                    F&Oslash;LG OSS
-                  </h2>
+                <td style="background: #000000; padding: 8px 4px; text-align: left;">                  
+                  <table cellpadding="0" cellspacing="0" role="presentation" style="width: 100%;">
+                    <tr>
+                      <td style="vertical-align: middle;">
+                        <img src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/1f877b8a-a6bc-4368-933b-adefea9f4582.png" alt="FØLG OSS" style="height: 26px; width: auto; display: inline-block; border: 0; padding-left: 5px; margin-top: 6px;" />
+                        <!--[if mso]>
+                        <h2 style="color: #FFFFFF; font-size: 26px; margin: 0; font-family: 'luckiestguy', Helvetica, Arial, sans-serif; display: none; mso-hide: all;">
+                          FØLG OSS
+                        </h2>
+                        <![endif]-->
+                      </td> 
+                    </tr>
+                  </table>
                 </td>
               </tr>
             </table>
 <!-- Social media icons section (mobile-style layout) -->
             <table cellpadding="0" cellspacing="0" class="email-container" role="presentation">              
               <tr>                
-                <td style="padding: 24px 12px; text-align: center;">
+                <td style="padding: 18px 12px; text-align: center;">
                   <table align="center" cellpadding="0" cellspacing="0" role="presentation" style="margin: 0 auto;">
                     <tr>
-                      <td style="padding: 0 10px;"><a aria-label="Instagram" href="https://instagram.com/kulkidno" rel="noopener" target="_blank">
-                          <img alt="Instagram" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/63d711c6-fdb4-4332-bea5-fc3b915573ed.png" style="display:block; border:0; outline:0;" width="32"/>
+                      <td class="social-cell" style="padding: 0 10px;"><a aria-label="Instagram" href="https://instagram.com/kulkidno" rel="noopener" target="_blank">
+                          <img alt="Instagram" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/63d711c6-fdb4-4332-bea5-fc3b915573ed.png" style="display:block; border:0; outline:0;" width="48"/>
                       </td>
-                      <td style="padding: 0 10px;"><a aria-label="Facebook" href="https://facebook.com/kulkidno" rel="noopener" target="_blank">
-                          <img alt="Facebook" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/b66cd375-8d50-4bc2-b2e5-dc91f5e6abb3.png" style="display:block; border:0; outline:0;" width="32"/>
+                      <td class="social-cell" style="padding: 0 10px;"><a aria-label="Facebook" href="https://facebook.com/kulkidno" rel="noopener" target="_blank">
+                          <img alt="Facebook" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/b66cd375-8d50-4bc2-b2e5-dc91f5e6abb3.png" style="display:block; border:0; outline:0;" width="48"/>
                       </td>
-                      <td style="padding: 0 10px;"><a aria-label="TikTok" href="https://tiktok.com/@kulkidno" rel="noopener" target="_blank">
-                          <img alt="TikTok" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/a8f7daab-6bc7-4251-854d-5703cd7eea88.png" style="display:block; border:0; outline:0;" width="32"/>
+                      <td class="social-cell" style="padding: 0 10px;"><a aria-label="TikTok" href="https://tiktok.com/@kulkidno" rel="noopener" target="_blank">
+                          <img alt="TikTok" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/a8f7daab-6bc7-4251-854d-5703cd7eea88.png" style="display:block; border:0; outline:0;" width="48"/>
                       </td>
-                      <td style="padding: 0 10px;"><a aria-label="Spotify" href="https://open.spotify.com/artist/5gUHOcGdJU7evr7qx0cvjN" rel="noopener" target="_blank">
-                          <img alt="Spotify" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/a7f77e15-dd31-4fa0-bd6e-c0c13bd68bb1.png" style="display:block; border:0; outline:0;" width="32"/>
+                      <td class="social-cell" style="padding: 0 10px;"><a aria-label="Spotify" href="https://open.spotify.com/artist/5gUHOcGdJU7evr7qx0cvjN" rel="noopener" target="_blank">
+                          <img alt="Spotify" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/a7f77e15-dd31-4fa0-bd6e-c0c13bd68bb1.png" style="display:block; border:0; outline:0;" width="48"/>
                       </td>
-                      <td style="padding: 0 10px;"><a aria-label="YouTube" href="https://www.youtube.com/@kulkidno" rel="noopener" target="_blank">
-                          <img alt="YouTube" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/599f3d9a-73b5-40ba-b689-69617fa1e918.png" style="display:block; border:0; outline:0;" width="32"/>
+                      <td class="social-cell" style="padding: 0 10px;"><a aria-label="YouTube" href="https://www.youtube.com/@kulkidno" rel="noopener" target="_blank">
+                          <img alt="YouTube" height="32" src="https://d3k81ch9hvuctc.cloudfront.net/company/XkZSsU/images/599f3d9a-73b5-40ba-b689-69617fa1e918.png" style="display:block; border:0; outline:0;" width="48"/>
                       </td>
                     </tr>
                   </table>
@@ -344,4 +410,4 @@
       </table>
     </div> <!-- End email wrapper -->
   </body>
-</html>                                                                             																																					
+</html>                                                                             																																					  
