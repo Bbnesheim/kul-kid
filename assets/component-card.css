@@ -474,6 +474,22 @@
   color: rgb(var(--color-foreground));
 }
 
+/* Product cards: position price at bottom-left of the card text area */
+.product-card-wrapper .card__content:last-of-type {
+  position: relative;
+}
+
+.product-card-wrapper .card-information {
+  padding-bottom: 2.2rem;
+}
+
+.product-card-wrapper .card-information .price,
+.product-card-wrapper .card-information .price-wrapper {
+  position: absolute;
+  left: 2rem;
+  bottom: 1rem;
+}
+
 .card-information > .price {
   color: rgb(var(--color-foreground));
 }
