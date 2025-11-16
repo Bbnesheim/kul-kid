@@ -98,3 +98,19 @@
   margin-top: 0.2rem;
   color: rgba(var(--color-foreground), 0.7);
 }
+
+/* Custom price layout for product cards */
+.price-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.price-wrapper .price--sale {
+  font-weight: 700;
+}
+
+.price-wrapper .price--compare {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.6);
+}

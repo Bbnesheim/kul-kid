@@ -552,6 +552,19 @@
 
 /* Card Shape Hover Rules */
 
+.discount-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #d6524c;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+  z-index: 5;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .product-card-wrapper .shape--round {
     transition: clip-path var(--duration-long) ease;
