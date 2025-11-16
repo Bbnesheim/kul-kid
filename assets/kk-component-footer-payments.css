@@ -62,17 +62,10 @@
   stroke: currentColor;
 }
 
-/* Vipps icon tends to render visually larger than other logos,
-   so scale it down slightly while keeping other icons unchanged. */
-.kk-footer-payments .icon-payment-vipps,
-.kk-footer__payments .icon-payment-vipps {
-  height: calc(var(--kk-footer-payments-size, 26px) * 0.88);
-  max-height: calc(var(--kk-footer-payments-size, 26px) * 0.88);
-}
 
 .kk-footer__icon {
   display: block;
-  max-width: 100%;
+  max-width: 10%;
   height: auto;
 }
 
@@ -139,15 +132,10 @@
   .kk-footer__payments img,
   .kk-footer__payments svg,
   .kk-footer__payments .kk-footer__icon {
-    height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px));
+    height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 2px));
     max-height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px));
   }
 
-  .kk-footer-payments .icon-payment-vipps,
-  .kk-footer__payments .icon-payment-vipps {
-    height: calc(var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px)) * 0.88);
-    max-height: calc(var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px)) * 0.88);
-  }
 
   .kk-footer__policies {
     font-size: var(--kk-policy-font-mobile, 12px);
