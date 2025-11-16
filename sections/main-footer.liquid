@@ -178,6 +178,13 @@
                   </div>
                 {% endif %}
 
+                {% if block.settings.show_vipps %}
+                  {% assign render_payment_icon = render_payment_icon | plus: 1 %}
+                  <div class="kk-footer__payment-item">
+                    {% render 'icon-payment', name: 'vipps' %}
+                  </div>
+                {% endif %}
+
                 {% if block.settings.custom_payment_svg != blank %}
                   {% assign render_payment_icon = render_payment_icon | plus: 1 %}
                   <div class="kk-footer__payment-item">
@@ -1143,6 +1150,12 @@
           "type": "checkbox",
           "id": "show_klarna",
           "label": "Vis Klarna",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_vipps",
+          "label": "Vis Vipps",
           "default": true
         },
         {

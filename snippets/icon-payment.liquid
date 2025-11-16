@@ -17,6 +17,8 @@
     {{- 'apple-pay-icon.svg' | asset_url | img_tag: alt: 'Apple Pay', class: 'icon icon-payment-apple-pay' -}}
   {% when 'klarna' %}
     {{- 'klarna-icon.svg' | asset_url | img_tag: alt: 'Klarna', class: 'icon icon-payment-klarna' -}}
+  {% when 'vipps' %}
+    {{- 'vipps-icon.svg' | asset_url | img_tag: alt: 'Vipps', class: 'icon icon-payment-vipps' -}}
   {% else %}
     <svg class="icon icon-payment-generic" viewBox="0 0 38 24"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.3"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="8">{{ name | upcase }}</text></svg>
 {% endcase %}
