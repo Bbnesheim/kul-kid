@@ -535,11 +535,12 @@
   opacity: 1; /* Full intensity on hover */
 }
 
-/* Inner card stays white, so border is just a thin rainbow ring */
+/* Inner card uses a soft light-green background for extra warmth
+   while keeping the rainbow outline outside the content area */
 .product-card-wrapper > .card,
 .collection-card-wrapper > .card {
   border-radius: var(--border-radius);
-  background: rgb(var(--color-background));
+  background: #f0fff4; /* soft cookie-banner style green */
 }
 
 /* Slightly more padding for collection card headings so they align visually
