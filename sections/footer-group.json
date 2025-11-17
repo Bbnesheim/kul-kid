@@ -151,7 +151,6 @@
             "show_apple_pay": true,
             "show_klarna": true,
             "show_vipps": true,
-            "custom_payment_label": "Vipps betalingsløsning ikon logo",
             "payments_spacing_bottom": 24
           }
         }
