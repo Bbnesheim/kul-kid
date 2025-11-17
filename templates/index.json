@@ -69,27 +69,74 @@
           "settings": {
             "collection": "t-skjorter",
             "image": "shopify://shop_images/toddler-jersey-t-shirt-black-front-2-68dd3bf37eef0.jpg",
-            "title": ""
+            "title": "T-skjorter"
           }
         },
         "bubble_EgLwLx": {
           "type": "bubble",
           "settings": {
-            "collection": "",
-            "title": ""
+            "collection": "bodyer",
+            "image": "shopify://shop_images/Kortermet-Baby-Body-Turkis-Oekologisk-Myk_1.webp",
+            "title": "Bodyer"
           }
         },
         "bubble_YhbaDq": {
           "type": "bubble",
           "settings": {
-            "collection": "",
-            "title": ""
+            "collection": "baby-hettegensere",
+            "image": "shopify://shop_images/kulkid-basic-hette-person.jpg",
+            "title": "Hettegensere"
           }
         },
         "bubble_E79eV3": {
           "type": "bubble",
           "settings": {
-            "collection": "",
+            "collection": "heldresser-baby",
+            "image": "shopify://shop_images/1_c3c2e6f8-b3b7-4000-b871-03a8f5238d79.png",
+            "title": "Heldress"
+          }
+        },
+        "bubble_xPqen4": {
+          "type": "bubble",
+          "settings": {
+            "collection": "jakker-barn",
+            "title": "Jakker"
+          }
+        },
+        "bubble_KRQ66U": {
+          "type": "bubble",
+          "settings": {
+            "collection": "t-skjorter-baby",
+            "image": "shopify://shop_images/9902332282040282511_2048.jpg",
+            "title": "T-skjorter"
+          }
+        },
+        "bubble_EeULCz": {
+          "type": "bubble",
+          "settings": {
+            "collection": "gensere",
+            "image": "shopify://shop_images/crew-basic-person.jpg",
+            "title": "Gensere"
+          }
+        },
+        "bubble_eUqqXt": {
+          "type": "bubble",
+          "settings": {
+            "collection": "gensere-til-baby-varme-behagelige-plagg-kulkid-no",
+            "title": "Hettegensere"
+          }
+        },
+        "bubble_cTdXCj": {
+          "type": "bubble",
+          "settings": {
+            "collection": "joggebukser-til-barn",
+            "title": "Joggebukser"
+          }
+        },
+        "bubble_j9CJiz": {
+          "type": "bubble",
+          "settings": {
+            "collection": "jakker-til-baby-kule-og-komfortable-kulkid-no",
             "title": ""
           }
         }
@@ -98,7 +145,13 @@
         "bubble_qry9dP",
         "bubble_EgLwLx",
         "bubble_YhbaDq",
-        "bubble_E79eV3"
+        "bubble_E79eV3",
+        "bubble_xPqen4",
+        "bubble_KRQ66U",
+        "bubble_EeULCz",
+        "bubble_eUqqXt",
+        "bubble_cTdXCj",
+        "bubble_j9CJiz"
       ],
       "name": "Hero bubbles",
       "settings": {
