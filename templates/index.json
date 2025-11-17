@@ -182,6 +182,7 @@
           "type": "bubble",
           "settings": {
             "collection": "klatre-lek-kulkid-no",
+            "image": "shopify://shop_images/kulkid-innendors-lekeplass-treverk.webp",
             "title": "Klatring & Lek"
           }
         }
