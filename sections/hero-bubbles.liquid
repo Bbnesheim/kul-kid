@@ -86,9 +86,7 @@
       if (!scroller) return;
 
       function scrollAmount() {
-        var width = scroller.clientWidth;
-        var gapX = window.innerWidth >= 992 ? 40 : (window.innerWidth >= 768 ? 28 : 22);
-        return width - 2 * gapX;
+        return scroller.clientWidth * 0.9;
       }
 
       if (left && right) {

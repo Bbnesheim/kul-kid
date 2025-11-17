@@ -26,9 +26,9 @@
 .hero-slide-track {
   display: flex;
   gap: 24px;
-  overflow: visible;
   padding: 0;
   margin: 0;
+  overflow: visible;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -113,9 +113,9 @@
 }
 
 .hero-bubbles-scroller {
-  --col-width: 136px;
-  --gap-y: 24px;
-  --gap-x: 28px;
+  --col-width: 124px;
+  --gap-y: 20px;
+  --gap-x: 22px;
 
   display: grid;
   grid-auto-flow: column;
@@ -230,9 +230,7 @@
 
 @media (max-width: 767px) {
   .hero-slide-track {
-    display: flex;
     gap: 16px;
-    padding-left: 0;
     padding-right: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -250,14 +248,14 @@
   }
 
   .hero-bubbles-scroller {
-    --col-width: 110px;
-    --gap-y: 20px;
-    --gap-x: 22px;
+    --col-width: 104px;
+    --gap-y: 18px;
+    --gap-x: 18px;
   }
 
   .hero-bubble-item__img {
-    width: 96px;
-    height: 96px;
+    width: 88px;
+    height: 88px;
   }
 
   .hero-bubbles-swipe-hint {
@@ -283,21 +281,52 @@
   }
 }
 
-@media (min-width: 768px) {
-  .hero-slide-track {
-    overflow: visible;
-    gap: 24px;
-    padding: 0;
-  }
-
-  .hero-slide {
-    flex: 1 1 0;
-  }
-
+@media (min-width: 992px) {
   .hero-bubbles-scroller {
-    --col-width: 136px;
-    --gap-y: 24px;
-    --gap-x: 28px;
+    --col-width: 156px;
+    --gap-y: 28px;
+    --gap-x: 34px;
+    padding-inline: 16px;
+    scroll-padding-inline: 16px;
+    overflow-y: hidden;
+  }
+
+  .hero-bubble-item__img {
+    width: 144px;
+    height: 144px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .hero-bubble-item:hover {
+    transform: none;
+  }
+
+  .hero-bubble-item:hover .hero-bubble-item__img {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .hero-bubble-item__label {
+    font-size: 15px;
+    margin-top: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: var(--col-width);
+  }
+
+  .hero-bubbles-arrow {
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hero-bubbles-arrow--left {
+    left: -8px;
+  }
+
+  .hero-bubbles-arrow--right {
+    right: -8px;
   }
 }
 
@@ -350,8 +379,7 @@
   }
 }
 
-/* Ensure bubble media is never hidden by other rules */
-.hero-bubble-item__img,
-.hero-bubble-item__img img {
-  display: grid !important;
+/* Bubble media layout */
+.hero-bubble-item__img {
+  display: grid;
 }

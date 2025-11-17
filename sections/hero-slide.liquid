@@ -16,7 +16,7 @@
     <div class="hero-slide-track" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
       {%- for block in section.blocks -%}
         {%- assign image = block.settings.image -%}
-        <article class="hero-slide" {{ block.shopify_attributes }}
+        <article class="hero-slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}" {{ block.shopify_attributes }}
           {% if image %}
             style="background-image: url('{{ image | image_url: width: 1600 }}');"
           {% endif %}
