@@ -185,13 +185,6 @@
                   </div>
                 {% endif %}
 
-                {% if block.settings.custom_payment_svg != blank %}
-                  {% assign render_payment_icon = render_payment_icon | plus: 1 %}
-                  <div class="kk-footer__payment-item">
-                    <img src="{{ block.settings.custom_payment_svg | image_url }}" alt="{{ block.settings.custom_payment_label | default: 'Tilleggsbetaling' | escape }}" class="kk-footer__icon" loading="eager" decoding="auto">
-                  </div>
-                {% endif %}
-
                 {% if render_payment_icon == 0 %}
                   <span class="kk-footer__text" style="--footer-text-size: 14px;">Aktiver betalingsikoner i blokkinnstillingene.</span>
                 {% endif %}
@@ -1157,16 +1150,6 @@
           "id": "show_vipps",
           "label": "Vis Vipps",
           "default": true
-        },
-        {
-          "type": "image_picker",
-          "id": "custom_payment_svg",
-          "label": "Ekstra betalingsikon"
-        },
-        {
-          "type": "text",
-          "id": "custom_payment_label",
-          "label": "Alt-tekst for ekstra ikon"
         },
         {
           "type": "range",

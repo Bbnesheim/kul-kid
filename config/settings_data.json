@@ -149,13 +149,6 @@
         "disabled": false,
         "settings": {}
       },
-      "2326504073756833932": {
-        "type": "shopify://apps/vipps-mobilepay-companion/blocks/vippslogo-block/46265abd-78e3-4040-985b-519c47957219",
-        "disabled": false,
-        "settings": {
-          "brand": "vipps"
-        }
-      },
       "15672197709734641723": {
         "type": "shopify://apps/vipps-mobilepay-login/blocks/account-page-login/a3e6453f-e8c7-4577-9564-b00d9396a109",
         "disabled": false,
