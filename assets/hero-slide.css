@@ -379,7 +379,10 @@
   }
 }
 
-/* Bubble media layout */
+/* Bubble media layout
+ * base.css hides div:empty with display:none; hero-bubble-item__img is structurally empty
+ * (background-image only), so we force it visible here.
+ */
 .hero-bubble-item__img {
-  display: grid;
+  display: grid !important;
 }
