@@ -136,7 +136,6 @@
     max-height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px));
   }
 
-
   .kk-footer__policies {
     font-size: var(--kk-policy-font-mobile, 12px);
     gap: var(--kk-policy-gap-mobile, 8px);
