@@ -139,6 +139,51 @@
             "collection": "jakker-til-baby-kule-og-komfortable-kulkid-no",
             "title": ""
           }
+        },
+        "bubble_iFjjbn": {
+          "type": "bubble",
+          "settings": {
+            "collection": "leggings",
+            "image": "shopify://shop_images/all-over-print-kids-leggings-white-left-68e710d333a54.jpg",
+            "title": "Leggings"
+          }
+        },
+        "bubble_j9tXm7": {
+          "type": "bubble",
+          "settings": {
+            "collection": "babytilbehor",
+            "title": "Tilbehør"
+          }
+        },
+        "bubble_hBLRqD": {
+          "type": "bubble",
+          "settings": {
+            "collection": "luer",
+            "title": "Hodeplagg"
+          }
+        },
+        "bubble_qzDLbe": {
+          "type": "bubble",
+          "settings": {
+            "collection": "skole",
+            "image": "shopify://shop_images/kulkid-sekk-krem.webp",
+            "title": "Sekker"
+          }
+        },
+        "bubble_3KLJ4h": {
+          "type": "bubble",
+          "settings": {
+            "collection": "familie-matchende-plagg-for-store-og-sma-kulkid-no",
+            "image": "shopify://shop_images/1_04e150da-0eb9-447e-84ae-aa77aa8881d4.png",
+            "title": "Familie"
+          }
+        },
+        "bubble_rLecYM": {
+          "type": "bubble",
+          "settings": {
+            "collection": "klatre-lek-kulkid-no",
+            "title": "Klatring & Lek"
+          }
         }
       },
       "block_order": [
@@ -151,7 +196,13 @@
         "bubble_EeULCz",
         "bubble_eUqqXt",
         "bubble_cTdXCj",
-        "bubble_j9CJiz"
+        "bubble_j9CJiz",
+        "bubble_iFjjbn",
+        "bubble_j9tXm7",
+        "bubble_hBLRqD",
+        "bubble_qzDLbe",
+        "bubble_3KLJ4h",
+        "bubble_rLecYM"
       ],
       "name": "Hero bubbles",
       "settings": {
