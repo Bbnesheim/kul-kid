@@ -47,12 +47,6 @@
   padding: 0;
 }
 
-/* Slightly constrain Vipps logo width so it visually aligns with other payment icons */
-.kk-footer-payments .icon-payment-vipps,
-.kk-footer__payments .icon-payment-vipps {
-  max-width: 110px;
-}
-
 .kk-footer-payments img,
 .kk-footer-payments svg,
 .kk-footer-payments .kk-footer__icon,
