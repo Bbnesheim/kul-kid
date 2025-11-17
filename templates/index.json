@@ -67,7 +67,8 @@
         "bubble_qry9dP": {
           "type": "bubble",
           "settings": {
-            "collection": "",
+            "collection": "t-skjorter",
+            "image": "shopify://shop_images/toddler-jersey-t-shirt-black-front-2-68dd3bf37eef0.jpg",
             "title": ""
           }
         },
