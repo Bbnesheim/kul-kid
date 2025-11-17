@@ -1,0 +1,247 @@
+{{ 'hero-slide.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="HeroBubbles-{{ section.id }}"
+  class="section hero-bubbles-section color-{{ section.settings.color_scheme }} gradient"
+  style="--bubbles-margin-top: {{ section.settings.margin_top }}px; --bubbles-margin-bottom: {{ section.settings.margin_bottom }}px; --bubble-bg-color: {{ section.settings.bubble_bg_color }};"
+>
+  <div class="hero-bubbles__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="hero-bubbles__heading title-wrapper">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="hero-bubbles__description rte">
+        <p>{{ section.settings.text }}</p>
+      </div>
+    {%- endif -%}
+
+    <div class="hero-bubbles-scroller-wrap" data-bubbles-id="{{ section.id }}">
+      <div class="hero-bubbles-swipe-hint" aria-hidden="true">
+        <span>SWIPE</span>
+      </div>
+
+      <button class="hero-bubbles-arrow hero-bubbles-arrow--left" type="button" aria-label="Scroll left">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <div class="hero-bubbles-scroller">
+        {%- for block in section.blocks -%}
+          {%- assign collection = block.settings.collection -%}
+          {%- assign image = block.settings.image -%}
+          {%- if image == blank and collection and collection.image -%}
+            {%- assign image = collection.image -%}
+          {%- endif -%}
+          {%- assign title = block.settings.title | default: collection.title -%}
+
+          {%- if collection -%}
+            <a
+              href="{{ collection.url }}"
+              class="hero-bubble-item"
+              {{ block.shopify_attributes }}
+            >
+              <div class="hero-bubble-item__img"
+                {% if image %}
+                  style="background-image: url('{{ image | image_url: width: 300 }}');"
+                {% endif %}
+              >
+                {%- unless image -%}
+                  {{ 'image' | placeholder_svg_tag }}
+                {%- endunless -%}
+              </div>
+              {%- if title != blank -%}
+                <span class="hero-bubble-item__label">{{ title }}</span>
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <button class="hero-bubbles-arrow hero-bubbles-arrow--right" type="button" aria-label="Scroll right">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    function initHeroBubbles(sectionId) {
+      var wrap = document.querySelector('[data-bubbles-id="' + sectionId + '"]');
+      if (!wrap) return;
+
+      var scroller = wrap.querySelector('.hero-bubbles-scroller');
+      var left = wrap.querySelector('.hero-bubbles-arrow--left');
+      var right = wrap.querySelector('.hero-bubbles-arrow--right');
+      var hint = wrap.querySelector('.hero-bubbles-swipe-hint');
+
+      if (!scroller) return;
+
+      function scrollAmount() {
+        var width = scroller.clientWidth;
+        var gapX = window.innerWidth >= 992 ? 40 : (window.innerWidth >= 768 ? 28 : 22);
+        return width - 2 * gapX;
+      }
+
+      if (left && right) {
+        left.addEventListener('click', function() {
+          scroller.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+        });
+
+        right.addEventListener('click', function() {
+          scroller.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+        });
+
+        function updateArrows() {
+          var scrollLeft = scroller.scrollLeft;
+          var maxScroll = scroller.scrollWidth - scroller.clientWidth;
+
+          if (!left || !right) return;
+
+          var atStart = scrollLeft <= 8;
+          var atEnd = scrollLeft >= maxScroll - 8;
+
+          left.style.opacity = atStart ? '0' : '1';
+          left.style.pointerEvents = atStart ? 'none' : 'auto';
+          left.style.visibility = atStart ? 'hidden' : 'visible';
+
+          right.style.opacity = atEnd ? '0' : '1';
+          right.style.pointerEvents = atEnd ? 'none' : 'auto';
+          right.style.visibility = atEnd ? 'hidden' : 'visible';
+        }
+
+        scroller.addEventListener('scroll', updateArrows, { passive: true });
+        window.addEventListener('resize', updateArrows);
+        updateArrows();
+      }
+
+      if (hint) {
+        var seen = false;
+        scroller.addEventListener('scroll', function() {
+          if (seen) return;
+          if (scroller.scrollLeft > 10) {
+            seen = true;
+            hint.classList.add('is-hidden');
+          }
+        }, { passive: true });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initHeroBubbles('{{ section.id }}');
+    });
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.detail && event.detail.sectionId === '{{ section.id }}') {
+        initHeroBubbles('{{ section.id }}');
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero bubbles",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:sections.all.heading_size.label",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" },
+        { "value": "hxl", "label": "t:sections.all.heading_size.options__4.label" },
+        { "value": "hxxl", "label": "t:sections.all.heading_size.options__5.label" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "bubble_bg_color",
+      "label": "Bubble background",
+      "default": "#f6f6f6"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top margin",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom margin",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bubble",
+      "name": "Bubble",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title override"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero bubbles",
+      "blocks": [
+        { "type": "bubble" },
+        { "type": "bubble" },
+        { "type": "bubble" },
+        { "type": "bubble" }
+      ]
+    }
+  ]
+}
+{% endschema %}
