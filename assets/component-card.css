@@ -490,9 +490,10 @@
   bottom: 1rem;
 }
 
-/* Subtle animated rainbow border around product cards
+/* Subtle animated rainbow border around product and collection cards
    Uses wrapper padding + gradient background, no heavy glow */
-.product-card-wrapper {
+.product-card-wrapper,
+.collection-card-wrapper {
   --kk-rainbow-border-thickness: 3px;
   --kk-rainbow-gradient-size: 220%;
   --border-radius: 2px;
@@ -500,6 +501,16 @@
   z-index: 0;
   padding: var(--kk-rainbow-border-thickness);
   border-radius: calc(var(--border-radius) + var(--kk-rainbow-border-thickness));
+  background: transparent;
+}
+
+/* Gradient ring lives in a pseudo-element so we can fade it in/out */
+.product-card-wrapper::before,
+.collection-card-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   /* Colors aligned with main footer gradient defaults */
   background: linear-gradient(
     45deg,
@@ -514,12 +525,27 @@
   );
   background-size: var(--kk-rainbow-gradient-size) var(--kk-rainbow-gradient-size);
   animation: kk-rainbow-flow 24s linear infinite;
+  opacity: 0.5; /* 10% opacity by default */
+  pointer-events: none;
+  z-index: -1;
+}
+
+.product-card-wrapper:hover::before,
+.collection-card-wrapper:hover::before {
+  opacity: 1; /* Full intensity on hover */
 }
 
 /* Inner card stays white, so border is just a thin rainbow ring */
-.product-card-wrapper > .card {
+.product-card-wrapper > .card,
+.collection-card-wrapper > .card {
   border-radius: var(--border-radius);
   background: rgb(var(--color-background));
+}
+
+/* Slightly more padding for collection card headings so they align visually
+   with product card titles */
+.collection-card-wrapper .card__content {
+  padding: 1.25rem 1.25rem 1.6rem;
 }
 
 @keyframes kk-rainbow-flow {
