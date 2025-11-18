@@ -1,0 +1,60 @@
+{
+  "flow_name": "Cart Abandonment Flow",
+  "description": "Recovery sequence for kunder som har startet utsjekk men ikke fullført kjøpet.",
+  "goal": "Gjenopprette tapte inntekter ved å minne kunder på handlekurven og tilby hjelp eller insentiver.",
+  "trigger": {
+    "type": "metric",
+    "metric": "Started Checkout",
+    "description": "Flow triggers when a profile starts checkout, men ikke har Placed Order innenfor tidsvinduet."
+  },
+  "emails": [
+    {
+      "id": "email1_du_glemte_noe",
+      "position": 1,
+      "template_file": "emails/email1_du_glemte_noe.html",
+      "subject": "Du glemte noe i handlekurven din 🛒",
+      "preview_text": "Fullfør bestillingen din hos KUL KID før varene forsvinner.",
+      "timing": {
+        "delay": { "value": 1, "unit": "hours" }
+      }
+    },
+    {
+      "id": "email2_trenger_du_hjelp",
+      "position": 2,
+      "template_file": "emails/email2_trenger_du_hjelp.html",
+      "subject": "Trenger du hjelp med bestillingen? 💬",
+      "preview_text": "Vi hjelper deg gjerne hvis noe stopper deg fra å fullføre.",
+      "timing": {
+        "delay": { "value": 6, "unit": "hours" }
+      }
+    },
+    {
+      "id": "email3_ekstra_rabatt",
+      "position": 3,
+      "template_file": "emails/email3_ekstra_rabatt.html",
+      "subject": "Her er litt ekstra rabatt på handlekurven din 🎁",
+      "preview_text": "Bruk koden i e-posten for å få ekstra rabatt og fullføre kjøpet.",
+      "timing": {
+        "delay": { "value": 24, "unit": "hours" }
+      }
+    },
+    {
+      "id": "email4_siste_sjanse",
+      "position": 4,
+      "template_file": "emails/email4_siste_sjanse.html",
+      "subject": "Siste sjanse – handlekurven din utløper snart ⏰",
+      "preview_text": "Fullfør bestillingen før vi tømmer handlekurven din.",
+      "timing": {
+        "delay": { "value": 48, "unit": "hours" }
+      }
+    }
+  ],
+  "smart_sending": {
+    "enabled": true,
+    "quiet_hours": {
+      "start": "23:00",
+      "end": "07:00",
+      "timezone_env_var": "ACCOUNT_TIMEZONE"
+    }
+  }
+}
