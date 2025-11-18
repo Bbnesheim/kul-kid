@@ -62,9 +62,10 @@
   stroke: currentColor;
 }
 
+
 .kk-footer__icon {
   display: block;
-  max-width: 100%;
+  max-width: 10%;
   height: auto;
 }
 
@@ -131,7 +132,7 @@
   .kk-footer__payments img,
   .kk-footer__payments svg,
   .kk-footer__payments .kk-footer__icon {
-    height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px));
+    height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 2px));
     max-height: var(--kk-footer-payments-size-mobile, var(--kk-footer-payments-size, 24px));
   }
 

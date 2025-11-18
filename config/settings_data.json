@@ -24,7 +24,7 @@
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
-    "buttons_radius": 0,
+    "buttons_radius": 2,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
@@ -49,18 +49,18 @@
     "card_color_scheme": "scheme-2",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
-    "card_corner_radius": 0,
+    "card_corner_radius": 2,
     "card_shadow_opacity": 0,
     "card_shadow_horizontal_offset": 0,
     "card_shadow_vertical_offset": 4,
     "card_shadow_blur": 5,
-    "collection_card_style": "card",
+    "collection_card_style": "standard",
     "collection_card_image_padding": 0,
     "collection_card_text_alignment": "left",
     "collection_card_color_scheme": "scheme-2",
     "collection_card_border_thickness": 0,
     "collection_card_border_opacity": 10,
-    "collection_card_corner_radius": 0,
+    "collection_card_corner_radius": 2,
     "collection_card_shadow_opacity": 0,
     "collection_card_shadow_horizontal_offset": 0,
     "collection_card_shadow_vertical_offset": 4,
@@ -71,28 +71,28 @@
     "blog_card_color_scheme": "scheme-2",
     "blog_card_border_thickness": 0,
     "blog_card_border_opacity": 10,
-    "blog_card_corner_radius": 0,
+    "blog_card_corner_radius": 2,
     "blog_card_shadow_opacity": 0,
     "blog_card_shadow_horizontal_offset": 0,
     "blog_card_shadow_vertical_offset": 4,
     "blog_card_shadow_blur": 5,
     "text_boxes_border_thickness": 0,
     "text_boxes_border_opacity": 10,
-    "text_boxes_radius": 0,
+    "text_boxes_radius": 2,
     "text_boxes_shadow_opacity": 0,
     "text_boxes_shadow_horizontal_offset": 0,
     "text_boxes_shadow_vertical_offset": 4,
     "text_boxes_shadow_blur": 5,
     "media_border_thickness": 1,
     "media_border_opacity": 5,
-    "media_radius": 0,
+    "media_radius": 2,
     "media_shadow_opacity": 0,
     "media_shadow_horizontal_offset": 0,
     "media_shadow_vertical_offset": 4,
     "media_shadow_blur": 5,
     "popup_border_thickness": 1,
     "popup_border_opacity": 10,
-    "popup_corner_radius": 0,
+    "popup_corner_radius": 2,
     "popup_shadow_opacity": 5,
     "popup_shadow_horizontal_offset": 0,
     "popup_shadow_vertical_offset": 4,
@@ -143,6 +143,28 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "15672197709734641723": {
+        "type": "shopify://apps/vipps-mobilepay-login/blocks/account-page-login/a3e6453f-e8c7-4577-9564-b00d9396a109",
+        "disabled": false,
+        "settings": {
+          "fullwidth": true,
+          "brand": "vipps",
+          "language": "no",
+          "font_size": 1,
+          "margin_top": 0,
+          "margin_bottom": 0,
+          "border_radius": 5,
+          "custom_css_button": "",
+          "custom_css_wrapper": ""
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -157,11 +179,11 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#f3f3f3",
+          "background": "#fdfdfd",
           "background_gradient": "",
-          "text": "#121212",
-          "button": "#121212",
-          "button_label": "#f3f3f3",
+          "text": "#4d6d5d",
+          "button": "#4d6d5d",
+          "button_label": "#f0fff4",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }

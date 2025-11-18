@@ -21,7 +21,7 @@
             "heading_font_size": 23,
             "description": "<p>Meld deg inn i KUL KID Kundeklubb  og få eksklusive fordeler, lanseringer og tilbud rett i innboksen.</p>",
             "description_font_size": 16,
-            "club_icon": "shopify://shop_images/Kundeklubb_679653a3-53d7-496a-bacd-a3b696c13940.svg",
+            "club_icon": "shopify://shop_images/KUL_KID_Kundeklubb.svg",
             "club_icon_alt": "Kul Kid klubbikon",
             "club_icon_width": 150,
             "newsletter_block_width": 700,
@@ -84,14 +84,14 @@
             "heading": "Følg oss",
             "heading_size": 26,
             "instagram_url": "https://www.instagram.com/kulkidno",
-            "facebook_url": "https://www.facebook.com/profile.php?id=61581636070444",
-            "tiktok_url": "https://www.tiktok.com",
+            "facebook_url": "https://www.facebook.com/kulkidno",
+            "tiktok_url": "https://www.tiktok.com/@kulkidno",
             "spotify_url": "https://open.spotify.com/artist/5gUHOcGdJU7evr7qx0cvjN",
-            "youtube_link": "https://www.youtube.com",
+            "youtube_link": "https://www.youtube.com/@KULKIDno",
             "social_icon_size": 48,
-            "social_icon_gap": 36,
+            "social_icon_gap": 24,
             "social_icon_size_mobile": 38,
-            "social_icon_gap_mobile": 16,
+            "social_icon_gap_mobile": 12,
             "social_spacing_bottom": 16
           }
         },
@@ -150,7 +150,7 @@
             "show_paypal": true,
             "show_apple_pay": true,
             "show_klarna": true,
-            "custom_payment_label": "",
+            "show_vipps": true,
             "payments_spacing_bottom": 24
           }
         }
