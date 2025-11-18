@@ -1,0 +1,15 @@
+{% comment %}
+Shim block for backwards compatibility.
+This wraps the main AI contact block implementation so templates
+that reference type `ai_gen_block_70769b6_4BbfBE` continue to work.
+{% endcomment %}
+
+{% render 'rainbow-contact-form-block' %}
+
+{% schema %}
+{
+  "name": "Kontakt oss side (shim)",
+  "tag": null,
+  "settings": []
+}
+{% endschema %}

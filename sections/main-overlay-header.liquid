@@ -24,6 +24,8 @@
     --nav-font-size-desktop: {{ section.settings.nav_font_size_desktop }}px;
     --nav-font-weight: {{ section.settings.nav_font_weight }};
     --nav-item-padding-desktop: {{ section.settings.nav_item_padding_desktop }}px;
+    --nav-margin-top-desktop: {{ section.settings.nav_margin_top_desktop | default: 0 }}px;
+    --nav-margin-bottom-desktop: {{ section.settings.nav_margin_bottom_desktop | default: 0 }}px;
 
     --dropdown-bg-color: {% if section.settings.use_theme_color_scheme %}rgb(var(--color-background)){% else %}{{ section.settings.dropdown_bg_color }}{% endif %};
     --dropdown-border-color: {{ section.settings.dropdown_border_color }};
@@ -113,9 +115,20 @@
             {% if link.links.size > 0 %}
               <div class="main-overlay-header-mobile-dropdown-{{ overlay_id }}">
                 {% for child_link in link.links %}
-                  <a href="{{ child_link.url }}" class="main-overlay-header-mobile-dropdown-link-{{ overlay_id }}">
-                    {{ child_link.title }}
-                  </a>
+                  {% if child_link.links.size > 0 %}
+                    <a href="{{ child_link.url }}" class="main-overlay-header-mobile-dropdown-link-{{ overlay_id }}">
+                      {{ child_link.title }}
+                    </a>
+                    {% for grandchild_link in child_link.links %}
+                      <a href="{{ grandchild_link.url }}" class="main-overlay-header-mobile-dropdown-link-{{ overlay_id }}">
+                        {{ grandchild_link.title }}
+                      </a>
+                    {% endfor %}
+                  {% else %}
+                    <a href="{{ child_link.url }}" class="main-overlay-header-mobile-dropdown-link-{{ overlay_id }}">
+                      {{ child_link.title }}
+                    </a>
+                  {% endif %}
                 {% endfor %}
               </div>
             {% endif %}
@@ -282,6 +295,30 @@
       "unit": "px",
       "label": "Nav spacing from edges desktop",
       "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Nav line spacing (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "nav_margin_top_desktop",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Nav line top margin",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "nav_margin_bottom_desktop",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Nav line bottom margin",
+      "default": 0
     },
     {
       "type": "header",

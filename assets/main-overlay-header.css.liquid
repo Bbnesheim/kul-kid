@@ -76,7 +76,7 @@
   display: none;
   flex: 1;
   justify-content: center;
-  margin: 0 var(--nav-spacing-desktop);
+  margin: var(--nav-margin-top-desktop, 0) var(--nav-spacing-desktop) var(--nav-margin-bottom-desktop, 0);
 }
 
 .main-overlay-header [class*="main-overlay-header-nav-list-"] {
@@ -324,9 +324,9 @@
 
 }
 .main-overlay-header [class*="main-overlay-header-mobile-overlay-"].active {
-  display: block; !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  display: block !important;
+  opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 

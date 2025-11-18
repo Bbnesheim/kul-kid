@@ -11,76 +11,6 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "blocks_bhDBV8": {
-      "type": "_blocks",
-      "blocks": {
-        "comprehensive_overlay_header_4fMAQw": {
-          "type": "comprehensive-overlay-header",
-          "settings": {
-            "logo": "shopify://shop_images/Kul_Kid_Square_logo_9b85decc-ea3c-4866-b72d-d43508efad91.svg",
-            "logo_height_mobile": 80,
-            "logo_height_desktop": 120,
-            "menu": "hovedmeny",
-            "nav_font_size_mobile": 15,
-            "nav_font_size_desktop": 15,
-            "nav_font_weight": "400",
-            "nav_item_spacing_mobile": 12,
-            "nav_item_spacing_desktop": 15,
-            "nav_item_padding_mobile": 10,
-            "nav_item_padding_desktop": 5,
-            "nav_spacing_desktop": 40,
-            "header_height_mobile": 70,
-            "header_height_desktop": 70,
-            "header_margin_mobile": 16,
-            "header_margin_desktop": 35,
-            "overlay_padding_mobile": 15,
-            "header_bg_color": "#ffffff",
-            "header_border_color": "#e0e0e0",
-            "header_border_thickness": 1,
-            "nav_text_color": "#121212",
-            "overlay_bg_color": "#ffffff",
-            "overlay_text_color": "#121212",
-            "hamburger_color": "#121212",
-            "dropdown_bg_color": "#ffffff",
-            "dropdown_border_color": "#e0e0e0",
-            "dropdown_text_color": "#121212",
-            "dropdown_hover_bg_color": "#f5f5f5",
-            "dropdown_hover_text_color": "#121212",
-            "dropdown_border_radius": 4,
-            "dropdown_font_size": 14,
-            "dropdown_indent_mobile": 20,
-            "show_search": true,
-            "show_account": true,
-            "icon_size_mobile": 32,
-            "icon_size_desktop": 36,
-            "icon_spacing": 11,
-            "icon_margin": 2,
-            "search_icon_color_mobile": "#121212",
-            "search_icon_hover_color_mobile": "#666666",
-            "search_icon_color_desktop": "#121212",
-            "search_icon_hover_color_desktop": "#666666",
-            "account_icon_color_mobile": "#121212",
-            "account_icon_hover_color_mobile": "#666666",
-            "account_icon_color_desktop": "#121212",
-            "account_icon_hover_color_desktop": "#666666",
-            "cart_icon_color_mobile": "#121212",
-            "cart_icon_hover_color_mobile": "#666666",
-            "cart_icon_color_desktop": "#121212",
-            "cart_icon_hover_color_desktop": "#666666",
-            "caret_size": 15,
-            "caret_spacing": 6,
-            "caret_margin": 2
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "comprehensive_overlay_header_4fMAQw"
-      ],
-      "disabled": true,
-      "name": "Overlay header",
-      "settings": {}
-    },
     "kk-announcement-bar": {
       "type": "kk-announcement-bar",
       "settings": {
@@ -90,26 +20,6 @@
         "sweep_speed": 2,
         "gradient_intensity": "normal",
         "motion_toggle": true
-      }
-    },
-    "header": {
-      "type": "header",
-      "disabled": true,
-      "settings": {
-        "logo_position": "middle-left",
-        "mobile_logo_position": "center",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "enable_customer_avatar": true,
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
       }
     },
     "main_overlay_header_DyBzEB": {
@@ -165,9 +75,7 @@
     }
   },
   "order": [
-    "blocks_bhDBV8",
     "kk-announcement-bar",
-    "header",
     "main_overlay_header_DyBzEB"
   ]
 }

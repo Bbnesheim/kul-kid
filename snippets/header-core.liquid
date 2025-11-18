@@ -54,7 +54,14 @@
           {%- if link.links.size > 0 -%}
             <div class="main-overlay-header-dropdown-{{ overlay_id }}">
               {%- for child_link in link.links -%}
-                <a href="{{ child_link.url }}" class="main-overlay-header-dropdown-link-{{ overlay_id }}">{{ child_link.title }}</a>
+                {%- if child_link.links.size > 0 -%}
+                  <a href="{{ child_link.url }}" class="main-overlay-header-dropdown-link-{{ overlay_id }}">{{ child_link.title }}</a>
+                  {%- for grandchild_link in child_link.links -%}
+                    <a href="{{ grandchild_link.url }}" class="main-overlay-header-dropdown-link-{{ overlay_id }}">{{ grandchild_link.title }}</a>
+                  {%- endfor -%}
+                {%- else -%}
+                  <a href="{{ child_link.url }}" class="main-overlay-header-dropdown-link-{{ overlay_id }}">{{ child_link.title }}</a>
+                {%- endif -%}
               {%- endfor -%}
             </div>
           {%- endif -%}
