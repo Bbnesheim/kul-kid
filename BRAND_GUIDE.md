@@ -17,13 +17,17 @@ Status: Draft v1 (derived from current live theme configuration and codebase)
 Brand colors are built around high-contrast black/white with rainbow accents and a green secondary system.
 
 **Core Colors:**
-- Black: `#121212` — headings, body text, default CTA background.
-- White: `#FDFDFD` — page background, cards, and general surfaces (can alias to theme white tokens).
-- Rainbow gradients: effect-only accents (outlines, footer backgrounds, etc.), never used as flat brand colors.
+- **Black:** `#121212` — headings, body text, default CTA background.
+- **White:** `#FDFDFD` — page background, cards, and general surfaces (can alias to theme white tokens).
+- **Rainbow Gradients:** Effect-only accents (outlines, footer backgrounds, etc.), never used as flat brand colors.
 
 **Secondary Colors:**
-- Green: `#4d6d5d` — detailing only (icons, small labels, subtle accents, borders). Avoid as large flat backgrounds.
-- Light green: `#f0fff4` — replaces greys as the primary soft background color for sections, cards, and banners.
+- **Green:** `#4d6d5d` — detailing only (icons, small labels, subtle accents, borders). Avoid as large flat backgrounds.
+- **Light Green:** `#f0fff4` — use instead of greys as the primary soft background color for sections, cards, and banners.
+
+**Deprecated:**
+- `#F3F3F3` surface grey – do not use going forward.
+- Replace any remaining greys used as surfaces with `#f0fff4` or white.
 
 Guidance:
 - Maintain WCAG AA: use `#121212` text on `#FDFDFD` or `#f0fff4` backgrounds; use `#FDFDFD` text only on true-black (`#121212`) surfaces.
