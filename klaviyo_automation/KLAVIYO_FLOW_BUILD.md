@@ -415,16 +415,18 @@ From `BRAND_GUIDE.md`:
 ## 🎨 DESIGN SPECIFICATIONS
 
 ### Colors (from Brand Guide):
-- **Primary Black:** #121212 (text, buttons)
-- **Surface:** #F3F3F3 (backgrounds, cards)
+- **Black:** #121212 (text, buttons)
+- **White:** #FDFDFD (page background, cards)
+- **Light Green:** #f0fff4 (soft backgrounds instead of greys)
+- **Green:** #4d6d5d (detailing, icons, subtle accents)
 - **Accent:** #334FB4 (Instagram button, links)
-- **White:** #FFFFFF (page background)
 
 ### Typography:
-- **Headings:** Luckiest Guy, 400 weight (custom font - LOCKED per rules)
-- **Body:** Quicksand, 400-500 weight
-- **Heading sizes:** H1: 32px, H2: 24px, H3: 16px (in emails)
-- **Body size:** 16px, line-height: 1.6
+- **Headings (visual):** Luckiest Guy look achieved via PNG images with transparent background (uploaded to Klaviyo Images and used as `<img>` as in `templates/kulkid_newsletter_design.html`).
+- **Headings (HTML fallback):** Quicksand, `font-weight: 700` when plain text is rendered instead of an image.
+- **Body:** Quicksand, 400–500 weight.
+- **Heading sizes (when text-based):** H1: 32px, H2: 24px, H3: 16px (in emails).
+- **Body size:** 16px, line-height: 1.6.
 
 ### Layout:
 - **Email width:** 600px max

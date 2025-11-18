@@ -55,8 +55,8 @@
 **Purpose:** Brand-aligned base email template  
 **What it does:**
 - Provides a complete HTML email template with KULKID branding
-- Includes proper Google Fonts imports (Luckiest Guy + Quicksand)
-- Uses correct brand colors (#121212, #F3F3F3, #334FB4)
+- Includes proper font handling: Luckiest Guy look via PNG heading images in emails (see Klaviyo templates) and Quicksand as the HTML fallback
+- Uses correct brand colors (#121212, #FDFDFD, #f0fff4, #334FB4) with rainbow gradients as accents
 - Implements 0px border-radius (sharp corners) per brand guide
 - Contains Klaviyo personalization variables (`{{ first_name }}`, etc.)
 - Mobile-responsive table-based layout
@@ -76,8 +76,8 @@
 - Manual template creation in Klaviyo UI
 
 **Important Features:**
-- Line 7: Google Fonts import (Luckiest Guy + Quicksand)
-- Line 17-19: Heading with "Luckiest Guy" font (locked per rules)
+- Line 7: Google Fonts import for web preview; email-safe typography relies on PNG heading images.
+- Heading visuals: use PNG images styled in Luckiest Guy (see Klaviyo design template), with Quicksand bold as text fallback.
 - Line 29-37: Discount code box
 - Line 49-71: Collection cards with links
 - Line 79-81: CTA button (black bg, white text, 0px radius)

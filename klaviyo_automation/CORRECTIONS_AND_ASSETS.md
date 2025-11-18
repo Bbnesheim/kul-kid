@@ -205,14 +205,17 @@ Instead of text-only buttons, use **clickable icon images**:
 ❌ **Variant pills:** `~40px` (exception - rounded for playful selectors)
 
 ### Colors:
-- Primary: `#121212` (ink black)
-- Surface: `#F3F3F3` (light grey)  
+- Black: `#121212`
+- White: `#FDFDFD`
+- Light Green: `#f0fff4` (use instead of greys for backgrounds)
+- Green: `#4d6d5d` (detailing, accents)
 - Accent: `#334FB4` (social button blue)
-- Background: `#FFFFFF` (white)
+- Rainbow gradients: accent effects only.
 
 ### Fonts:
-- Headings: `Luckiest Guy` (LOCKED per your rules)
-- Body: `Quicksand`
+- Headings (web): `Luckiest Guy`.
+- Headings (email): Luckiest Guy look via PNG images with transparent background, uploaded to Klaviyo; **fallback font is Quicksand set to `font-weight: 700`**.
+- Body: `Quicksand`.
 
 ---
 

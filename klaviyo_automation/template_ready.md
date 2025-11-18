@@ -43,8 +43,8 @@ Go to **Klaviyo Content → Email Templates → Create Template → Create from 
 
 The template includes:
 - ✅ **Correct branding**: "KUL KID Kundeklubb" (not "Kul Kid-klubben")
-- ✅ **Brand fonts**: Luckiest Guy for headings, Quicksand for body
-- ✅ **Brand colors**: #121212 (ink), #F3F3F3 (surface), #334FB4 (accent)
+- ✅ **Brand fonts**: Luckiest Guy look for key headings via PNG images (uploaded to Klaviyo), with bold Quicksand (`font-weight: 700`) as the HTML fallback; Quicksand for body
+- ✅ **Brand colors**: #121212 (black), #FDFDFD (white), #f0fff4 (light green backgrounds), #334FB4 (accent), with rainbow gradients as accents.
 - ✅ **Sharp corners**: 0px border-radius as per brand guide
 - ✅ **Proper contrast**: WCAG AA compliant
 - ✅ **Consistent naming**: KULKID.no for website references

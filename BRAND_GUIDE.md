@@ -14,18 +14,24 @@ Status: Draft v1 (derived from current live theme configuration and codebase)
 - Don’ts: Do not skew, recolor outside the palette, or place on low-contrast backgrounds.
 
 ## 3) Color System
-Brand colors are strictly two-tone:
+Brand colors are built around high-contrast black/white with rainbow accents and a green secondary system.
 
-- Black: #121212 — headings, body text, default CTA background.
-- White: #FFFFFF — page background, inverse CTA text/background when needed.
+**Core Colors:**
+- Black: `#121212` — headings, body text, default CTA background.
+- White: `#FDFDFD` — page background, cards, and general surfaces (can alias to theme white tokens).
+- Rainbow gradients: effect-only accents (outlines, footer backgrounds, etc.), never used as flat brand colors.
+
+**Secondary Colors:**
+- Green: `#4d6d5d` — detailing only (icons, small labels, subtle accents, borders). Avoid as large flat backgrounds.
+- Light green: `#f0fff4` — replaces greys as the primary soft background color for sections, cards, and banners.
 
 Guidance:
-- Maintain WCAG AA: use #121212 text on #FFFFFF backgrounds; use #FFFFFF text only on true-black (#121212) surfaces.
-- Rainbow gradients are effect-only and do not constitute brand colors; always pair them with #121212 text.
+- Maintain WCAG AA: use `#121212` text on `#FDFDFD` or `#f0fff4` backgrounds; use `#FDFDFD` text only on true-black (`#121212`) surfaces.
+- Rainbow gradients are effect-only and must always have `#121212` text on top.
 
 Mapping tokens (keep minimal):
-- Button bg: #121212; Button text: #FFFFFF (invert on dark surfaces only).
-- Foreground text: #121212; Background: #FFFFFF.
+- Button bg: `#121212`; Button text: `#FDFDFD` (invert on dark surfaces only).
+- Foreground text: `#121212`; Background: `#FDFDFD` or `#f0fff4`.
 
 ## 3a) Rainbow Gradient Effects
 Use sparingly (max 2–3 per page) and only in approved spots. Always use #121212 text on rainbow.
@@ -42,17 +48,27 @@ Use sparingly (max 2–3 per page) and only in approved spots. Always use #12121
   - Inside content must remain on solid background with #121212 text.
 
 ## 4) Typography
-Primary display (headings):
-- Luckiest Guy (Google) — fun, chunky display for H1–H4 and hero text.
-- Weight: 400 (family offers regular only); use tighter line-height and small positive letter-spacing.
-- Locking rule: Title headings must always use "Luckiest Guy"; do not override in sections/snippets.
 
-Secondary/body:
+### Primary display (web theme)
+- Luckiest Guy (Google) — fun, chunky display for H1–H4 and hero text on the website.
+- Weight: 400 (family offers regular only); use tighter line-height and small positive letter-spacing.
+- Locking rule (web): Title headings must always use "Luckiest Guy"; do not override in sections/snippets.
+
+### Email-specific rule (Klaviyo)
+Because email clients strip custom fonts, **Luckiest Guy must be represented as images in emails**:
+- Wherever you want the Luckiest Guy look in a Klaviyo email (hero headings, big labels), create a **PNG of the text on transparent background**.
+- Upload the PNG to **Klaviyo → Content → Images** and use the image URL in the template, e.g. as in `klaviyo_automation/templates/kulkid_newsletter_design.html` (the Kundeklubb banner and discount headings).
+- Always include a meaningful `alt` attribute (e.g. `alt="KUL KID Kundeklubb"`).
+- The **fallback font for any text rendered as HTML in emails is bold Quicksand**, not Luckiest Guy.
+
+### Secondary/body
 - Quicksand — primary body font and secondary fallback for headings.
 - Weights: 400/500/700. Default body ~400–500.
+- In email HTML, when an image is not used for a heading, use **Quicksand with `font-weight: 700`** to approximate the display weight.
 
 Implemented in theme (brand-overrides.css):
-- Headings use Luckiest Guy with Quicksand fallback; body remains Quicksand.
+- Web headings use Luckiest Guy with Quicksand fallback; body remains Quicksand.
+- Email templates: use PNG images for Luckiest Guy styling, and Quicksand (700) as the text fallback when no image `src` is provided.
 - CSS variables override heading family/weight while preserving Dawn type scale.
 
 Editorial rules:
@@ -121,9 +137,22 @@ Example CSS:
 ## 9) Copy Guidelines
 - Use simple, concrete words. Short sentences.
 - Speak to kids and caretakers; avoid jargon.
-- Examples:
-  - Do: “Build your bundle.” “Pick your colors.”
-  - Don’t: “Leverage customizable multi-variant configurations.”
+
+### Examples
+
+**Do:**
+- “Build your bundle.”
+- “Pick your colors.”
+- “Klar, ferdig, KUL!”
+- “Gi MINI looken – du tar æren.”
+- “Myke basics som tåler lek – hver dag.”
+- “Velg favorittfargen til MINI.”
+
+**Don’t:**
+- “Leverage customizable multi-variant configurations.”
+- “Optimaliser konverteringsfrekvensen med modulære produktpakker.”
+- “Vennligst verifiser dine preferanser i vårt lojalitetsprogram-dashboard.”
+- “Opplev økt verdiskapning gjennom skalerbare barneklærsløsninger.”
 
 ## 10) Asset Implementation Notes
 - Fonts loaded via head preconnect + lazy CSS; headings forced to Luckiest Guy via CSS variables in assets/brand-overrides.css.

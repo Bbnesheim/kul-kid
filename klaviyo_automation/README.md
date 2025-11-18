@@ -141,10 +141,12 @@ klaviyo_automation/
 ## 🎨 Brand Guidelines (Quick Reference)
 
 ### Colors:
-- **Primary:** #121212 (ink black)
-- **Surface:** #F3F3F3 (light grey)
+- **Black:** #121212
+- **White:** #FDFDFD
+- **Light Green:** #f0fff4 (use instead of greys for backgrounds)
+- **Green:** #4d6d5d (detailing, subtle accents)
 - **Accent:** #334FB4 (blue for Instagram)
-- **Background:** #FFFFFF (white)
+- **Rainbow Gradients:** accent effects only (see theme CSS).
 
 ### Typography:
 - **Headings:** Luckiest Guy (LOCKED per rules)
