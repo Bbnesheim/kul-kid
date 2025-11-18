@@ -15,9 +15,13 @@
   --hero-overlay-opacity: 0.4;
 }
 
-.hero-slide-section .hero-slide__inner,
-.hero-bubbles-section .hero-bubbles__inner {
+.hero-slide-section .hero-slide__inner {
   max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-bubbles-section .hero-bubbles__inner {
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -248,98 +252,38 @@
   }
 
   .hero-bubbles-scroller {
-    --col-width: 104px;
-    --gap-y: 18px;
-    --gap-x: 18px;
+    /* Slightly smaller bubbles and tighter layout so ~2.5 columns
+       are visible by default on typical phone widths. */
+    --col-width: min(40vw, 130px);
+    --gap-y: 16px;
+    --gap-x: 14px;
+    padding-inline: 8px;
+    scroll-padding-inline: 12px;
   }
 
   .hero-bubble-item__img {
-    width: 88px;
-    height: 88px;
-  }
-
-  .hero-bubbles-swipe-hint {
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -6px;
-    padding: 3px 10px;
-    border-radius: 9999px;
-    background: rgba(0, 0, 0, 0.06);
-    backdrop-filter: blur(2px);
-    font-size: 14px;
-    letter-spacing: 3px;
-    line-height: 1;
-    opacity: 0.95;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .hero-bubbles-swipe-hint.is-hidden {
-    opacity: 0;
+    width: min(30vw, 84px);
+    height: min(30vw, 84px);
   }
 }
 
 @media (min-width: 992px) {
   .hero-bubbles-scroller {
-    --col-width: 156px;
+    /* Full-width desktop layout with more bubbles visible */
+    --col-width: 176px;
     --gap-y: 28px;
-    --gap-x: 34px;
-    padding-inline: 16px;
+    --gap-x: 32px;
+    padding-inline: 8px;
     scroll-padding-inline: 16px;
     overflow-y: hidden;
     padding-top: 10px;
   }
 
   .hero-bubble-item__img {
-    width: 144px;
-    height: 144px;
+    width: 152px;
+    height: 152px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
-
-
-  .hero-bubble-item__label {
-    font-size: 15px;
-    margin-top: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: var(--col-width);
-  }
-
-  .hero-bubbles-arrow {
-    display: flex;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .hero-bubbles-arrow--left {
-    left: -8px;
-  }
-
-  .hero-bubbles-arrow--right {
-    right: -8px;
-  }
-}
-
-@media (min-width: 992px) {
-  .hero-bubbles-scroller {
-    --col-width: 176px;
-    --gap-y: 32px;
-    --gap-x: 40px;
-    padding-inline: 24px;
-    scroll-padding-inline: 24px;
-    overflow-y: hidden;
-    padding-top: 10px;
-  }
-
-  .hero-bubble-item__img {
-    width: 160px;
-    height: 160px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
 
   .hero-bubble-item__label {
     font-size: 15px;

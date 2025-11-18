@@ -5,7 +5,7 @@
   class="section hero-bubbles-section color-{{ section.settings.color_scheme }} gradient"
   style="--bubbles-margin-top: {{ section.settings.margin_top }}px; --bubbles-margin-bottom: {{ section.settings.margin_bottom }}px; --bubble-bg-color: {{ section.settings.bubble_bg_color }};"
 >
-  <div class="hero-bubbles__inner page-width">
+  <div class="hero-bubbles__inner">
     {%- if section.settings.heading != blank -%}
       <div class="hero-bubbles__heading title-wrapper">
         <h2 class="title inline-richtext {{ section.settings.heading_size }}">
@@ -21,10 +21,6 @@
     {%- endif -%}
 
     <div class="hero-bubbles-scroller-wrap" data-bubbles-id="{{ section.id }}">
-      <div class="hero-bubbles-swipe-hint" aria-hidden="true">
-        <span>SWIPE</span>
-      </div>
-
       <button class="hero-bubbles-arrow hero-bubbles-arrow--left" type="button" aria-label="Scroll left">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -81,7 +77,6 @@
       var scroller = wrap.querySelector('.hero-bubbles-scroller');
       var left = wrap.querySelector('.hero-bubbles-arrow--left');
       var right = wrap.querySelector('.hero-bubbles-arrow--right');
-      var hint = wrap.querySelector('.hero-bubbles-swipe-hint');
 
       if (!scroller) return;
 
@@ -119,17 +114,6 @@
         scroller.addEventListener('scroll', updateArrows, { passive: true });
         window.addEventListener('resize', updateArrows);
         updateArrows();
-      }
-
-      if (hint) {
-        var seen = false;
-        scroller.addEventListener('scroll', function() {
-          if (seen) return;
-          if (scroller.scrollLeft > 10) {
-            seen = true;
-            hint.classList.add('is-hidden');
-          }
-        }, { passive: true });
       }
     }
 
