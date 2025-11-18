@@ -19,11 +19,10 @@
   text-decoration: none;
 }
 
-.kk-footer__inner {
+ .kk-footer__inner {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 30;
 }
 
 /* Layout Grid */
