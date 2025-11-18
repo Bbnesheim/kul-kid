@@ -474,6 +474,91 @@
   color: rgb(var(--color-foreground));
 }
 
+/* Product cards: position price at bottom-left of the card text area */
+.product-card-wrapper .card__content:last-of-type {
+  position: relative;
+}
+
+.product-card-wrapper .card-information {
+  padding-bottom: 3.2rem;
+}
+
+.product-card-wrapper .card-information .price,
+.product-card-wrapper .card-information .price-wrapper {
+  position: absolute;
+  left: 2rem;
+  bottom: 1rem;
+}
+
+/* Subtle animated rainbow border around product and collection cards
+   Uses wrapper padding + gradient background, no heavy glow */
+.product-card-wrapper,
+.collection-card-wrapper {
+  --kk-rainbow-border-thickness: 3px;
+  --kk-rainbow-gradient-size: 220%;
+  --border-radius: 2px;
+  position: relative;
+  z-index: 0;
+  padding: var(--kk-rainbow-border-thickness);
+  border-radius: calc(var(--border-radius) + var(--kk-rainbow-border-thickness));
+  background: transparent;
+}
+
+/* Gradient ring lives in a pseudo-element so we can fade it in/out */
+.product-card-wrapper::before,
+.collection-card-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* Colors aligned with main footer gradient defaults */
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #feca57,
+    #ff9ff3,
+    #54a0ff,
+    #4ecdc4,
+    #45b7d1,
+    #96ceb4,
+    #ff6b6b
+  );
+  background-size: var(--kk-rainbow-gradient-size) var(--kk-rainbow-gradient-size);
+  animation: kk-rainbow-flow 24s linear infinite;
+  opacity: 0.5; /* 10% opacity by default */
+  pointer-events: none;
+  z-index: -1;
+}
+
+.product-card-wrapper:hover::before,
+.collection-card-wrapper:hover::before {
+  opacity: 1; /* Full intensity on hover */
+}
+
+/* Inner card uses a soft light-green background for extra warmth
+   while keeping the rainbow outline outside the content area */
+.product-card-wrapper > .card,
+.collection-card-wrapper > .card {
+  border-radius: var(--border-radius);
+  background: #f0fff4; /* soft cookie-banner style green */
+}
+
+/* Slightly more padding for collection card headings so they align visually
+   with product card titles */
+.collection-card-wrapper .card__content {
+  padding: 1.25rem 1.25rem 1.6rem;
+}
+
+@keyframes kk-rainbow-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 .card-information > .price {
   color: rgb(var(--color-foreground));
 }
@@ -551,6 +636,19 @@
 }
 
 /* Card Shape Hover Rules */
+
+.discount-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #d6524c;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 2px;
+  z-index: 5;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .product-card-wrapper .shape--round {

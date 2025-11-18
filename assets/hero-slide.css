@@ -92,7 +92,7 @@
 }
 
 .hero-bubbles-section .hero-bubbles__inner {
-  margin-top: var(--bubbles-margin-top, 40px);
+  margin-top: calc(var(--bubbles-margin-top, 40px) + 16px);
   margin-bottom: var(--bubbles-margin-bottom, 40px);
 }
 
@@ -144,20 +144,22 @@
   text-align: center;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s ease;
   display: grid;
   place-items: center;
+  position: relative;
+  z-index: 0;
+  transition: transform 0.3s ease;
 }
 
 .hero-bubble-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.05);
 }
 
 .hero-bubble-item__img {
   width: 120px;
   height: 120px;
   border-radius: 9999px;
-  overflow: hidden;
+  overflow: visible;
   background: var(--bubble-bg-color, #f6f6f6);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   display: grid;
@@ -165,13 +167,11 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero-bubble-item:hover .hero-bubble-item__img {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  transform: scale(1.05);
-}
 
 .hero-bubble-item__img img {
   width: 100%;
@@ -289,6 +289,7 @@
     padding-inline: 16px;
     scroll-padding-inline: 16px;
     overflow-y: hidden;
+    padding-top: 10px;
   }
 
   .hero-bubble-item__img {
@@ -297,14 +298,6 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  .hero-bubble-item:hover {
-    transform: none;
-  }
-
-  .hero-bubble-item:hover .hero-bubble-item__img {
-    transform: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
 
   .hero-bubble-item__label {
     font-size: 15px;
@@ -338,6 +331,7 @@
     padding-inline: 24px;
     scroll-padding-inline: 24px;
     overflow-y: hidden;
+    padding-top: 10px;
   }
 
   .hero-bubble-item__img {
@@ -346,14 +340,6 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  .hero-bubble-item:hover {
-    transform: none;
-  }
-
-  .hero-bubble-item:hover .hero-bubble-item__img {
-    transform: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
 
   .hero-bubble-item__label {
     font-size: 15px;
@@ -379,7 +365,10 @@
   }
 }
 
-/* Bubble media layout */
+/* Bubble media layout
+ * base.css hides div:empty with display:none; hero-bubble-item__img is structurally empty
+ * (background-image only), so we force it visible here.
+ */
 .hero-bubble-item__img {
-  display: grid;
+  display: grid !important;
 }

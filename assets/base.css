@@ -3602,3 +3602,13 @@ h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5 {
   font-family: 'Luckiest Guy', cursive !important;
 }
 
+/* Use Quicksand for product and collection card titles */
+.product-card-wrapper .card__heading,
+.product-card-wrapper .card__heading a,
+.collection-card-wrapper .card__heading,
+.collection-card-wrapper .card__heading a {
+  font-family: 'Quicksand', var(--font-body-family), sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem;
+}
+

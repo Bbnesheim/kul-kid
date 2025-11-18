@@ -1,0 +1,60 @@
+{
+  "flow_name": "First Order Flow - Post-Purchase Nurture",
+  "description": "Post-purchase flow for first-time KUL KID customers, starting with 'Takk for din ordre' and continuing with education and loyalty-building emails.",
+  "goal": "Build trust after the first purchase, encourage bruk av rabattkoder ved behov, og drive gjentakende kjøp.",
+  "trigger": {
+    "type": "metric",
+    "metric": "Placed Order",
+    "first_time_only": true,
+    "description": "Flow triggers only when a profile places its aller første ordre."
+  },
+  "emails": [
+    {
+      "id": "email1_takk_for_din_ordre",
+      "position": 1,
+      "template_file": "emails/email1_takk_for_din_ordre.html",
+      "subject": "Tusen takk for din ordre hos KUL KID 🎉",
+      "preview_text": "Ordren din er mottatt – her finner du detaljer og hva som skjer videre.",
+      "timing": {
+        "delay": { "value": 30, "unit": "minutes" }
+      },
+      "notes": "Bruk kulkid_template_final.html som base for HTML-designet."
+    },
+    {
+      "id": "email2_ikke_glem_a_bruke_rabattkoden_din",
+      "position": 2,
+      "template_file": "emails/email2_ikke_glem_a_bruke_rabattkoden_din.html",
+      "subject": "Ikke glem å bruke rabattkoden din!",
+      "preview_text": "Rabattkoden din venter fortsatt på deg – sjekk ut nyhetene på KULKID.no.",
+      "timing": {
+        "delay": { "value": 2, "unit": "days" }
+      },
+      "conditional_split": {
+        "description": "Sendes kun hvis kunden IKKE har brukt sin velkomstkode ennå.",
+        "condition": "has_not_used_welcome_discount"
+      }
+    },
+    {
+      "id": "email3_koden_din_utloper_om_48_timer",
+      "position": 3,
+      "template_file": "emails/email3_koden_din_utloper_om_48_timer.html",
+      "subject": "Koden din utløper om 48 timer!",
+      "preview_text": "Siste sjanse til å bruke rabattkoden din før den forsvinner.",
+      "timing": {
+        "delay": { "value": 2, "unit": "days" }
+      },
+      "conditional_split": {
+        "description": "Sendes kun hvis rabattkoden fortsatt er gyldig OG ikke brukt.",
+        "condition": "discount_active_and_unused"
+      }
+    }
+  ],
+  "smart_sending": {
+    "enabled": true,
+    "quiet_hours": {
+      "start": "23:00",
+      "end": "07:00",
+      "timezone_env_var": "ACCOUNT_TIMEZONE"
+    }
+  }
+}

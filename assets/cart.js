@@ -215,11 +215,22 @@ class CartItems extends HTMLElement {
         CartPerformance.measureFromEvent(`${eventTarget}:user-action`, event);
 
         publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
+
+        // On the full cart page (non-drawer), force a reload so line items and totals are always in sync
+        if (this.tagName === 'CART-ITEMS' && document.getElementById('cart')) {
+          window.location.href = routes.cart_url;
+          return;
+        }
       })
       .catch(() => {
         this.querySelectorAll('.loading__spinner').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        errors.textContent = window.cartStrings.error;
+        if (errors) errors.textContent = window.cartStrings.error;
+
+        // Fallback: if the AJAX cart update fails on the full cart page, reload so items and totals stay in sync
+        if (this.tagName === 'CART-ITEMS' && document.getElementById('cart')) {
+          window.location.href = routes.cart_url;
+        }
       })
       .finally(() => {
         this.disableLoading(line);

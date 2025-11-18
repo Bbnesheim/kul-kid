@@ -1,1 +1,548 @@
-{"sections":{"hero_slide_main":{"type":"hero-slide","settings":{}},"hero_bubbles_main":{"type":"hero-bubbles","settings":{"heading":"Kul, klar og KUL KID!","heading_size":"h2","text":"Finn favorittene dine blant kategoriene under.","color_scheme":"scheme-1","bubble_bg_color":"#f6f6f6","margin_top":24,"margin_bottom":32}},"collage_XVyCFA":{"type":"collage","blocks":{"image_6NBxnh":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/all-over-print-kids-leggings-white-left-front-68de9dc5438e0.jpg"}},"product_XewhLQ":{"type":"product","settings":{"product":"halloween-t-skjorte-limited-edition-design","second_image":false}},"collection_nwHJqR":{"type":"collection","settings":{"collection":"halloween"}}},"block_order":["image_6NBxnh","product_XewhLQ","collection_nwHJqR"],"name":"t:sections.collage.presets.name","settings":{"heading":"Halloween for de minste!","heading_size":"h2","desktop_layout":"left","mobile_layout":"collage","card_styles":"product-card-wrapper","color_scheme":"","padding_top":16,"padding_bottom":0}},"featured_collection":{"type":"featured-collection","settings":{"collection":"halloween","products_to_show":8,"title":"","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":6,"enable_desktop_slider":true,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":0,"padding_bottom":36}},"collage_EpPzqQ":{"type":"collage","blocks":{"image_TabEi7":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/baby-t-skjorte-superkul-spiderweb-0-36-mnd.webp"}},"product_gTGwUk":{"type":"product","settings":{"product":"baby-tskjorte-latterkul","second_image":false}},"collection_MJkQLA":{"type":"collection","settings":{"collection":"superkule-klaer-til-barn"}}},"block_order":["image_TabEi7","product_gTGwUk","collection_MJkQLA"],"name":"t:sections.collage.presets.name","settings":{"heading":"Skremmende KUL!","heading_size":"h2","desktop_layout":"left","mobile_layout":"collage","card_styles":"none","color_scheme":"","padding_top":4,"padding_bottom":0}},"featured_collection_d3a8nz":{"type":"featured-collection","settings":{"collection":"superkule-klaer-til-barn","products_to_show":8,"title":"","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":6,"enable_desktop_slider":true,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":0,"padding_bottom":36}},"collage_AQ6B9j":{"type":"collage","blocks":{"image_wKpyDP":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/kids-eco-hoodie-black-left-front-68dd7891f0d4b.jpg"}},"product_JwRnti":{"type":"product","settings":{"product":"basic-hoodie-barn-svart","second_image":true}},"collection_rVkeUd":{"type":"collection","settings":{"collection":"basics"}}},"block_order":["image_wKpyDP","product_JwRnti","collection_rVkeUd"],"name":"t:sections.collage.presets.name","settings":{"heading":"Kuleste kiden i gata","heading_size":"h2","desktop_layout":"left","mobile_layout":"collage","card_styles":"none","color_scheme":"","padding_top":4,"padding_bottom":0}},"featured_collection_nQkNmN":{"type":"featured-collection","settings":{"collection":"basics","products_to_show":8,"title":"","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":6,"enable_desktop_slider":true,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":0,"padding_bottom":36}},"collage_AwQmV7":{"type":"collage","blocks":{"image_q7kDpq":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/kul-kid-edderkoppgutten.webp"}},"product_tE7LK4":{"type":"product","settings":{"product":"tskjorte-edderkopp-barn","second_image":true}},"collection_VmkU6p":{"type":"collection","settings":{"collection":"superhelter"}}},"block_order":["image_q7kDpq","product_tE7LK4","collection_VmkU6p"],"name":"t:sections.collage.presets.name","settings":{"heading":"Små superhelter","heading_size":"h2","desktop_layout":"left","mobile_layout":"collage","card_styles":"none","color_scheme":"","padding_top":36,"padding_bottom":36}},"featured_collection_FWXeJF":{"type":"featured-collection","settings":{"collection":"superhelter","products_to_show":8,"title":"","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":6,"enable_desktop_slider":true,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":0,"padding_bottom":0}},"collection_list_8arfqR":{"type":"collection-list","blocks":{"featured_collection_KtHikn":{"type":"featured_collection","settings":{"collection":"basics"}},"featured_collection_EpnLih":{"type":"featured_collection","settings":{"collection":"superhelter"}},"featured_collection_jxLU7D":{"type":"featured_collection","settings":{"collection":"superkule-klaer-til-barn"}}},"block_order":["featured_collection_KtHikn","featured_collection_EpnLih","featured_collection_jxLU7D"],"name":"t:sections.collection-list.presets.name","settings":{"title":"Samlinger","heading_size":"h2","image_ratio":"square","columns_desktop":3,"color_scheme":"","show_view_all":false,"columns_mobile":"2","swipe_on_mobile":true,"padding_top":4,"padding_bottom":24}}},"order":["hero_slide_main","hero_bubbles_main","collage_XVyCFA","featured_collection","collage_EpPzqQ","featured_collection_d3a8nz","collage_AQ6B9j","featured_collection_nQkNmN","collage_AwQmV7","featured_collection_FWXeJF","collection_list_8arfqR"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_slide_wBeFJi": {
+      "type": "hero-slide",
+      "blocks": {
+        "slide_Lk7kLH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/youth-crew-neck-sweatshirt-sport-grey-front-68e6ecf67b35c.jpg",
+            "heading": "Klar - Ferdig - KUL!",
+            "subheading": "Mykt, trygt og 100% KUL.",
+            "button_label": "KUL KID starter her",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false
+          }
+        },
+        "slide_GdY34R": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/baby-body-superkul-hvit-0-36-mnd_2.webp",
+            "heading": "Når MINI er kulere",
+            "subheading": "Og du er helt OK med det",
+            "button_label": "Gi MINI looken - du tar æren",
+            "button_link": "shopify://collections/baby",
+            "button_style_secondary": false
+          }
+        },
+        "slide_JD6Try": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/youth-crew-neck-sweatshirt-royal-front-68e6ecf67a082.jpg",
+            "heading": "Kule valg varer lenger",
+            "subheading": "EU-trygg og god Samvittighet",
+            "button_label": "Handle KULT med omtanke",
+            "button_link": "shopify://collections/gensere",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_Lk7kLH",
+        "slide_GdY34R",
+        "slide_JD6Try"
+      ],
+      "name": "Hero slides",
+      "settings": {
+        "hero_height": 500,
+        "hero_radius": 2,
+        "overlay_opacity": 40,
+        "text_color": "#ffffff",
+        "color_scheme": "scheme-2",
+        "heading_size": "h1"
+      }
+    },
+    "hero_bubbles_FxG7re": {
+      "type": "hero-bubbles",
+      "blocks": {
+        "bubble_qry9dP": {
+          "type": "bubble",
+          "settings": {
+            "collection": "t-skjorter",
+            "image": "shopify://shop_images/toddler-jersey-t-shirt-black-front-2-68dd3bf37eef0.jpg",
+            "title": "T-skjorter"
+          }
+        },
+        "bubble_EgLwLx": {
+          "type": "bubble",
+          "settings": {
+            "collection": "bodyer",
+            "image": "shopify://shop_images/Kortermet-Baby-Body-Turkis-Oekologisk-Myk_1.webp",
+            "title": "Bodyer"
+          }
+        },
+        "bubble_YhbaDq": {
+          "type": "bubble",
+          "settings": {
+            "collection": "baby-hettegensere",
+            "image": "shopify://shop_images/kulkid-basic-hette-person.jpg",
+            "title": "Hettegensere"
+          }
+        },
+        "bubble_E79eV3": {
+          "type": "bubble",
+          "settings": {
+            "collection": "heldresser-baby",
+            "image": "shopify://shop_images/1_c3c2e6f8-b3b7-4000-b871-03a8f5238d79.png",
+            "title": "Heldress"
+          }
+        },
+        "bubble_xPqen4": {
+          "type": "bubble",
+          "settings": {
+            "collection": "jakker-barn",
+            "title": "Jakker"
+          }
+        },
+        "bubble_KRQ66U": {
+          "type": "bubble",
+          "settings": {
+            "collection": "t-skjorter-baby",
+            "image": "shopify://shop_images/9902332282040282511_2048.jpg",
+            "title": "T-skjorter"
+          }
+        },
+        "bubble_EeULCz": {
+          "type": "bubble",
+          "settings": {
+            "collection": "gensere",
+            "image": "shopify://shop_images/crew-basic-person.jpg",
+            "title": "Gensere"
+          }
+        },
+        "bubble_eUqqXt": {
+          "type": "bubble",
+          "settings": {
+            "collection": "gensere-til-baby-varme-behagelige-plagg-kulkid-no",
+            "title": "Hettegensere"
+          }
+        },
+        "bubble_cTdXCj": {
+          "type": "bubble",
+          "settings": {
+            "collection": "joggebukser-til-barn",
+            "title": "Joggebukser"
+          }
+        },
+        "bubble_j9CJiz": {
+          "type": "bubble",
+          "settings": {
+            "collection": "jakker-til-baby-kule-og-komfortable-kulkid-no",
+            "title": ""
+          }
+        },
+        "bubble_iFjjbn": {
+          "type": "bubble",
+          "settings": {
+            "collection": "leggings",
+            "image": "shopify://shop_images/all-over-print-kids-leggings-white-left-68e710d333a54.jpg",
+            "title": "Leggings"
+          }
+        },
+        "bubble_j9tXm7": {
+          "type": "bubble",
+          "settings": {
+            "collection": "babytilbehor",
+            "title": "Tilbehør"
+          }
+        },
+        "bubble_hBLRqD": {
+          "type": "bubble",
+          "settings": {
+            "collection": "luer",
+            "title": "Hodeplagg"
+          }
+        },
+        "bubble_qzDLbe": {
+          "type": "bubble",
+          "settings": {
+            "collection": "skole",
+            "image": "shopify://shop_images/kulkid-sekk-krem.webp",
+            "title": "Sekker"
+          }
+        },
+        "bubble_3KLJ4h": {
+          "type": "bubble",
+          "settings": {
+            "collection": "familie-matchende-plagg-for-store-og-sma-kulkid-no",
+            "image": "shopify://shop_images/1_04e150da-0eb9-447e-84ae-aa77aa8881d4.png",
+            "title": "Familie"
+          }
+        },
+        "bubble_rLecYM": {
+          "type": "bubble",
+          "settings": {
+            "collection": "klatre-lek-kulkid-no",
+            "image": "shopify://shop_images/kulkid-innendors-lekeplass-treverk.webp",
+            "title": "Klatring & Lek"
+          }
+        }
+      },
+      "block_order": [
+        "bubble_qry9dP",
+        "bubble_EgLwLx",
+        "bubble_YhbaDq",
+        "bubble_E79eV3",
+        "bubble_xPqen4",
+        "bubble_KRQ66U",
+        "bubble_EeULCz",
+        "bubble_eUqqXt",
+        "bubble_cTdXCj",
+        "bubble_j9CJiz",
+        "bubble_iFjjbn",
+        "bubble_j9tXm7",
+        "bubble_hBLRqD",
+        "bubble_qzDLbe",
+        "bubble_3KLJ4h",
+        "bubble_rLecYM"
+      ],
+      "name": "Hero bubbles",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "text": "",
+        "color_scheme": "scheme-2",
+        "bubble_bg_color": "#f6f6f6",
+        "margin_top": 40,
+        "margin_bottom": 40
+      }
+    },
+    "collage_XVyCFA": {
+      "type": "collage",
+      "blocks": {
+        "image_6NBxnh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/all-over-print-kids-leggings-white-left-front-68de9dc5438e0.jpg"
+          }
+        },
+        "product_XewhLQ": {
+          "type": "product",
+          "settings": {
+            "product": "halloween-t-skjorte-limited-edition-design",
+            "second_image": false
+          }
+        },
+        "collection_nwHJqR": {
+          "type": "collection",
+          "settings": {
+            "collection": "halloween"
+          }
+        }
+      },
+      "block_order": [
+        "image_6NBxnh",
+        "product_XewhLQ",
+        "collection_nwHJqR"
+      ],
+      "disabled": true,
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Halloween for de minste!",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 16,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "halloween",
+        "products_to_show": 8,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "collage_AQ6B9j": {
+      "type": "collage",
+      "blocks": {
+        "image_wKpyDP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kids-eco-hoodie-black-left-front-68dd7891f0d4b.jpg"
+          }
+        },
+        "product_JwRnti": {
+          "type": "product",
+          "settings": {
+            "product": "basic-hoodie-barn-svart",
+            "second_image": true
+          }
+        },
+        "collection_rVkeUd": {
+          "type": "collection",
+          "settings": {
+            "collection": "basics"
+          }
+        }
+      },
+      "block_order": [
+        "image_wKpyDP",
+        "product_JwRnti",
+        "collection_rVkeUd"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Kuleste kiden i gata",
+        "heading_size": "h0",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "scheme-2",
+        "padding_top": 4,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_nQkNmN": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "basics",
+        "products_to_show": 8,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "collage_EpPzqQ": {
+      "type": "collage",
+      "blocks": {
+        "image_TabEi7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/baby-body-superkul-hvit-model-0-36-mnd_1.webp"
+          }
+        },
+        "product_gTGwUk": {
+          "type": "product",
+          "settings": {
+            "product": "baby-tskjorte-megakul",
+            "second_image": false
+          }
+        },
+        "collection_MJkQLA": {
+          "type": "collection",
+          "settings": {
+            "collection": "superkule-klaer-til-barn"
+          }
+        }
+      },
+      "block_order": [
+        "image_TabEi7",
+        "product_gTGwUk",
+        "collection_MJkQLA"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Skremmende KUL!",
+        "heading_size": "h0",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "scheme-2",
+        "padding_top": 4,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_d3a8nz": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "superkule-klaer-til-barn",
+        "products_to_show": 8,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "collage_AwQmV7": {
+      "type": "collage",
+      "blocks": {
+        "image_q7kDpq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kul-kid-edderkoppgutten.webp"
+          }
+        },
+        "product_tE7LK4": {
+          "type": "product",
+          "settings": {
+            "product": "tskjorte-frost-barn",
+            "second_image": true
+          }
+        },
+        "collection_VmkU6p": {
+          "type": "collection",
+          "settings": {
+            "collection": "superhelter"
+          }
+        }
+      },
+      "block_order": [
+        "image_q7kDpq",
+        "product_tE7LK4",
+        "collection_VmkU6p"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Små superhelter",
+        "heading_size": "h0",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_FWXeJF": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "superhelter",
+        "products_to_show": 8,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_8arfqR": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_KtHikn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "basics"
+          }
+        },
+        "featured_collection_EpnLih": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "superhelter"
+          }
+        },
+        "featured_collection_jxLU7D": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "superkule-klaer-til-barn"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_KtHikn",
+        "featured_collection_EpnLih",
+        "featured_collection_jxLU7D"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Samlinger",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-2",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 4,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "hero_slide_wBeFJi",
+    "hero_bubbles_FxG7re",
+    "collage_XVyCFA",
+    "featured_collection",
+    "collage_AQ6B9j",
+    "featured_collection_nQkNmN",
+    "collage_EpPzqQ",
+    "featured_collection_d3a8nz",
+    "collage_AwQmV7",
+    "featured_collection_FWXeJF",
+    "collection_list_8arfqR"
+  ]
+}
