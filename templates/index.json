@@ -57,7 +57,7 @@
         "hero_radius": 2,
         "overlay_opacity": 40,
         "text_color": "#ffffff",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "heading_size": "h1"
       }
     },
@@ -210,7 +210,7 @@
         "heading": "",
         "heading_size": "h2",
         "text": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "bubble_bg_color": "#f6f6f6",
         "margin_top": 40,
         "margin_bottom": 40
@@ -321,7 +321,7 @@
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "none",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding_top": 4,
         "padding_bottom": 0
       }
