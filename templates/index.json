@@ -532,7 +532,7 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 4,
-        "padding_bottom": 24
+        "padding_bottom": 48
       }
     }
   },
