@@ -141,7 +141,7 @@
             "heading": "",
             "heading_size": 20,
             "icon_height": 48,
-            "icon_height_mobile": 34,
+            "icon_height_mobile": 28,
             "payments_icon_gap": 12,
             "payments_icon_gap_mobile": 12,
             "show_visa": true,
