@@ -718,7 +718,7 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "FLERE FARGER SOM GJØR DEG GLAD",
+        "title": "Flere farger som gjør deg glad",
         "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 3,
