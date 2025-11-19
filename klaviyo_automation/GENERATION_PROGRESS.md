@@ -88,8 +88,8 @@ Folder: `flows/reactivation-flow/emails/`
 Welcome Flow:
 - [x] `flows/welcome-flow/emails/email1_double_optin_confirmation.html`
 - [x] `flows/welcome-flow/emails/email2_welcome_discount15.html`
-- [ ] `flows/welcome-flow/emails/email1_double_optin_confirmation.md`
-- [ ] `flows/welcome-flow/emails/email2_welcome_discount15.md`
+- [x] `flows/welcome-flow/emails/email1_double_optin_confirmation.md`
+- [x] `flows/welcome-flow/emails/email2_welcome_discount15.md`
 
 First Order Flow:
 - [ ] All markdown + HTML files listed in the plan above

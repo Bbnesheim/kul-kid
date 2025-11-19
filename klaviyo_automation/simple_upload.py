@@ -110,7 +110,10 @@ def main():
         print("   - featured-product.jpg")
         print("4. Update image URLs in the template")
         print("5. Send a test email to yourself")
-        print("6. Ready to use in flows!")
+        print("6. Add this template to your existing 'Welcome Flow' emails")
+        print("7. In Klaviyo → Lists & Segments, ensure new customers are added to your main email list")
+        print("8. Create or update a 'First Order' flow with conditional splits (e.g. first-time vs repeat buyers) and use this template where it fits")
+        print("9. Test both the welcome flow and first order flow end-to-end before going live")
     else:
         print("\n❌ Upload failed. Check your API key and try again.")
 
