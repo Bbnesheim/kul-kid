@@ -5,6 +5,7 @@
 
 {% render 'announcement-bar',
   text: section.settings.text,
+  secondary_text: section.settings.secondary_text,
   intensity: section.settings.gradient_intensity,
   motion: section.settings.motion_toggle,
   width: section.settings.text_width,
@@ -21,6 +22,13 @@
       "id": "text",
       "label": "Announcement text",
       "default": "FÅ 15% RABATT PÅ DITT FØRSTE KJØP!"
+    },
+    {
+      "type": "textarea",
+      "id": "secondary_text",
+      "label": "Announcement text 2",
+      "default": "Fri frakt på ordrer over 1199 NOK!",
+      "info": "Optional second line that rotates every 7 seconds"
     },
     {
       "type": "range",
