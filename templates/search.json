@@ -66,8 +66,8 @@
       "settings": {
         "image": "shopify://shop_images/kul-kid-barneklaer-hero-fb.webp",
         "image_overlay_opacity": 0,
-        "image_height": "small",
-        "image_behavior": "none",
+        "image_height": "adapt",
+        "image_behavior": "ambient",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
