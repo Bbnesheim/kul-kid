@@ -24,7 +24,7 @@ Som velkomstgave får du **15% rabatt på din første bestilling** hos KUL KID.
 
 Bruk denne koden i kassen:
 
-****{% coupon_code 'VELKOMST15' %}**
+**{{ coupon.code | 'VELKOMST15' }}**
 
 Koden gjelder på nesten alt hos KUL KID og er gyldig i 7 dager fra i dag.
 
