@@ -3,6 +3,34 @@
   margin-bottom: 3rem;
 }
 
+/* Wide-screen layout: vertical heading down the left of the collage */
+@media screen and (min-width: 1400px) {
+  .collage-layout {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: var(--grid-desktop-horizontal-spacing);
+    align-items: stretch;
+  }
+
+  .collage-layout .collage-wrapper-title {
+    margin: 0;
+    writing-mode: vertical-rl;
+    text-orientation: upright; /* keep letters horizontal but stack vertically */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-right: 1.5rem;
+    padding-top: 1.5rem;
+    /* bump size a bit in this wide view */
+    font-size: calc(var(--font-heading-scale) * 4.2rem);
+    line-height: 1;
+  }
+
+  .collage-layout .collage {
+    margin-top: 0;
+  }
+}
+
 .collage {
   display: grid;
 }

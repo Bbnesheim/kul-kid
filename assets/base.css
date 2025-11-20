@@ -342,9 +342,20 @@ h5,
 }
 
 @media only screen and (min-width: 750px) {
-  h5,
+h5,
   .h5 {
     font-size: calc(var(--font-heading-scale) * 1.3rem);
+  }
+}
+
+/* On mobile, treat all "large" heading sizes as medium so
+   desktop can stay big while phones stay readable. */
+@media only screen and (max-width: 749px) {
+  .h0,
+  .hxl,
+  .hxxl {
+    /* Same base size as .h1 on mobile */
+    font-size: calc(var(--font-heading-scale) * 3rem);
   }
 }
 

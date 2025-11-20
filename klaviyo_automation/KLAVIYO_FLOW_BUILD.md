@@ -21,17 +21,18 @@ This document outlines the complete execution plan for building 4 core automated
 ## 🎯 PREREQUISITES AUDIT
 
 ### ✅ Assets Available:
-- ✅ Brand Guide (`BRAND_GUIDE.md`) - Complete with colors, fonts, tone
-- ✅ HTML Email Template (`kulkid_template_final.html`) - Brand-aligned
-- ✅ Upload Scripts (`simple_upload.py`, `upload_templates.py`)
-- ✅ Template Documentation (`template_ready.md`)
+- ✅ Brand Guide (`BRAND_GUIDE.md`) – complete with colors, fonts, tone
+- ✅ HTML email template (`templates/kulkid_newsletter_design.html`) – brand‑aligned base used in Klaviyo (see `WARP.md`)
+- ✅ Upload script: `simple_upload.py` – minimal API test uploader
+- 🔄 Planned batch scripts (to be created): `upload_templates.py`, `scripts/batch_upload_all.py`, `scripts/validate_templates.py`, `scripts/test_emails.py`
+- ✅ Template documentation (`template_ready.md`)
 - ✅ Collection URLs confirmed:
   - `https://kulkid.no/collections/basics`
   - `https://kulkid.no/collections/superhelter`
   - `https://kulkid.no/collections/gymtime`
-- ✅ Instagram handle: `@kulkid.no`
-- ✅ Brand Colors: #121212 (ink), #F3F3F3 (surface), #334FB4 (accent)
-- ✅ Brand Fonts: Luckiest Guy (headings), Quicksand (body)
+- ✅ Instagram handle: `@kulkidno`
+- ✅ Brand colors (email surfaces): #121212 (ink), #FDFDFD (white), #f0fff4 (light green background), #334FB4 (accent), #4d6d5d (secondary)
+- ✅ Brand fonts: Luckiest Guy (headings, image‑based in email), Quicksand (body)
 
 ### ⚠️ Issues Found in Current README.md:
 
@@ -87,8 +88,8 @@ This document outlines the complete execution plan for building 4 core automated
 
 ### Phase 2: HTML Template Generation
 🎨 I will convert markdown emails to Klaviyo-ready HTML templates:
-- Apply KULKID brand styles (fonts, colors, corners)
-- Use existing `kulkid_template_final.html` as base
+- Apply KUL KID brand styles (fonts, colors, corners)
+- Use existing `templates/kulkid_newsletter_design.html` as base
 - Ensure mobile responsiveness
 - Include proper Klaviyo template variables
 - Maintain WCAG AA contrast compliance
@@ -201,10 +202,11 @@ This document outlines the complete execution plan for building 4 core automated
 klaviyo_automation/
 ├── README.md                           ← Update with execution guide
 ├── KLAVIYO_FLOW_BUILD.md              ← This document
-├── kulkid_template_final.html         ✅ Exists
 ├── template_ready.md                  ✅ Exists
-├── simple_upload.py                   ✅ Exists (to be updated)
-├── upload_templates.py                ✅ Exists (to be updated)
+├── simple_upload.py                   ✅ Exists (API smoke test)
+├── templates/
+│   └── kulkid_newsletter_design.html   ✅ Exists (base email template)
+├── upload_templates.py                ← Planned (to be created after batch strategy is finalized)
 │
 ├── flows/
 │   ├── welcome-flow/
@@ -328,8 +330,8 @@ klaviyo_automation/
 
 #### Step 6: HTML Template Creation
 🎨 I will convert emails to Klaviyo-ready HTML using:
-- Base template from `kulkid_template_final.html`
-- Brand colors: #121212, #F3F3F3, #334FB4
+- Base template from `templates/kulkid_newsletter_design.html`
+- Brand colors: #121212 (ink), #FDFDFD (white), #f0fff4 (light green), #334FB4 (accent), #4d6d5d (secondary)
 - Fonts: Luckiest Guy (headings), Quicksand (body)
 - 0px border-radius (sharp corners per brand guide)
 
@@ -463,8 +465,8 @@ From `BRAND_GUIDE.md`:
 - [ ] Headings use Luckiest Guy font
 - [ ] Colors match brand guide
 - [ ] Border radius is 0px (sharp corners)
-- [ ] "KULKID.no" spelling consistent (not "kulkid.no" or "Kul Kid")
-- [ ] Instagram handle is "@kulkid.no"
+- [ ] Brand name usage consistent ("KUL KID" in text, "KULKID.no" only for domain/URLs)
+- [ ] Instagram handle is "@kulkidno"
 
 #### Content Quality:
 - [ ] No typos in Norwegian
@@ -525,12 +527,11 @@ From `BRAND_GUIDE.md`:
 ## 📚 DOCUMENTATION REFERENCE
 
 ### Files to Consult:
-- **Brand Guidelines:** `/home/ben/projects/kul-kid/BRAND_GUIDE.md`
-- **Base Template:** `/home/ben/projects/kul-kid/klaviyo_automation/kulkid_template_final.html`
-- **Setup Guide:** `/home/ben/projects/kul-kid/klaviyo_automation/template_ready.md`
-- **Upload Scripts:** 
-  - `/home/ben/projects/kul-kid/klaviyo_automation/simple_upload.py`
-  - `/home/ben/projects/kul-kid/klaviyo_automation/upload_templates.py`
+- **Brand guidelines:** `/home/ben/projects/kul-kid/BRAND_GUIDE.md`
+- **Base email template:** `/home/ben/projects/kul-kid/klaviyo_automation/templates/kulkid_newsletter_design.html`
+- **Setup guide (manual UI path):** `/home/ben/projects/kul-kid/klaviyo_automation/template_ready.md`
+- **Current upload script:** `/home/ben/projects/kul-kid/klaviyo_automation/simple_upload.py`
+- **Planned batch scripts:** `/home/ben/projects/kul-kid/klaviyo_automation/upload_templates.py` and files in `klaviyo_automation/scripts/` (once created)
 
 ### External Resources:
 - [Klaviyo API Docs](https://developers.klaviyo.com/en/reference/api_overview)
@@ -569,7 +570,7 @@ From `BRAND_GUIDE.md`:
 
 1. **Norwegian Language:** All emails must be in Norwegian (Bokmål). No English fallbacks.
 
-2. **Brand Name Consistency:** Always use "KUL KID" or "KULKID" (all caps), never "Kul Kid" (title case) in body text. Website references use "KULKID.no".
+2. **Brand name consistency:** In body text always use "KUL KID" (with space). Reserve "KULKID.no" / "www.KULKID.no" strictly for domains and URLs, as defined in `BRAND_ASSETS.md`.
 
 3. **Font Locking:** Per your rules, title headings MUST use "Luckiest Guy" font. This is non-negotiable.
 

@@ -9,11 +9,21 @@
   assign intensity_level = intensity | default: 'normal'
   assign text_width = width | default: 80
   assign font_size_val = font_size | default: 16
+  assign primary_text = text | default: 'Announcement text'
+  assign secondary_text_val = secondary_text | default: ''
 -%}
 
-<div class="kk-announcement-bar" data-motion="{{ show_motion }}" style="--kk-text-width: {{ text_width }}%; --kk-font-size: {{ font_size_val }}px;">
+<div
+  class="kk-announcement-bar"
+  data-motion="{{ show_motion }}"
+  data-primary-text="{{ primary_text | strip_newlines | escape }}"
+  {%- if secondary_text_val != blank -%}
+    data-secondary-text="{{ secondary_text_val | strip_newlines | escape }}"
+  {%- endif -%}
+  style="--kk-text-width: {{ text_width }}%; --kk-font-size: {{ font_size_val }}px;"
+>
   <p class="kk-announcement-text" data-intensity="{{ intensity_level }}">
-    {{ text | default: 'Announcement text' | escape }}
+    {{ primary_text | escape }}
   </p>
 </div>
 
@@ -22,6 +32,7 @@
     text-align: center;
     padding: 0.75rem 1rem;
     overflow: hidden;
+    perspective: 1000px;
   }
 
   .kk-announcement-text {
@@ -38,6 +49,25 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    transform-origin: center top;
+    transform: rotateX(0deg);
+    transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.5s ease;
+  }
+
+  /* Dice-like fold classes */
+  .kk-announcement-text.is-folding-front {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+
+  .kk-announcement-text.is-folding-back-start {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+
+  .kk-announcement-text.is-folding-back {
+    transform: rotateX(0deg);
+    opacity: 1;
   }
 
   /* Rainbow gradient sweep */
@@ -92,3 +122,63 @@
     }
   }
 </style>
+
+<script>
+  (function() {
+    function initKkAnnouncementRotation(root) {
+      var context = root || document;
+      var bars = context.querySelectorAll('.kk-announcement-bar[data-secondary-text]');
+
+      bars.forEach(function(bar) {
+        if (bar.dataset.rotationInit === 'true') return;
+
+        var primary = bar.getAttribute('data-primary-text');
+        var secondary = bar.getAttribute('data-secondary-text');
+        if (!secondary) return;
+
+        var textEl = bar.querySelector('.kk-announcement-text');
+        if (!textEl) return;
+
+        var showingPrimary = true;
+        bar.dataset.rotationInit = 'true';
+
+        var flipDuration = 500;
+
+        setInterval(function() {
+          // 1) Fold current text down (0deg -> 90deg)
+          textEl.classList.add('is-folding-front');
+
+          setTimeout(function() {
+            // 2) Jump to top position (-90deg) without animation and swap text
+            textEl.style.transition = 'none';
+            textEl.classList.remove('is-folding-front');
+            textEl.classList.add('is-folding-back-start');
+
+            showingPrimary = !showingPrimary;
+            textEl.textContent = showingPrimary ? primary : secondary;
+
+            // Force reflow so browser applies -90deg state
+            void textEl.offsetWidth;
+
+            // 3) Animate from top (-90deg) back to 0deg
+            textEl.style.transition = '';
+            textEl.classList.remove('is-folding-back-start');
+            textEl.classList.add('is-folding-back');
+
+            setTimeout(function() {
+              textEl.classList.remove('is-folding-back');
+            }, flipDuration / 2);
+          }, flipDuration / 2);
+        }, 7000);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initKkAnnouncementRotation();
+    });
+
+    document.addEventListener('shopify:section:load', function(event) {
+      initKkAnnouncementRotation(event.target);
+    });
+  })();
+</script>

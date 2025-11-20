@@ -20,6 +20,7 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient isolate">
   <div class="page-width section-{{ section.id }}-padding">
+    <div class="collage-layout">
     {%- if section.settings.heading != blank -%}
       <h2 class="collage-wrapper-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
@@ -211,6 +212,7 @@
           {%- endcase -%}
         </div>
       {%- endfor -%}
+      </div>
     </div>
   </div>
 </div>

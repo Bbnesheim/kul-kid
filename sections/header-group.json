@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -6,6 +15,7 @@
       "type": "kk-announcement-bar",
       "settings": {
         "text": "FÅ 15% rabatt på ditt første kjøp!",
+        "secondary_text": "Fri frakt på ordrer over 1199 NOK!",
         "font_size": 16,
         "text_width": 80,
         "sweep_speed": 2,
@@ -92,7 +102,7 @@
           "type": "comprehensive-overlay-header",
           "settings": {
             "logo": "shopify://shop_images/Kul_Kid_Square_logo_9b85decc-ea3c-4866-b72d-d43508efad91.svg",
-            "logo_height_mobile": 50,
+            "logo_height_mobile": 80,
             "logo_height_desktop": 120,
             "menu": "hovedmeny",
             "nav_font_size_mobile": 15,
@@ -148,10 +158,17 @@
           "blocks": {}
         }
       },
-      "block_order": ["comprehensive_overlay_header_4fMAQw"],
+      "block_order": [
+        "comprehensive_overlay_header_4fMAQw"
+      ],
       "name": "Overlay header",
       "settings": {}
     }
   },
-  "order": ["kk-announcement-bar", "header", "main_overlay_header_DyBzEB", "blocks_bhDBV8"]
+  "order": [
+    "kk-announcement-bar",
+    "header",
+    "main_overlay_header_DyBzEB",
+    "blocks_bhDBV8"
+  ]
 }

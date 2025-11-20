@@ -107,6 +107,15 @@
 
 ## 💬 Brand Voice
 
+### Standard hilsen i e‑poster
+
+- Bruk åpningen fra velkomstflyten som hovedregel når det er naturlig: **"Hei du,"** – dette er en referanse til åpningslinjen i temasangen til KUL KID.
+- I Klaviyo‑maler skal dette typisk implementeres som:
+  - `Hei {{ first_name|default:"du" }},`
+- Bruk denne hilsenen i nye e‑poster der tonen kan være uformell og leken. Når kommunikasjonen krever en mer formell stil (f.eks. viktige ordreoppdateringer), kan en mer nøytral hilsen brukes.
+
+### Generell tone
+
 **Tone:** Playful, bold, kid-first
 
 **Characteristics:**

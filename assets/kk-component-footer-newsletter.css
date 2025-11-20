@@ -39,7 +39,6 @@
   align-items: flex-start;
   gap: 1.5rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  z-index: 20;
 }
 
 .kk-footer-newsletter__body {
@@ -78,7 +77,6 @@
 
 .kk-footer-newsletter__content {
   position: relative;
-  z-index: 20;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;

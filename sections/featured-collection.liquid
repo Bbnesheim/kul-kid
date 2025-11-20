@@ -36,6 +36,19 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Per-section control over space between product cards.
+     Use column-gap so card width stays the same and only the
+     space to the next card increases. */
+  #Slider-{{ section.id }}.grid.product-grid {
+    column-gap: {{ section.settings.card_gap }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    #Slider-{{ section.id }}.grid.product-grid {
+      column-gap: {{ section.settings.card_gap | divided_by: 2 }}px;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -319,7 +332,17 @@
       "default": 4,
       "label": "t:sections.featured-collection.settings.columns_desktop.label"
     },
-        {
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Card spacing between products",
+      "default": 24
+    },
+    {
       "type": "checkbox",
       "id": "enable_desktop_slider",
       "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
