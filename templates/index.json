@@ -137,7 +137,7 @@
           "type": "bubble",
           "settings": {
             "collection": "jakker-til-baby-kule-og-komfortable-kulkid-no",
-            "title": ""
+            "title": "Jakker"
           }
         },
         "bubble_iFjjbn": {
@@ -299,7 +299,7 @@
         "product_JwRnti": {
           "type": "product",
           "settings": {
-            "product": "4in1-montessori-klettergerust-set-kletterdreieck-mit-rutsche-kletterbogen-mit-kissen-fur-kinder-1-7-jahre-beige",
+            "product": "6in1-indoor-spielplatz-aus-holz-fur-kinder-schaukel-rutsche-seil-und-treppe",
             "second_image": true
           }
         },
@@ -524,7 +524,7 @@
       ],
       "name": "t:sections.collage.presets.name",
       "settings": {
-        "heading": "Skremmende KUL!",
+        "heading": "SUPERKUL!",
         "heading_size": "h0",
         "desktop_layout": "left",
         "mobile_layout": "collage",
